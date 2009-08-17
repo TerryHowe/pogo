@@ -1,4 +1,4 @@
 
 def merge 
-  puts "hello world!"
+  puts "hello earth!"
 end
