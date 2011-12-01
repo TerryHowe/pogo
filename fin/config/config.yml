@@ -1,0 +1,19 @@
+common:
+  tdameritrade: https://wwws.ameritrade.com
+  tdameritrade_login: /cgi-bin/apps/LogIn
+  vse: http://vse.marketwatch.com
+  vse_login: /Game/Homepage.aspx
+  vse_trade: /Game/TradeWidget.aspx
+  vse_read: /Game/Homepage.aspx
+  vse_read: /Game/Homepage.aspx
+  email: true 
+  password: true 
+  tick: 2m 
+
+test:
+  tick: 5s
+
+development:
+  tick: 20s 
+
+production:

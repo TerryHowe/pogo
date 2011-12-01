@@ -1,0 +1,62 @@
+<p>
+  <b>Ticker:</b>
+  <%=h @company.ticker %>
+</p>
+
+<p>
+  <b>Account:</b>
+  <%=h @company.account.broker %>
+</p>
+
+<p>
+  <b>Exchange:</b>
+  <%=h @company.exchange.name %>
+</p>
+
+<p>
+  <b>Googid:</b>
+  <%=h @company.googid %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%=h @company.quantity %>
+</p>
+
+<p>
+  <b>Table:</b>
+  <%=h @company.table %>
+</p>
+
+<p>
+  <b>Tactic:</b>
+  <%=h @company.tactic %>
+</p>
+
+<p>
+  <b>Parameter 1:</b>
+  <%=h @company.p1 %>
+</p>
+
+<p>
+  <b>Parameter 2:</b>
+  <%=h @company.p2 %>
+</p>
+
+<p>
+  <b>Parameter 3:</b>
+  <%=h @company.p3 %>
+</p>
+
+<p>
+  <b>Parameter 4:</b>
+  <%=h @company.p4 %>
+</p>
+
+<p>
+  <b>Parameter 5:</b>
+  <%=h @company.p5 %>
+</p>
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>

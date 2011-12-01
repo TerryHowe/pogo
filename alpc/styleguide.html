@@ -1,0 +1,1591 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="Docutils 0.3.1: http://docutils.sourceforge.net/">
+<title>The Art &amp; Logic Programming Style Guide v3.x</title>
+<link rel="stylesheet" href="styleguide_files/default.css" type="text/css">
+</head><body>
+<div class="document" id="the-art-logic-programming-style-guide-v3-x">
+<p><a href="http://www.artlogic.com/"><img alt="AnLbabe.gif" src="styleguide_files/logo.gif" style="float: left;" border="0"></a></p>
+<h1 class="title">The Art &amp; Logic Programming Style Guide v3.x<br><br><br>
+	<span style="font-size: smaller;"><span style="font-size: smaller;">(See a <a href="http://www.artlogic.com/work/projects.php">list of projects we've completed using these guidelines</a>.)</span></span></h1>
+<br><br><br><br>
+<!-- $RCSfile: styleguide.html,v $ $Revision: 1.1 $ -->
+<div class="contents topic" id="contents">
+<p class="topic-title"><a name="contents">Contents</a></p>
+<ul class="simple">
+<li><a class="reference" href="#overview" id="id1" name="id1">Overview</a><ul>
+<li><a class="reference" href="#why-a-style-guide" id="id2" name="id2">Why a Style Guide?</a></li>
+<li><a class="reference" href="#what-does-this-style-guide-not-cover" id="id3" name="id3">What Does This Style Guide <em>Not</em> Cover?</a></li>
+<li><a class="reference" href="#changes-since-earlier-versions" id="id4" name="id4">Changes Since Earlier Versions</a></li>
+<li><a class="reference" href="#organizing-principles" id="id5" name="id5">Organizing Principles</a></li>
+<li><a class="reference" href="#language-dependence-and-language-independence" id="id6" name="id6">Language Dependence and Language Independence</a></li>
+<li><a class="reference" href="#code-snippets" id="id7" name="id7">Code Snippets</a></li>
+</ul>
+</li>
+<li><a class="reference" href="#projects" id="id8" name="id8">Projects</a><ul>
+<li><a class="reference" href="#standard-directory-structure" id="id9" name="id9">Standard Directory Structure</a></li>
+<li><a class="reference" href="#readme-txt-file" id="id10" name="id10"><tt class="literal"><span class="pre">ReadMe.txt</span></tt> File</a></li>
+<li><a class="reference" href="#release-procedure" id="id11" name="id11">Release Procedure</a></li>
+<li><a class="reference" href="#version-tagging-rules" id="id12" name="id12">Version Tagging Rules</a></li>
+</ul>
+</li>
+<li><a class="reference" href="#source-files" id="id13" name="id13">Source Files</a><ul>
+<li><a class="reference" href="#file-names" id="id14" name="id14">File Names</a></li>
+<li><a class="reference" href="#copyright-notice" id="id15" name="id15">Copyright Notice</a></li>
+<li><a class="reference" href="#cvs-id-tag" id="id16" name="id16">CVS Id Tag</a></li>
+<li><a class="reference" href="#including-other-files" id="id17" name="id17">Including Other Files</a></li>
+<li><a class="reference" href="#file-cohesion" id="id18" name="id18">File Cohesion</a></li>
+</ul>
+</li>
+<li><a class="reference" href="#classes-structures" id="id19" name="id19">Classes / Structures</a></li>
+<li><a class="reference" href="#naming-rules" id="id20" name="id20">Naming Rules</a><ul>
+<li><a class="reference" href="#capitalization" id="id21" name="id21">Capitalization</a></li>
+<li><a class="reference" href="#abbreviations" id="id22" name="id22">Abbreviations</a></li>
+<li><a class="reference" href="#hungarian-notation" id="id23" name="id23">Hungarian Notation</a></li>
+<li><a class="reference" href="#reserved-prefixes" id="id24" name="id24">Reserved Prefixes</a></li>
+</ul>
+</li>
+<li><a class="reference" href="#predefined-data-types" id="id25" name="id25">Predefined Data Types</a></li>
+<li><a class="reference" href="#commenting-guidelines" id="id26" name="id26">Commenting Guidelines</a><ul>
+<li><a class="reference" href="#general-guidelines" id="id27" name="id27">General Guidelines</a></li>
+<li><a class="reference" href="#header-files" id="id28" name="id28">Header Files</a></li>
+<li><a class="reference" href="#implementation-files" id="id29" name="id29">Implementation Files</a></li>
+<li><a class="reference" href="#standard-markup-rules" id="id30" name="id30">Standard Markup Rules</a></li>
+</ul>
+</li>
+<li><a class="reference" href="#formatting" id="id31" name="id31">Formatting</a><ul>
+<li><a class="reference" href="#indentation" id="id32" name="id32">Indentation</a></li>
+<li><a class="reference" href="#line-length" id="id33" name="id33">Line Length</a></li>
+<li><a class="reference" href="#line-wrapping" id="id34" name="id34">Line Wrapping</a></li>
+<li><a class="reference" href="#large-scale-statements" id="id35" name="id35">Large-scale Statements:</a><ul>
+<li><a class="reference" href="#if-else" id="id36" name="id36"><tt class="literal"><span class="pre">if</span></tt>/<tt class="literal"><span class="pre">else</span></tt></a></li>
+<li><a class="reference" href="#for" id="id37" name="id37"><tt class="literal"><span class="pre">for()</span></tt></a></li>
+<li><a class="reference" href="#while" id="id38" name="id38"><tt class="literal"><span class="pre">while()</span></tt></a></li>
+<li><a class="reference" href="#do-while" id="id39" name="id39"><tt class="literal"><span class="pre">do</span></tt>-<tt class="literal"><span class="pre">while()</span></tt></a></li>
+<li><a class="reference" href="#switch" id="id40" name="id40"><tt class="literal"><span class="pre">switch</span></tt></a></li>
+</ul>
+</li>
+<li><a class="reference" href="#small-scale" id="id41" name="id41">Small-scale</a><ul>
+<li><a class="reference" href="#declaring-and-initializing-variables" id="id42" name="id42">Declaring and Initializing Variables</a></li>
+<li><a class="reference" href="#braces" id="id43" name="id43">Braces</a></li>
+<li><a class="reference" href="#whitespace" id="id44" name="id44">Whitespace</a></li>
+<li><a class="reference" href="#bitwise-operators" id="id45" name="id45">Bitwise Operators</a></li>
+<li><a class="reference" href="#explicit-is-better-than-implicit" id="id46" name="id46">Explicit is Better Than Implicit</a></li>
+<li><a class="reference" href="#avoiding-unintended-assignments" id="id47" name="id47">Avoiding Unintended Assignments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference" href="#bibliography-recommended-reading" id="id48" name="id48">Bibliography &amp; Recommended Reading</a></li>
+<li><a class="reference" href="#administrivia" id="id49" name="id49">Administrivia</a><ul>
+<li><a class="reference" href="#copyright" id="id50" name="id50">Copyright</a></li>
+<li><a class="reference" href="#colophon" id="id51" name="id51">Colophon</a></li>
+<li><a class="reference" href="#change-log" id="id52" name="id52">Change Log</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="overview">
+<h1><a class="toc-backref" href="#id1" name="overview">Overview</a></h1>
+<div class="section" id="why-a-style-guide">
+<h2><a class="toc-backref" href="#id2" name="why-a-style-guide">Why a Style Guide?</a></h2>
+<p>A solo programmer, working alone, has little need to adopt anything resembling
+consistent coding conventions. When no one else will ever see your code, you
+are the only person to benefit from any consistencies in it, or have your
+progress hampered by any inconsistencies. Some large multi-programmer shops
+sidestep the issue by partitioning the developers into silos, assigning each
+of them exclusive ownership of some subset of the master source for a project;
+as long as interfaces are clearly established between subsystems, it doesn't
+matter a whit to them if the developers follow the same, or even similar
+conventions.</p>
+<p>However, in the world that Art &amp; Logic inhabits, our consistent coding
+style is a strategic strength; the ease with which our engineers can
+easily slip from language to language, project to project, and platform
+to platform gives us the ability to remain agile and highly responsive
+to the changing needs of our clients.</p>
+<p>This document is an extension of the original programming style guide
+developed by A&amp;L's founders before beginning work on their first project
+together for A&amp;L in 1991. As the company has grown, the benefits of
+maintaining consistent style across projects has proven its value on an
+ongoing basis. It is also an encouraging sign that as the programming
+landscape has shifted since the company's founding, that original style has
+only required extension and fine tuning, not any serious rework.</p>
+</div>
+<div class="section" id="what-does-this-style-guide-not-cover">
+<h2><a class="toc-backref" href="#id3" name="what-does-this-style-guide-not-cover">What Does This Style Guide <em>Not</em> Cover?</a></h2>
+<p>In an ideal world, this document would tell you everything you need to know
+about the conventions used to write code while working at A&amp;L. However, this
+world is not an ideal one.</p>
+<p>When a client specifically requests that we adopt their coding conventions
+when working on their project, we will do so happily. In fact, the
+opposite case happens far more frequently, and more than a few current and
+former clients have adopted the A&amp;L style (or a style derived from ours).</p>
+<p>There may also be other reasons to deviate from this style
+guide. Consistency of programming style is important, but we must not
+encourage a foolish consistency. When deviations are appropriate, seek
+first to maintain consistency within each individual line of source,
+then within each function, each source file, and each project. In other
+words, keep deviations from A&amp;L style as localized as possible.</p>
+<p>Also, this document must be restricted to speaking in fairly broad
+strokes, as its main goal is to illustrate the conventions to follow in
+the most common cases. Any project of significant size will probably need
+to establish additional, local conventions to extend (but not replace)
+the practices outlined here. As an example, a large project that uses
+a complex class hierarchy should develop and consistently use a logical
+naming convention for the project. Once developed, any project-specific
+conventions should be documented in the project's <a class="reference" href="#readme-txt-file">ReadMe.txt file</a>.</p>
+</div>
+<div class="section" id="changes-since-earlier-versions">
+<h2><a class="toc-backref" href="#id4" name="changes-since-earlier-versions">Changes Since Earlier Versions</a></h2>
+<p>The most noticeable change in this release of the Art &amp; Logic Programming
+Style Guide is that it is intentionally polyglot.  The first version of
+this guide was explicitly a C++ style guide. The second major release
+(April 2000) was intended as a general style guide, but its emphasis on
+C++ (and failure to mention any other languages) led to confusion in
+some quarters, even to pockets of belief that the A&amp;L style guide had
+absolutely no bearing on any language except C++.  This release of the
+style guide is meant to correct those misunderstandings.</p>
+<p>Languages that should be coded according to the principles outlined in this
+guide include the main programming languages that we use:</p>
+<ul class="simple">
+<li>C++</li>
+<li>C</li>
+<li>Java</li>
+<li>Python</li>
+<li>Objective-C</li>
+<li>JavaScript</li>
+<li>PHP</li>
+</ul>
+<p>The examples in this document are intended to be as inclusive as possible;
+we count on the common sense of each engineer to ignore sections of
+this document covering features not found in their current language
+(for example, any discussions of preprocessor macros or C++ template
+formatting will have no impact on Java programmers). Similarly, we count on
+the common sense of each engineer to intelligently extrapolate the examples
+shown here to other languages that have features or constructs similar to
+those shown in the examples (for example, the rules for formatting of
+<tt class="literal"><span class="pre">#include</span></tt> statements in C or C++ should be applied directly to the ordering
+of <tt class="literal"><span class="pre">import</span></tt> statements in Python or Java.)</p>
+<p>We also count on the common sense of our engineers to approach any work done
+in languages other than those on the above list by working to maintain the
+spirit of Art &amp; Logic style, extending our style by applying the principles
+laid out here.</p>
+<p>The other significant change from earlier versions of this guide is
+organizational.</p>
+</div>
+<div class="section" id="organizing-principles">
+<h2><a class="toc-backref" href="#id5" name="organizing-principles">Organizing Principles</a></h2>
+<p>This document is organized starting at an 'orbital view' of Art &amp; Logic
+projects, and continues to drill down to finer and finer levels of detail as
+it progresses.</p>
+</div>
+<div class="section" id="language-dependence-and-language-independence">
+<h2><a class="toc-backref" href="#id6" name="language-dependence-and-language-independence">Language Dependence and Language Independence</a></h2>
+<p>One aspect of Art &amp; Logic's programming style that may catch some people off
+guard when first encountering it is our desire to make A&amp;L code look like A&amp;L
+code, regardless of the language being programmed. While this may seem odd
+when viewed from the position of a programmer working only in a language where
+different stylistic conventions are commonly used, it greatly eases the
+process of moving from project to project, and language to language here at
+Art &amp; Logic.</p>
+<p>While this Style Guide attempts to discuss programming style in as universal a
+way as possible, we also admit that each language we use will require some
+amount of specialization to adapt to the unique features, abilities, or
+oddities of each programming language used at Art &amp; Logic. As a rule, we don't
+work with languages that stray too far from the ALGOL tree, so this approach
+works without too much difficulty. If we did a large amount of work in LISP,
+Forth, Smalltalk, or other languages that originate in different schools of
+thought, we might need to approach this issue differently.</p>
+</div>
+<div class="section" id="code-snippets">
+<h2><a class="toc-backref" href="#id7" name="code-snippets">Code Snippets</a></h2>
+<p>This document contains numerous code snippets to illustrate the points being
+made; several of the languages used at A&amp;L are used for these examples. Many
+of them are not complete pieces of code, and we count on the reader to supply
+the missing context that would permit these snippets to make sense.</p>
+<p>In this document, code examples are <tt class="literal"><span class="pre">formatted</span> <span class="pre">like</span> <span class="pre">this</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="projects">
+<h1><a class="toc-backref" href="#id8" name="projects">Projects</a></h1>
+<p>The largest unit of code organization at Art &amp; Logic is the <em>project</em>; as a
+rule, code does not get written unless it is part of a project, whether for an
+external client or for internal use. Every project we work on should have a
+certain set of common features that allow new programmers to integrate
+smoothly into the workflow.</p>
+<div class="section" id="standard-directory-structure">
+<h2><a class="toc-backref" href="#id9" name="standard-directory-structure">Standard Directory Structure</a></h2>
+<p>Each project should maintain two separate directories for its documentation.
+The first, located in CVS at <tt class="literal"><span class="pre">ClientName/ProjectName/AlDocs</span></tt> is reserved for
+internal documentation for the project. The contents of this directory should
+<strong>not</strong> be released to clients.</p>
+<p>The second standard directory is located at
+<tt class="literal"><span class="pre">ClientName/ProjectName/Documents</span></tt>. All project documentation meant for
+delivery to the client or end users should be maintained in this directory,
+and its contents should be included in releases to the client.</p>
+</div>
+<div class="section" id="readme-txt-file">
+<h2><a class="toc-backref" href="#id10" name="readme-txt-file"><tt class="literal"><span class="pre">ReadMe.txt</span></tt> File</a></h2>
+<p>Every project should have a plain ASCII text file named <tt class="literal"><span class="pre">ReadMe.txt</span></tt>
+that should reside in the project's <tt class="literal"><span class="pre">AlDocs</span></tt> directory. Unlike most of
+the other files developed for a project, this file is intended primarily
+for use only by other A&amp;L engineers, and is typically excluded from any
+sets of deliverables that will be deployed to end users. It's fairly
+common for a second readme file to exist elsewhere in the project's
+source tree that is intended for distribution to the client or the
+client's end users.</p>
+<p>The top-level <tt class="literal"><span class="pre">ReadMe.txt</span></tt> file should be the main source of information
+likely to be needed by an engineer working on the project. Things that should
+be documented in a project's <tt class="literal"><span class="pre">ReadMe.txt</span></tt> file include (but should not be
+limited to):</p>
+<ul>
+<li><p class="first">details on 3rd party SDKs or other tools required to build the project</p>
+</li>
+<li><p class="first">path settings used in project makefiles</p>
+</li>
+<li><p class="first">pointers to relevant external documents (standards, RFCs, etc.)</p>
+</li>
+<li><p class="first">pointers to internal documents (UML diagrams, other design documentation)</p>
+</li>
+<li><p class="first">useful overview material</p>
+</li>
+<li><p class="first">anything else that would be important information for a new programmer
+joining the project mid-stream. Try to prevent conversations like:</p>
+<blockquote>
+<p><em>New programmer:</em> "I installed the SDK, and downloaded all the project
+source, but I still can't get things to link..."</p>
+<p><em>Project manager:</em> "Oh, of course. You need to change {a registry setting
+| compile option | path | wave a dead cat over your head}."</p>
+</blockquote>
+</li>
+</ul>
+<p>As the project grows, the project manager is responsible for maintaining this
+document.</p>
+</div>
+<div class="section" id="release-procedure">
+<h2><a class="toc-backref" href="#id11" name="release-procedure">Release Procedure</a></h2>
+<p>Every project needs to have a documented, repeatable release procedure. At
+the very least, this procedure needs to exist as a list of steps in the
+<tt class="literal"><span class="pre">ReadMe.txt</span></tt> file that must be performed in sequence to issue a release
+to the client.</p>
+<p>The preferred approach is to create an automated release procedure that
+implements the steps required to perform a release of the project as a
+separate program that performs each of the steps required to prepare the
+project for release to the client (or other end users of the project).</p>
+<p>Common steps performed as part of a release procedure include:</p>
+<ul class="simple">
+<li>retrieve current source from CVS into an empty directory</li>
+<li>perform a fresh build of the project</li>
+<li>execute a test suite (at the very least, a rudimentary smoke test should
+be performed)</li>
+<li>build an installer set</li>
+<li>tag the version on CVS</li>
+<li>upload the installer set to a point where it can be deployed or
+delivered to the client</li>
+</ul>
+</div>
+<div class="section" id="version-tagging-rules">
+<h2><a class="toc-backref" href="#id12" name="version-tagging-rules">Version Tagging Rules</a></h2>
+<p>Art &amp; Logic assigns version numbers to software releases using a scheme based
+on the one used by Apple on the Macintosh. Every version code has a three part
+version number, followed by an optional release code and number, like:</p>
+<p><tt class="literal"><span class="pre">&lt;major#&gt;.&lt;minor&gt;.&lt;patchlevel&gt;[&lt;code&gt;&lt;release&gt;]</span></tt></p>
+<p>The major version number is used to indicate major changes in the visible
+interface. For instance, if a new release of a library has a different
+interface and is expected to break existing clients then it should
+have  a new major version number. The major version number should not
+be  incremented for bug fixes even if those bug fixes will break some
+programs, because it is a bug for a program to depend on a bug.</p>
+<p>The minor version number should be incremented whenever a new feature (or
+set of new features) is added, but the new version is backward compatible.
+For libraries, this means any client binary that works with a previous
+minor version will continue to work with this new minor version.  For both
+applications and libraries, this means that any existing data files,
+environment variable names, registry keys, etc. that the program reads
+will be usable with the new version.  When the major version number
+increments, the minor version number resets to zero.</p>
+<p>The patchlevel number should be incremented whenever a bug is fixed, or
+as part of the development cycle.  No incompatibilities with existing
+clients or file formats are introduced, neither reading nor writing.
+When the minor version number increments, the patchlevel resets to zero.</p>
+<p>The possible values for &lt;code&gt; are:</p>
+<blockquote>
+<table class="table" border="1">
+<colgroup>
+<col width="8%">
+<col width="92%">
+</colgroup>
+<tbody valign="top">
+<tr><td>Code</td>
+<td>Description</td>
+</tr>
+<tr><td><tt class="literal"><span class="pre">d</span></tt></td>
+<td>Development release for client testing and status update</td>
+</tr>
+<tr><td><tt class="literal"><span class="pre">a</span></tt></td>
+<td>Alpha release--project is feature complete</td>
+</tr>
+<tr><td><tt class="literal"><span class="pre">b</span></tt></td>
+<td>Beta release--project is ready for testing in the field</td>
+</tr>
+<tr><td><tt class="literal"><span class="pre">f</span></tt></td>
+<td>Final release candidate(s)</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>The code and release numbers are used while the project is under development.
+While in each phase of a version's lifecycle, any release that is issued
+indicates both the phase and sequence of the release, with release numbers for
+each phase starting at 1.</p>
+<p>When the client accepts a final release candidate, the version is released
+bearing a version identifier that has no <tt class="literal"><span class="pre">&lt;code&gt;&lt;release&gt;</span></tt> portion. The only
+allowable source difference between version X.Y.Zf# and X.Y.Z is the version
+number itself.</p>
+<p>A simple project might have a release history that looks like:</p>
+<blockquote>
+<table class="table" border="1">
+<colgroup>
+<col width="13%">
+<col width="14%">
+<col width="73%">
+</colgroup>
+<tbody valign="top">
+<tr><td>Date</td>
+<td>Release</td>
+<td>Description</td>
+</tr>
+<tr><td>01 Jan</td>
+<td>1.1.0d1</td>
+<td>First development release issued to client, only
+partial feature set</td>
+</tr>
+<tr><td>01 Feb</td>
+<td>1.1.0d2</td>
+<td>Second development release, more features added</td>
+</tr>
+<tr><td>01 Mar</td>
+<td>1.1.0d3</td>
+<td>Third development release</td>
+</tr>
+<tr><td>05 Mar</td>
+<td>1.1.0a1</td>
+<td>First alpha release, feature complete</td>
+</tr>
+<tr><td>10 Mar</td>
+<td>1.1.0a2</td>
+<td>Second alpha release, including some bug fixes</td>
+</tr>
+<tr><td>01 Apr</td>
+<td>1.1.0b1</td>
+<td>First beta release, issued to client's trusted end
+users</td>
+</tr>
+<tr><td>07 Apr</td>
+<td>1.1.0b2</td>
+<td>Second beta release, bug fixes</td>
+</tr>
+<tr><td>15 Apr</td>
+<td>1.1.0f1</td>
+<td>First release candidate</td>
+</tr>
+<tr><td>17 Apr</td>
+<td>1.1.0f2</td>
+<td>Second release candidate (correcting a minor
+spelling error in the first candidate)</td>
+</tr>
+<tr><td>20 Apr</td>
+<td>1.1.0</td>
+<td>Actual final release issued to client after f2
+candidate accepted by client.</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>Each release issued outside Art &amp; Logic must be tagged in our CVS source
+control system with the release's version identifier.  Art &amp; Logic version
+identifiers are converted into a form that CVS will accept by using a tag name
+as follows (replacing the dots with dashes, prefixed with the word
+<tt class="literal"><span class="pre">Release</span></tt>):</p>
+<pre class="literal-block">Release&lt;major&gt;-&lt;minor&gt;-&lt;patchlevel&gt;&lt;code&gt;&lt;release&gt;
+</pre>
+<p>For example:</p>
+<pre class="literal-block">Release1-1-0b1
+</pre>
+</div>
+</div>
+<div class="section" id="source-files">
+<h1><a class="toc-backref" href="#id13" name="source-files">Source Files</a></h1>
+<div class="section" id="file-names">
+<h2><a class="toc-backref" href="#id14" name="file-names">File Names</a></h2>
+<p>Source files should be named using the same capitalization rules used
+elsewhere in A&amp;L source code. Source files containing the implementation
+or interface of a class should be always have the same name as the class
+(dropping the leading <tt class="literal"><span class="pre">A</span></tt> prefix ( see <a class="reference" href="#reserved-prefixes">Reserved Prefixes</a>) when present).</p>
+<p>For example, the header file for the C++ class <tt class="literal"><span class="pre">AHyperlink</span></tt> would be
+<tt class="literal"><span class="pre">Hyperlink.h</span></tt>, and the implementation file would be named <tt class="literal"><span class="pre">Hyperlink.cpp</span></tt>.</p>
+<p>Source files that do not contain a single class should use a descriptive name
+that clearly identifies the contents of the file.</p>
+</div>
+<div class="section" id="copyright-notice">
+<h2><a class="toc-backref" href="#id15" name="copyright-notice">Copyright Notice</a></h2>
+<p>Every source file should begin with a single line indicating the copyright
+claimed for that file. Our standard contract lets A&amp;L retain copyright on code
+that is not specific to a project. Any other code should claim a copyright on
+behalf of the client.</p>
+<p>For example, code to read and parse a generic tab-delimited file should retain
+the A&amp;L copyright. Code to read and parse a data file using a client's
+proprietary format should use the client's copyright.</p>
+<p>All source files that are copyright A&amp;L should include the following text in a
+comment as close to the top of the file as possible (where possible, this
+should be the very first line in each file):</p>
+<pre class="literal-block">// Copyright (c) &lt;&lt;current year&gt;&gt; Art &amp; Logic, Inc. All Rights Reserved.
+</pre>
+<p>The project manager can provide the exact text to use for the client's
+copyright statement.</p>
+</div>
+<div class="section" id="cvs-id-tag">
+<h2><a class="toc-backref" href="#id16" name="cvs-id-tag">CVS Id Tag</a></h2>
+<p>Immediately after the copyright notice, each source file should include this
+line, also inside a comment:</p>
+<p><tt class="literal"><span class="pre">//</span> <span class="pre">$</span></tt> <tt class="literal"><span class="pre">Id:</span></tt> <tt class="literal"><span class="pre">$</span></tt></p>
+<p>When the source file is checked into our source code management system, it
+will be expanded into the current file revision level and date/time of last
+check in, like:</p>
+<p><tt class="literal"><span class="pre">//</span> <span class="pre">$</span></tt> <tt class="literal"><span class="pre">Id:</span> <span class="pre">SomeFile.java,v</span> <span class="pre">1.3</span> <span class="pre">2003/04/16</span> <span class="pre">20:17:20</span> <span class="pre">jcoder</span></tt>  <tt class="literal"><span class="pre">Exp</span> <span class="pre">$</span></tt></p>
+<p>If source will eventually be made visible to end users (for example,
+HTML files or configuration files that are included with end-user
+deliverables, the project manager may instead opt to use the <tt class="literal"><span class="pre">RCSfile</span></tt>
+and <tt class="literal"><span class="pre">Revision</span></tt> CVS keywords, which omit the identification of the last
+engineer to check the file in, like:</p>
+<p><tt class="literal"><span class="pre">//</span> <span class="pre">$RCSfile</span></tt> <tt class="literal"><span class="pre">$</span> <span class="pre">$Revision</span></tt> <tt class="literal"><span class="pre">$</span></tt></p>
+<p>As a rule, we do not use the CVS Log keyword, which expands to include the
+full history of check in comments for the file. If the project manager elects
+to use this keyword, it should be placed at the very end of the file so that
+the log information is available to anyone interested, but doesn't force
+readers of the code to page through years of modification history just to find
+the beginning of the source. Note that the CVS docs contain numerous warnings
+about using the Log keyword, especially with respect to problems created
+when a branch is merged onto the trunk.</p>
+</div>
+<div class="section" id="including-other-files">
+<h2><a class="toc-backref" href="#id17" name="including-other-files">Including Other Files</a></h2>
+<p>When including or importing other source files, modules, or packages into a
+source file, the statements that perform that inclusion should be grouped
+together at the top of the source file, as follows:</p>
+<ul class="simple">
+<li>system-defined files, sorted alphabetically</li>
+<li>at least one blank line</li>
+<li>project-specific files, sorted alphabetically</li>
+</ul>
+<p>For example, on a C++ project you might see a file that contains:</p>
+<pre class="literal-block">#include &lt;fstream&gt;
+#include &lt;iomanip&gt;
+#include &lt;ios&gt;
+#include &lt;sstream&gt;
+#include &lt;time.h&gt;
+
+#include "ColorDoc.h"
+#include "DrawingView.h"
+#include "Error.h"
+#include "UndoRedo.h"
+</pre>
+<p>In Java, you might see something like:</p>
+<pre class="literal-block">import java.io.*
+import java.util.*
+
+import com.ArtLogic.util.*
+import com.ClientName.*
+</pre>
+<p>There are two obvious exceptions to this layout:</p>
+<ul class="simple">
+<li>Compilers that support pre-compiled headers often require that the
+pre-compiled header file be listed first</li>
+<li>To detect and prevent unintended couplings between header files,
+you are encouraged (but not required) in a <tt class="literal"><span class="pre">.c</span></tt> or <tt class="literal"><span class="pre">.cpp</span></tt> file to
+include that file's header file first, like:<ul>
+<li><tt class="literal"><span class="pre">#include</span> <span class="pre">"ThisFile.h"</span></tt></li>
+<li>blank line</li>
+<li><tt class="literal"><span class="pre">#include</span></tt> system headers</li>
+<li>blank line</li>
+<li><tt class="literal"><span class="pre">#include</span></tt> project files</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="file-cohesion">
+<h2><a class="toc-backref" href="#id18" name="file-cohesion">File Cohesion</a></h2>
+<p>Prefer to always have a single class per source file. An obvious exception to
+this is when developing exception classes that are tightly coupled to a
+specific class (in effect, becoming part of its interface). It may also make
+sense to group together a collection of small utility classes into a single
+source file.</p>
+</div>
+</div>
+<div class="section" id="classes-structures">
+<h1><a class="toc-backref" href="#id19" name="classes-structures">Classes / Structures</a></h1>
+<p>When laying out classes, we use the following physical breakdown in the source
+files:</p>
+<ul class="simple">
+<li>The methods are listed in this order:
+-  public methods
+-  protected methods
+-  private methods</li>
+<li>The member variables are listed in this order:
+-  public members (avoid these)
+-  protected members
+-  private members</li>
+</ul>
+<p>Within those sections, prefer to keep things grouped logically -- for
+instance, keep all of the overloaded operators together, all of the
+constructors together, etc.</p>
+</div>
+<div class="section" id="naming-rules">
+<h1><a class="toc-backref" href="#id20" name="naming-rules">Naming Rules</a></h1>
+<p>One of our main activities as programmers is giving names to things. The
+most important principle we follow is that meaningful names are always
+preferred. Don't do this:</p>
+<pre class="literal-block">SInt32 xx;
+SInt32 xx1;
+SInt32 xx2;
+</pre>
+<p>instead, prefer meaningful variable names:</p>
+<pre class="literal-block">SInt32 elementCount;
+SInt32 xPosition;
+SInt32 currentTemperature;
+</pre>
+<p>However, it's not to be suggested that length alone is the important
+metric when choosing identifier names — clarity, memorability and
+consistency throughout a project are far more important. Generally,
+the shorter an identifier's life (or the more localized its scope),
+the shorter its name needs to be. For example, the traditional use of
+<tt class="literal"><span class="pre">i</span></tt> and <tt class="literal"><span class="pre">j</span></tt> as loop index names, or <tt class="literal"><span class="pre">p</span></tt> for pointer values are
+idiomatic  and their use should not be discouraged.</p>
+<div class="section" id="capitalization">
+<h2><a class="toc-backref" href="#id21" name="capitalization">Capitalization</a></h2>
+<p>By establishing a simple set of capitalization standards, we can
+eliminate large amounts of time wasted trying to remember how to spell
+an identifier declared elsewhere in the source.  Instead of using the
+<tt class="literal"><span class="pre">words_separated_by_underscores</span></tt> style found in many programming
+textbooks, all identifiers in Art &amp; Logic programs use one of several
+mixed case formats, as outlined below. (See also <a class="reference" href="#reserved-prefixes">Reserved Prefixes</a>)</p>
+<ul>
+<li><p class="first">Local variables and function parameters always begin with a lowercase
+letter. Subsequent words in the identifier are capitalized:</p>
+<pre class="literal-block">fileName
+xPosition
+</pre>
+</li>
+<li><p class="first">Class member variables always begin with a lowercase <tt class="literal"><span class="pre">f</span></tt> followed by a
+single uppercase letter:</p>
+<pre class="literal-block">fFileName
+fStartTime
+</pre>
+</li>
+<li><p class="first">Class members in Python may (optionally) omit the <tt class="literal"><span class="pre">f</span></tt> prefix, since the
+language requires that they are accessed by qualifying them with the
+current object's <tt class="literal"><span class="pre">self</span></tt>.</p>
+</li>
+<li><p class="first">Fields in simple C structures always begin with a lowercase letter, with
+subsequent words capitalized:</p>
+<pre class="literal-block">struct Point
+{
+   SInt32   xPos;
+   SInt32   yPos;
+};
+</pre>
+<p>Since the elements inside this structure may only be accessed using an
+instance of the structure (or a pointer to the structure) there's no
+ambiguity to be removed by an additional naming convention.</p>
+</li>
+<li><p class="first">In Java, class methods (other than a class' constructor) begin with
+a lowercase letter, and additional words in the method name are
+capitalized. All method calls are made to an explicit object; calls to
+another method of the current object are made by specifying <tt class="literal"><span class="pre">this</span></tt>:</p>
+<pre class="literal-block">public int getArea()
+{
+   return this.getWidth() * this.getHeight();
+}
+</pre>
+</li>
+<li><p class="first">In all other OO languages, method/member function names begin with an
+uppercase letter, and all subsequent words are also capitalized. Calls to
+member functions in the current object are made through the appropriate
+<tt class="literal"><span class="pre">this-&gt;</span></tt> or <tt class="literal"><span class="pre">self.</span></tt> pointer:</p>
+<pre class="literal-block">public:
+   SInt32 GetArea()
+   {
+      return this-&gt;GetWidth() * this-&gt;GetHeight();
+   }
+</pre>
+<p>or:</p>
+<pre class="literal-block">def GetArea(self):
+   return self.GetWidth() * self.GetHeight()
+</pre>
+</li>
+<li><p class="first">New types that are not classes (C structs, enumerated types,
+typedefs, etc.) are named using a leading uppercase letter, with
+subsequent words also capitalized, like:</p>
+<pre class="literal-block">enum Flavor
+{
+   kVanilla = 0,     // always initialize the first 
+   kChocolate,
+   kCilantro,
+   kDurian           // note — no comma on the last enum!
+};
+
+typedef unsigned short int IoRegister;
+</pre>
+</li>
+<li><p class="first">Identifiers in A&amp;L programs should not contain underscores.</p>
+</li>
+<li><p class="first">Avoid using two (or more) consecutive uppercase letters in an
+identifier. For example, when using an acronym or product name in an
+identifier, ignore the capitalization used elsewhere; a member variable
+holding some sort of data about something at NASA should be called
+<tt class="literal"><span class="pre">fNasaData</span></tt>, not <tt class="literal"><span class="pre">fNASAData</span></tt>. There are a few exceptions to this rule:</p>
+<ul class="simple">
+<li>C++ class names are always prefixed with an uppercase <tt class="literal"><span class="pre">A</span></tt>, followed by
+another uppercase letter, like <tt class="literal"><span class="pre">AUsefulClass</span></tt>.</li>
+<li>The standard Art &amp; Logic C/C++ integral typedefs <tt class="literal"><span class="pre">SInt*</span></tt> and
+<tt class="literal"><span class="pre">UInt*</span></tt>.</li>
+<li>COM or Java interfaces are named by prefixing the interface name with a
+capital <tt class="literal"><span class="pre">I</span></tt>, like <tt class="literal"><span class="pre">ISerializable</span></tt>.</li>
+</ul>
+</li>
+<li><p class="first">Ignore unusual capitalization found in product, technology or company
+names. For example, when working on a project spelled "megaSURF", any
+identifiers in the program that incorporate the project name should be
+capitalized like:</p>
+<pre class="literal-block">class AMegaSurfApp;
+
+void About(SInt32 megaSurfVersion);
+</pre>
+</li>
+</ul>
+</div>
+<div class="section" id="abbreviations">
+<h2><a class="toc-backref" href="#id22" name="abbreviations">Abbreviations</a></h2>
+<p>Avoid using abbreviations when naming things in source code. When
+abbreviations are used in source, it's important to take care to prevent
+confusion arising from oddly chosen abbreviations, or from inconsistent use of
+them. For example, if you have decided that <tt class="literal"><span class="pre">index</span></tt> is just too many letters
+to type as part of identifier names, decide once for the project whether
+you're going to spell it <tt class="literal"><span class="pre">indx</span></tt> or <tt class="literal"><span class="pre">idx</span></tt> and use that consistently
+throughout the project's code.</p>
+<p>Attempt to limit abbreviations to those that are obvious, common, or idiomatic
+to the project.</p>
+</div>
+<div class="section" id="hungarian-notation">
+<h2><a class="toc-backref" href="#id23" name="hungarian-notation">Hungarian Notation</a></h2>
+<p>We do not use Hungarian notation at Art &amp; Logic.</p>
+</div>
+<div class="section" id="reserved-prefixes">
+<h2><a class="toc-backref" href="#id24" name="reserved-prefixes">Reserved Prefixes</a></h2>
+<p>To avoid name clashes, we use a set of reserved prefixes that indicate
+the use, scope, or function of the identifier. The letter following
+the prefix must be upper case. Note that this list of prefixes includes
+entries that are not applicable in all languages that we use; there are
+no global variables or functions in Java, for example, so the <tt class="literal"><span class="pre">g</span></tt> and <tt class="literal"><span class="pre">u</span></tt>
+prefixes listed below are not used. (See also <a class="reference" href="#capitalization">Capitalization</a>)</p>
+<dl>
+<dt><tt class="literal"><span class="pre">A</span></tt></dt>
+<dd>All class names should begin with a capital letter "A", followed
+immediately by another capital letter (or digit) that begins the "real" name
+of the class.</dd>
+<dt><tt class="literal"><span class="pre">f</span></tt></dt>
+<dd>Class member variables are always prefixed with a lowercase "f", followed
+by an uppercase letter beginning the variable name.</dd>
+<dt><tt class="literal"><span class="pre">g</span></tt></dt>
+<dd>Global variables are prefixed with a lowercase "g", followed by an
+uppercase letter beginning the variable name. Avoid using global variables.</dd>
+<dt><tt class="literal"><span class="pre">h_</span></tt></dt>
+<dd><p class="first">Recursive inclusion of C or C++ header files is prevented by wrapping the
+contents of all header files inside blocks of code like:</p>
+<pre class="literal-block">#ifndef h_FileName
+#define h_FileName
+
+//
+//    contents of file here...
+//
+
+#endif   // this must be the last line in the header file.
+</pre>
+<p>The identifier that follows the <tt class="literal"><span class="pre">h_</span></tt> prefix must be the name of the file,
+without its file extension.</p>
+<p class="last">Note that this is the only exception to the rule that A&amp;L identifiers never
+contain underscores. In earlier versions of the A&amp;L Style Guide, this
+prefix was just <tt class="literal"><span class="pre">h</span></tt>, consistent with the format used for all of the other
+reserved prefixes. This exception was prompted by problems encountered
+when working with source code from outside Art &amp; Logic that
+followed the Microsoft-style Hungarian convention that a variable prefixed
+with an <tt class="literal"><span class="pre">h</span></tt> was a handle to something. After tiring of tracking down and
+fixing clashes between our include guard macro <tt class="literal"><span class="pre">hSomething</span></tt> and a
+variable also named <tt class="literal"><span class="pre">hSomething</span></tt>, we decided that altering this prefix
+was more likely to be a workable solution to the problem than convincing
+the rest of the world to stop using Hungarian notation.</p>
+</dd>
+<dt><tt class="literal"><span class="pre">I</span></tt></dt>
+<dd>When creating interface definitions for COM or Java, use the
+traditional <tt class="literal"><span class="pre">I</span></tt> prefix.</dd>
+<dt><tt class="literal"><span class="pre">k</span></tt></dt>
+<dd><p class="first">All identifiers that refer to constant values should be prefixed with a
+lowercase <tt class="literal"><span class="pre">k</span></tt>, whether they are declared using the C/C++ <tt class="literal"><span class="pre">const</span></tt>
+keyword, as part of an enumerated type, the Java <tt class="literal"><span class="pre">final</span></tt> keyword, or
+other equivalent mechanism.</p>
+<p>Note that the <tt class="literal"><span class="pre">k</span></tt> prefix is only intended to be used with identifiers
+that apply to values that are constant at compile-time. Don't write
+code like:</p>
+<pre class="literal-block">SomeFunc(const std::string&amp; kParam);
+</pre>
+<p>This should instead be:</p>
+<pre class="last literal-block">SomeFunc(const std::string&amp; param);
+</pre>
+</dd>
+<dt><tt class="literal"><span class="pre">m</span></tt></dt>
+<dd>Any C or C++ preprocessor macro that is called as if it were a function
+should be prefixed with a lowercase <tt class="literal"><span class="pre">m</span></tt>.</dd>
+<dt><tt class="literal"><span class="pre">q</span></tt></dt>
+<dd><p class="first">C/C++ compiler macros used to conditionally compile out sections
+of code should be prefixed with a lowercase <tt class="literal"><span class="pre">q</span></tt>. Note that even
+though Java doesn't have preprocessor-based conditional compilation,
+<tt class="literal"><span class="pre">javac</span></tt> and other Java compilers will omit any code from the binary
+that it can statically deduce will never be executed, accomplishing the
+same effect. So in Java, code like:</p>
+<pre class="literal-block">private static final qDebug = false;
+
+if (qDebug)
+{
+   // useful debug-only code here...
+}
+</pre>
+<p>is the logical equivalent of C/C++ code like:</p>
+<pre class="last literal-block">#define qDebug 0
+
+#if qDebug
+   // useful debug-only code here...
+#endif
+</pre>
+</dd>
+<dt><tt class="literal"><span class="pre">r</span></tt></dt>
+<dd>Resource identifiers are prefixed with a lowercase <tt class="literal"><span class="pre">r</span></tt>. Resource
+identifiers may go by different names on different operating systems or
+development environments. For our purposes, a resource identifier is any
+name that refers to a user interface component that is obtained from a
+resource manager, like any Win32 or Macintosh UI dialog box items or menus.</dd>
+<dt><tt class="literal"><span class="pre">s</span></tt></dt>
+<dd>Static variables are prefixed with a lowercase <tt class="literal"><span class="pre">s</span></tt>. In C++, prefer to use
+anonymous namespaces to create file-scope variables.</dd>
+<dt><tt class="literal"><span class="pre">u</span></tt></dt>
+<dd><p class="first">C++ global functions are prefixed with a lowercase <tt class="literal"><span class="pre">u</span></tt>. Avoid using
+global functions. Instead, group related functions into classes, using
+static member functions if necessary. Obvious exceptions to this rule are
+non-member operators and free functions that are logically part of a class'
+interface, but are not members. According to Sutter's "Interface
+Principle":</p>
+<blockquote>
+<p><em>For a class X, all functions including free functions that both</em></p>
+<ul class="simple">
+<li><em>"Mention" X</em></li>
+<li><em>Are "supplied with" X</em></li>
+</ul>
+<p><em>Are logically part of X, because they form part of the interface of X.</em></p>
+</blockquote>
+<p class="last">Any time you write a standalone function that is in global scope and is not
+clearly part of a class' interface, it should use the <tt class="literal"><span class="pre">u</span></tt> prefix. Free
+functions that are contained within a <tt class="literal"><span class="pre">namespace</span></tt> are not global, and
+therefore do not need to use this prefix.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="predefined-data-types">
+<h1><a class="toc-backref" href="#id25" name="predefined-data-types">Predefined Data Types</a></h1>
+<p>In C and C++ code, use the <tt class="literal"><span class="pre">AlTypes.h</span></tt> typedefs when referring to
+integral types.  These typedefs provide an easy way to specify the word
+size of an integer variable in a cross-platform manner. The typedefs
+found in the <tt class="literal"><span class="pre">AlTypes.h</span></tt> file provide definitions for the platforms
+most commonly used at A&amp;L; when starting a project on a platform that's
+not yet represented in <tt class="literal"><span class="pre">AlTypes.h</span></tt>, please provide definitions.</p>
+<p>The types in <tt class="literal"><span class="pre">AlTypes.h</span></tt> are:</p>
+<blockquote>
+<table class="table" border="1">
+<colgroup>
+<col width="20%">
+<col width="29%">
+<col width="51%">
+</colgroup>
+<tbody valign="top">
+<tr><td>typedef</td>
+<td>range</td>
+<td>typical definition</td>
+</tr>
+<tr><td><tt class="literal"><span class="pre">SInt8</span></tt></td>
+<td>-128..127</td>
+<td><tt class="literal"><span class="pre">signed</span> <span class="pre">char</span></tt></td>
+</tr>
+<tr><td><tt class="literal"><span class="pre">UInt8</span></tt></td>
+<td>0..255</td>
+<td><tt class="literal"><span class="pre">unsigned</span> <span class="pre">char</span></tt></td>
+</tr>
+<tr><td><tt class="literal"><span class="pre">SInt16</span></tt></td>
+<td>-32768..32767</td>
+<td><tt class="literal"><span class="pre">short</span></tt></td>
+</tr>
+<tr><td><tt class="literal"><span class="pre">UInt16</span></tt></td>
+<td>0..65535</td>
+<td><tt class="literal"><span class="pre">unsigned</span> <span class="pre">short</span></tt></td>
+</tr>
+<tr><td><tt class="literal"><span class="pre">SInt32</span></tt></td>
+<td>-2^31..(2^31)-1</td>
+<td><tt class="literal"><span class="pre">long</span> <span class="pre">int</span></tt></td>
+</tr>
+<tr><td><tt class="literal"><span class="pre">UInt32</span></tt></td>
+<td>0..2^32</td>
+<td><tt class="literal"><span class="pre">unsigned</span> <span class="pre">long</span> <span class="pre">int</span></tt></td>
+</tr>
+<tr><td><tt class="literal"><span class="pre">SInt64</span></tt></td>
+<td>-2^63..(2^63)-1</td>
+<td><tt class="literal"><span class="pre">long</span> <span class="pre">long</span> <span class="pre">int</span></tt></td>
+</tr>
+<tr><td><tt class="literal"><span class="pre">UInt64</span></tt></td>
+<td>0..2^64</td>
+<td><tt class="literal"><span class="pre">unsigned</span> <span class="pre">long</span> <span class="pre">long</span> <span class="pre">int</span></tt></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>Note that not all legacy or embedded platforms provide the underlying support
+for 64-bit data types.</p>
+</div>
+<div class="section" id="commenting-guidelines">
+<h1><a class="toc-backref" href="#id26" name="commenting-guidelines">Commenting Guidelines</a></h1>
+<div class="section" id="general-guidelines">
+<h2><a class="toc-backref" href="#id27" name="general-guidelines">General Guidelines</a></h2>
+<p>Since more time is spent reading code than writing it, having clear, thorough
+documentation is crucial both during initial development and for successful
+long-term maintenance. The goal is not redundancy; commenting every line of
+code like:</p>
+<pre class="literal-block">// increment i by 1
+++i;
+</pre>
+<p>just raises the noise floor and provides no useful information. However,
+comments like:</p>
+<pre class="literal-block">public boolean addMidiEvent(MidiEvent event)
+{
+   // add the timestamped MidiEvent 'event' at the correct place in our
+   // event list. We are using an array representation of a heap structure
+   // (see Sedgewick, "Algorithms in Java", chapter 9). This algorithm is
+   // guaranteed to be at worst O(2 log(n))
+
+   // code left as an exercise for the reader...
+}
+</pre>
+<p>both explains the design and intent of the code that follows, along with a
+pointer to an external reference explaining the design and theory behind the
+underlying data structure.</p>
+</div>
+<div class="section" id="header-files">
+<h2><a class="toc-backref" href="#id28" name="header-files">Header Files</a></h2>
+<p>The primary function of comments in header files is to provide
+documentation for programmers who will be using the classes you
+write. Ideally, other programmers should never need to refer to your
+implementation files to make proper use of your code.</p>
+<p>In languages that do not use separate header files, the same principles
+obtain; the interface must be documented at a sufficiently high level for
+users of the code. In Java, feel free to use Javadoc style comments; in
+Python, all publicly callable functions should include docstrings.</p>
+<p>Make sure that the following things are well and correctly commented:</p>
+<blockquote>
+<ul class="simple">
+<li>overall class design / usage information</li>
+<li>member function usage</li>
+<li>function parameters</li>
+<li>return values</li>
+<li>any special constraints</li>
+</ul>
+</blockquote>
+<p>Comments for member functions precede the function declaration, and are
+not followed by a blank line.</p>
+<pre class="literal-block">// The `ASafeBuffer' class wraps the standard library std::deque class. 
+// Most of the functions simply delegate to the appropriate 
+// std::deque function. Note that we do NOT derive publicly from std::deque 
+// — the lack of a virtual destructor makes that unsafe.
+
+class ASafeBuffer
+{
+public:
+   enum BufferState
+   {
+      kSuccess = 0,
+      kNotInitialized,
+      kFatalError
+   };
+
+   // construction, assignment and destruction...
+   ASafeBuffer();
+   ASafeBuffer(const ASafeBuffer&amp; x);
+   ASafeBuffer&amp; operator=(const ASafeBuffer&amp; x);
+   ~ASafeBuffer();   
+
+   // appends the value 'val' to the end of the buffer.
+   // returns ASafeBuffer::kSuccess unless there was an 
+   // initialization problem.
+   BufferState Append(UInt8 val);
+
+private:
+   std::deque fBuffer;    // comment member variables here...
+
+   // ...or place larger comments for member variables 
+   // before their declaration.
+   SInt32 fBufferSize;
+};
+</pre>
+</div>
+<div class="section" id="implementation-files">
+<h2><a class="toc-backref" href="#id29" name="implementation-files">Implementation Files</a></h2>
+<p>The primary audience for comments in your implementation files is
+the maintenance programmers who will be working on your code in the
+future. Most likely, you will be that maintenance programmer, which
+should give you extra cause to be charitable with your comments.</p>
+<p>Comments precede the code being documented, and are at the same
+indentation level. The comments should not just echo the code in prose,
+but should discuss the intent of the code. In <strong>Code Complete</strong>, McConnell
+recommends implementing functions by writing the comments first, then
+going back and actually writing the code. The approach is sound — if
+you don't understand the requirements of the function well enough to
+write it as a narrative first, you don't yet have a firm enough design
+to write code from.</p>
+</div>
+<div class="section" id="standard-markup-rules">
+<h2><a class="toc-backref" href="#id30" name="standard-markup-rules">Standard Markup Rules</a></h2>
+<p>We have a few conventions that we use to encode additional information
+into comments. Using a standard format simplifies searching for these
+markups.</p>
+<p><tt class="literal"><span class="pre">//!!!</span></tt> indicates that attention needs to be paid to the next line or
+section of code. Typical reasons include calling attention to placeholder
+code, or code that is known to be temporarily incomplete. Use ellipsis
+dots to indicate larger areas:</p>
+<pre class="literal-block">//!!!... 
+// this code temporarily removed pending resolution of bug 9xxx.
+// (several lines of code)
+//...!!!
+</pre>
+<p><tt class="literal"><span class="pre">//$$$</span></tt> indicates a request that the following code be reviewed before
+a change is considered complete. This practice began before A&amp;L used
+source code management software, and we used this technique when making
+changes in a source file 'owned' by another programmer, who would review
+the requested changes before merging them into the master sources. Since
+most multi-programmer projects are still divided such that each source
+file has a primary author, this technique is still a useful way to mark
+changed code for review by someone with more experience with the code. The
+original code should be commented out, but retained as a reference:</p>
+<pre class="literal-block">//$$$ before
+// for (SInt32 i = 0; i &lt; kLoopLimit; ++i)
+// {
+//    this-&gt;Process(i);
+
+// }
+//$$$ after
+// doesn't the process function expect 1-based indexing?
+for (SInt32 i = 0; i &lt; kLoopLimit; ++i)
+{
+   this-&gt;Process(i + 1);
+}
+//$$$ end
+</pre>
+</div>
+</div>
+<div class="section" id="formatting">
+<h1><a class="toc-backref" href="#id31" name="formatting">Formatting</a></h1>
+<div class="section" id="indentation">
+<h2><a class="toc-backref" href="#id32" name="indentation">Indentation</a></h2>
+<p>All indentation is done using space characters (<tt class="literal"><span class="pre">0x20</span></tt>), not literal tabs
+(<tt class="literal"><span class="pre">0x09</span></tt>), using three spaces per logical tab stop. Set your editor to always
+save files in this format.</p>
+<p>Preprocessor directives and labels used as the target of a <tt class="literal"><span class="pre">goto</span></tt> statement
+are always placed in the first column, regardless of the current ambient
+indentation level:</p>
+<pre class="literal-block">   bool ok = true;
+   for (SInt32 i = 0; i &lt; kSomeConstant; ++i)
+   {
+      for (SInt32 j = 0; j &lt; kSomeOtherConstant; ++j)
+      {
+#ifdef qVerbose
+         std::clog &lt;&lt; "testing: " &lt;&lt; i &lt;&lt; ", " &lt;&lt; j &lt;&lt; std::endl;
+#endif
+         ok = this-&gt;Test(i, j);
+         if (!ok)
+         {
+            std::cerr &lt;&lt; "Fatal error testing: " &lt;&lt; i &lt;&lt; ", " &lt;&lt; j &lt;&lt; std::endl;
+            goto CleanUp;
+         }
+      }
+   }
+   return true;
+
+CleanUp:
+   // cleanup code here...
+   return false;
+</pre>
+<p>Other constructs are indented as outlined below.</p>
+</div>
+<div class="section" id="line-length">
+<h2><a class="toc-backref" href="#id33" name="line-length">Line Length</a></h2>
+<p>Avoid using source lines longer than 79 characters. Occasional violations of
+this item are acceptable when the resulting code avoids an awkward line break
+or is otherwise more readable as a single long line. Very long lines due to
+deep indentation levels may be a sign that deeply nested code should be
+refactored out into a separate function.</p>
+</div>
+<div class="section" id="line-wrapping">
+<h2><a class="toc-backref" href="#id34" name="line-wrapping">Line Wrapping</a></h2>
+<p>Logical lines that are longer than 79 characters should be broken at the
+most logical point and continued on the next line, indented an additional
+single space, like:</p>
+<pre class="literal-block">         1         2         3         4         5         6         7
+1234567890123456789012345678901234567890123456789012345678901234567890123456789
+retval = FunctionWithManyArguments(longArgumentName1, longArgumentName2,
+ longArgumentName3, longArgumentName4);
+</pre>
+<p>An alternative layout that's taller rather than wider is:</p>
+<pre class="literal-block">retval = FunctionWithManyArguments(longArgumentName1, 
+ longArgumentName2,
+ longArgumentName3, 
+ longArgumentName4);
+</pre>
+<p>or:</p>
+<pre class="literal-block">retval = FunctionWithManyArguments(
+ longArgumentName1, 
+ longArgumentName2,
+ longArgumentName3, 
+ longArgumentName4
+ );
+</pre>
+<p>The nice thing about using this tall layout is that it makes it easy to add
+comments that identify each of the arguments made to a function with a large
+number of parameters:</p>
+<pre class="literal-block">retval = FunctionWithManyArguments(
+ longArgumentName1,     // filename
+ longArgumentName2,     // access mode
+ longArgumentName3,     // share mode
+ longArgumentName4      // security
+ );
+</pre>
+<p>Lines containing expressions should be broken as naturally as possible. 
+Where possible, break after a comma:</p>
+<pre class="literal-block">retval = anObject.SomeUsefulFunction(x.LeftMargin() + x.RightMargin(),
+ x.TopMargin() + x.BottomMargin() - 1);
+</pre>
+<p>If that's not appropriate or feasible, break after an operator:</p>
+<pre class="literal-block">retval = anObject.SomeUsefulFunction(x.LeftMargin() + x.RightMargin() +
+ anObject.HorizontalPadding(), x.TopMargin() + x.BottomMargin() - 1);
+</pre>
+<p>Only use the <tt class="literal"><span class="pre">\</span></tt> backslash line-continuation mechanism when it's
+not possible to find a cleaner place to break. As McConnell puts it in
+<strong>Code Complete</strong>:</p>
+<blockquote>
+<em>Make the incompleteness of a statement obvio     .</em></blockquote>
+</div>
+<div class="section" id="large-scale-statements">
+<h2><a class="toc-backref" href="#id35" name="large-scale-statements">Large-scale Statements:</a></h2>
+<div class="section" id="if-else">
+<h3><a class="toc-backref" href="#id36" name="if-else"><tt class="literal"><span class="pre">if</span></tt>/<tt class="literal"><span class="pre">else</span></tt></a></h3>
+<pre class="literal-block">if (someBoolean)
+{
+   // code to execute when true
+}
+else if (someOtherBoolean)
+{
+   // some other code to execute
+}
+else
+{
+   // code to execute in other cases...
+}
+</pre>
+</div>
+<div class="section" id="for">
+<h3><a class="toc-backref" href="#id37" name="for"><tt class="literal"><span class="pre">for()</span></tt></a></h3>
+<pre class="literal-block">for (int i = 0; i &lt; kSomeConstant; ++i)
+{
+   // loop code here...
+}
+</pre>
+<p>Note that we prefer to use the pre-increment <tt class="literal"><span class="pre">++i</span></tt> as a general habit. It is
+guaranteed in all languages that use this construct to work identically to the
+more commonly seen post-increment <tt class="literal"><span class="pre">i++</span></tt> that dates back to the earliest days
+of the C language. In C++, however, maintaining this habit prevents possible
+inefficiencies when looping over an object that exposes an iteratable
+interface. Consider the likely cost difference between:</p>
+<pre class="literal-block">typedef std::vector MyVector;
+MyVector vec;
+// assume the vector gets filled here....
+for (MyVector::const_iterator i = vec.begin(); i != vec.end(); i++)
+{
+   // clever and important code here...
+}
+</pre>
+<p>and:</p>
+<pre class="literal-block">for (MyVector::const_iterator i = vec.begin(); i != vec.end(); ++i)
+{
+   // even more clever and important code here...
+}
+</pre>
+<p>Yes, as Knuth said:</p>
+<blockquote>
+<em>We</em> <strong>should</strong> <em>forget about small efficiencies, say about 97% of the time:
+premature optimization is the root of all evil.</em></blockquote>
+<p>but one of the benefits of building up habits is that they let us forget
+things, but still obtain their advantages.</p>
+</div>
+<div class="section" id="while">
+<h3><a class="toc-backref" href="#id38" name="while"><tt class="literal"><span class="pre">while()</span></tt></a></h3>
+<pre class="literal-block">while (someBoolean)
+{
+   // useful code...
+}
+</pre>
+<p>If the body of the <tt class="literal"><span class="pre">while()</span></tt> is empty, make that explicit, as:</p>
+<pre class="literal-block">while (someFuncReturningBool())
+{
+   // intentionally empty
+}
+</pre>
+<p>not:</p>
+<pre class="literal-block">while (someFuncReturningBool());
+</pre>
+</div>
+<div class="section" id="do-while">
+<h3><a class="toc-backref" href="#id39" name="do-while"><tt class="literal"><span class="pre">do</span></tt>-<tt class="literal"><span class="pre">while()</span></tt></a></h3>
+<pre class="literal-block">do
+{
+   // loop code here...
+} while (someBoolean);
+</pre>
+</div>
+<div class="section" id="switch">
+<h3><a class="toc-backref" href="#id40" name="switch"><tt class="literal"><span class="pre">switch</span></tt></a></h3>
+<p>Case statements inside a switch statement are indented one tab stop,
+and the code for each case is at the same indentation level:</p>
+<pre class="literal-block">switch (midiEventType)
+{
+   // comments precede the case
+   case kNoteOn:
+   this-&gt;NoteOn(now);
+   if (duration &gt; 0)
+   {
+      this-&gt;NoteOff(now + duration);
+   }
+   break;
+   
+   case kNoteOff:
+   this-&gt;NoteOff(now);
+   break;
+   
+   case  kPolyAfter:
+   after = channelValue;
+   // break;            /// include, but comment out the break when falling through intentionally.
+   
+   case kChannelAfter:
+   this-&gt;AfterTouch(after);
+   break;
+   
+   case kPitchbend:  // no need to include a commented out break when falling through an empty case
+                     // blank line...
+   default:
+   ASSERT(false);
+   this-&gt;LogError("Unsupported event type!");
+   break;
+}
+</pre>
+<p>An alternative layout to the above follows, which places the body of each
+<tt class="literal"><span class="pre">case</span></tt> handler in its own scope. Not only is this more attractive visually,
+it provides an easy way to declare local variables that are restricted to the
+scope of an individual <tt class="literal"><span class="pre">case</span></tt>:</p>
+<pre class="literal-block">switch (midiEventType)
+{
+   // comments precede the case
+   case kNoteOn:
+   {
+      this-&gt;NoteOn(now);
+      if (duration &gt; 0)
+      {
+         this-&gt;NoteOff(now + duration);
+      }
+   }
+   break;
+   
+   case kNoteOff:
+   {
+      this-&gt;NoteOff(now);
+   }
+   break;
+   
+   case  kPolyAfter:
+   {
+      after = channelValue;
+   }
+   // break;            // include, but comment out the break when falling through intentionally.
+   
+   case kChannelAfter:
+   {
+      this-&gt;AfterTouch(after);
+   }
+   break;
+   
+   case kPitchbend:  // no need to include a commented out break when falling through an empty case
+                     // blank line...
+   default:
+   {
+      ASSERT(false);
+      this-&gt;LogError("Unsupported event type!");
+   }
+   break;
+</pre>
+<p>Switch statements should always have a default case. If the default case
+should never be executed, place an ASSERT(false); to make sure that this
+error is caught during debugging and testing.</p>
+</div>
+</div>
+<div class="section" id="small-scale">
+<h2><a class="toc-backref" href="#id41" name="small-scale">Small-scale</a></h2>
+<div class="section" id="declaring-and-initializing-variables">
+<h3><a class="toc-backref" href="#id42" name="declaring-and-initializing-variables">Declaring and Initializing Variables</a></h3>
+<p>Declare variables as close to the point of first use as possible, rather than
+in a single big block at the top of the current scope (unless you're
+programming in C).</p>
+<p>Only declare one variable per line of source code -- don't do this:</p>
+<pre class="literal-block">// NOTE that the following line of code is probably not what the programmer
+// intended to write, as 'xPos' is a pointer-to-UInt8, but 'yPos' is a
+// UInt8.
+UInt8* xPos, yPos;
+double yaw, pitch, roll;
+</pre>
+<p>instead, do:</p>
+<pre class="literal-block">UInt8* xPos = NULL;
+UInt8* yPos = NULL;
+
+double yaw = 0.;
+double pitch = 0.;
+double roll = 0.;
+</pre>
+<p>Avoid leaving variables uninitialized to avoid the possibility of errors
+resulting from those variables being accessed while filled with garbage.</p>
+</div>
+<div class="section" id="braces">
+<h3><a class="toc-backref" href="#id43" name="braces">Braces</a></h3>
+<p>Matching curly braces should always be aligned in the same column. In general,
+this means that curly braces should always be on a line by themselves:</p>
+<pre class="literal-block">if (someBoolean)
+{
+   someVariable += 1;
+}
+</pre>
+<p>not:</p>
+<pre class="literal-block">if (someBoolean) {
+   someVariable += 1;
+}
+</pre>
+<p>All code inside the braces is indented one tab stop.</p>
+<p>The only exception to the 'braces alone on a line' rule is found when using a
+do/while loop:</p>
+<pre class="literal-block">do
+{
+   //  some intelligent and useful code here...
+} while (someCondition);
+</pre>
+<p>In this construct, placing the closing brace and the <tt class="literal"><span class="pre">while()</span></tt> on the same
+line make it clear that the <tt class="literal"><span class="pre">while</span></tt> expression is tied to the preceding
+scope, which would not be otherwise visually obvious.</p>
+<p>In general, prefer to use curly braces even in situations where the
+language does not require their use, such as very simple <tt class="literal"><span class="pre">if`/``else</span></tt>
+statements or for loops:</p>
+<pre class="literal-block">if (someBoolean)
+{
+   functionCall();
+}
+
+for (int i = 0; i &lt; kLimit; ++i)
+{
+   fBuffer[i] = 0;
+}
+</pre>
+<p>not:</p>
+<pre class="literal-block">if (someBoolean)
+   functionCall();
+
+for (int i = 0; i &lt; kLimit; ++i)
+   fBuffer[i] = 0;
+</pre>
+<p>to avoid maintenance problems in the future.</p>
+<p>Another case where "unnecessary" braces should be used is when writing an
+empty while loop:</p>
+<pre class="literal-block">while (*p++ = *q++)
+{
+   // this loop intentionally left empty...  
+}
+</pre>
+<p>instead of the form that is more commonly found:</p>
+<pre class="literal-block">while (*p++ = *q++);
+</pre>
+<p>By prohibiting this common loop format, we can easily check for cases where
+legal (but wrong) code like:</p>
+<pre class="literal-block">int i = 0;
+while (i++ &lt; kLoopLimit);
+{
+   myBuffer[i] = 0;
+}
+</pre>
+<p>performs a loop with no body, then executes the intended body of the loop
+exactly once. Python programmers can stop chuckling now.</p>
+</div>
+<div class="section" id="whitespace">
+<h3><a class="toc-backref" href="#id44" name="whitespace">Whitespace</a></h3>
+<ul>
+<li><p class="first">Language keywords are followed by a single space unless they are followed
+by a semicolon, like <tt class="literal"><span class="pre">break;</span></tt> or <tt class="literal"><span class="pre">return;</span></tt></p>
+</li>
+<li><p class="first">There is never a space between a function or method name and its opening
+parenthesis. Other opening parentheses should be preceded by a space.</p>
+</li>
+<li><p class="first">Commas are followed by a single space, and are never preceded by a space.</p>
+</li>
+<li><p class="first">Semicolons are never preceded by a space. If code follows a semicolon on
+the same line (as in the control structure for a <tt class="literal"><span class="pre">for()</span></tt> loop, the
+semicolon is followed by a space.</p>
+</li>
+<li><p class="first"><tt class="literal"><span class="pre">(</span></tt> and <tt class="literal"><span class="pre">[</span></tt> are not followed by a space, and <tt class="literal"><span class="pre">)</span></tt> and <tt class="literal"><span class="pre">]</span></tt> are not
+preceded by a space. An exception to this may be made to make grouping more
+apparent when using deeply nested parentheses:</p>
+<pre class="literal-block">if ( ((a == b) &amp;&amp; (c == d)) || ((e == f) &amp;&amp; (g == h)) )
+</pre>
+</li>
+<li><p class="first">Binary operators are separated from both operands by a single space.</p>
+</li>
+<li><p class="first">Unary operators are not separated from their operand.</p>
+</li>
+<li><p class="first">When declaring pointer variables in C / C++ or reference variables in C++, the
+<tt class="literal"><span class="pre">*</span></tt> and <tt class="literal"><span class="pre">&amp;</span></tt> operators are attached to the typename, not the identifier,
+like:</p>
+<pre class="literal-block">UInt8* buffer;
+void AClass::AClass(const AClass&amp; x);
+</pre>
+<p>not:</p>
+<pre class="literal-block">// don't do this:
+UInt8 *buffer;
+void AClass::AClass(const AClass &amp;x);
+
+// or this:
+UInt8 * buffer;
+void AClass::AClass(const AClass &amp; x);
+</pre>
+</li>
+<li><p class="first">Inside functions, use blank lines judiciously to group lines of code into
+logical chunks.</p>
+</li>
+<li><p class="first">Between functions, use blank lines judiciously to visually separate the
+functions.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="bitwise-operators">
+<h3><a class="toc-backref" href="#id45" name="bitwise-operators">Bitwise Operators</a></h3>
+<p>Always use hexadecimal constants or literal values when working with bitwise
+operators:</p>
+<pre class="literal-block">// see if this is a MIDI status or data byte...
+if (dataByte &amp; 0x80)
+{
+   // handle status byte
+}
+</pre>
+<p>never:</p>
+<pre class="literal-block">// see if this is a MIDI status or data byte...
+if (dataByte &amp; 128)
+{
+   // handle status byte
+}
+</pre>
+</div>
+<div class="section" id="explicit-is-better-than-implicit">
+<h3><a class="toc-backref" href="#id46" name="explicit-is-better-than-implicit">Explicit is Better Than Implicit</a></h3>
+<p>Don't rely on the fact that many operations may silently be coerced by the
+compiler into boolean values. Always make the comparison explicit:</p>
+<pre class="literal-block">if (pointer != NULL)
+{
+   // code...
+}
+</pre>
+<p>not:</p>
+<pre class="literal-block">if (pointer)
+{
+   // code
+}
+</pre>
+<p>However, if you are in fact working with real boolean values, there is no need
+to labor the point -- code like:</p>
+<pre class="literal-block">if (truthVal)
+</pre>
+<p>or:</p>
+<pre class="literal-block">if (!truthval)
+</pre>
+<p>is fine -- you don't need to write code like:</p>
+<pre class="literal-block">if (true == truthVal)
+</pre>
+<p>or:</p>
+<pre class="literal-block">if (false == truthval)
+</pre>
+</div>
+<div class="section" id="avoiding-unintended-assignments">
+<h3><a class="toc-backref" href="#id47" name="avoiding-unintended-assignments">Avoiding Unintended Assignments</a></h3>
+<p>To avoid a common bug, always place a constant before a variable when
+performing equivalence testing:</p>
+<pre class="literal-block">if (kSentinelValue == val)
+</pre>
+<p>instead of:</p>
+<pre class="literal-block">if (val == kSentinelValue)
+</pre>
+<p>which would compile without a hiccup if the <tt class="literal"><span class="pre">==</span></tt> were mistakenly typed as
+<tt class="literal"><span class="pre">=</span></tt>:</p>
+<pre class="literal-block">if (val = kSentinelValue)
+{
+   // note that the above "test" always succeeds, and that 'val' is 
+   // now always set to 'kSentinelVal'. Oops.
+}
+</pre>
+</div>
+</div>
+</div>
+<div class="section" id="bibliography-recommended-reading">
+<h1><a class="toc-backref" href="#id48" name="bibliography-recommended-reading">Bibliography &amp; Recommended Reading</a></h1>
+<pre class="line-block">Design Patterns : Elements of Reusable Object-Oriented Software
+By Gamma, Erich et. al.
+395 Pages
+Published by Addison Wesley
+Date Published: 09/1994
+ISBN: 0201633612
+
+Literate Programming
+By Knuth, Donald Ervin
+Published by CSLI Publishing
+Date Published: 05/1992
+ISBN: 0521073806
+
+Writing Solid Code
+By Maguire, Steve
+256 Pages
+Published by Microsoft Press
+Date Published: 05/1993
+ISBN: 1556155514
+
+Code Complete : A Practical Handbook of Software Construction
+By McConnell, Steve M.
+857 Pages
+Published by Microsoft Press
+Date Published: 05/1993
+ISBN: 1556154844
+
+Practical Software Configuration Management : The Latenight Developer's Handbook
+By Mikkelson, Tim / Pherigo, Suzanne
+301 Pages
+Published by Prentice Hall
+Date Published: 04/1997
+ISBN: 0132408546
+
+Elements of Style, Fourth Edition
+By Strunk, William Jr. / White, E. B.
+128 Pages
+Published by Prentice Hall
+Date Published: 08/1999
+ISBN: 0205313426
+</pre>
+</div>
+<div class="section" id="administrivia">
+<h1><a class="toc-backref" href="#id49" name="administrivia">Administrivia</a></h1>
+<div class="section" id="copyright">
+<h2><a class="toc-backref" href="#id50" name="copyright">Copyright</a></h2>
+<p>The Art &amp; Logic Programming Style Guide is Copyright (c) 2003 by Art &amp; Logic,
+Inc. All Rights Reserved.</p>
+</div>
+<div class="section" id="colophon">
+<h2><a class="toc-backref" href="#id51" name="colophon">Colophon</a></h2>
+<p>This document was authored using the reStructured Text markup language and the
+corresponding Docutils processing system. Information available at
+<a class="reference" href="http://docutils.sourceforge.net/">http://docutils.sourceforge.net</a></p>
+</div>
+<div class="section" id="change-log">
+<h2><a class="toc-backref" href="#id52" name="change-log">Change Log</a></h2>
+<pre class="literal-block">$Log: styleguide.html,v $
+Revision 1.1  2005/09/20 22:42:16  jdueck
+*** empty log message ***
+
+Revision 1.3  2005/05/02 20:52:07  jdueck
+*** empty log message ***
+
+Revision 1.5  2005/04/14 18:52:30  bporter
+Corrected odd wording in the 'Reserved Prefixes' section.
+
+Revision 1.5  2005/04/14 18:50:40  bporter
+Corrected odd wording in the 'Reserved Prefixes' section.
+
+Revision 1.4  2005/01/28 15:17:15  bporter
+Added discussion of standard 'AlDocs' and 'Documents' directory for each project.
+
+Revision 1.3  2004/03/08 01:51:27  bporter
+Corrected casing of 'JavaScript'.
+
+Revision 1.2  2003/10/22 21:39:00  bporter
+Corrected typo ('prgress') in second sentence.
+
+Revision 1.1  2003/05/02 21:16:10  bporter
+Source for Style Guide v3.x, as released.
+
+Revision 1.10  2003/05/01 15:21:38  bporter
+Corrected text re breaking lines around operators (thx to Jason Bagley)
+
+Revision 1.9  2003/04/23 16:43:26  bporter
+Fixing some minor formatting problems.
+
+Revision 1.8  2003/04/23 16:18:29  bporter
+integrating Mark's suggested explanation of the mechanics behind version/release numbers.
+
+Revision 1.7  2003/04/21 14:10:33  bporter
+Added some new text re: other languages, improved some formatting.
+
+Revision 1.6  2003/04/18 21:01:11  bporter
+Integrating more fixes after Mike's comments.
+
+Revision 1.5  2003/04/18 20:37:16  bporter
+Folding in Mike's comments, leftover discussions from the StyleGuide conference, fleshing things out some more
+
+Revision 1.4  2003/04/16 20:18:37  bporter
+Testing to see if I can sneak CVS keywords in without having them expanded...
+
+Revision 1.3  2003/04/16 20:17:20  bporter
+Testing to see if I can sneak CVS keywords in without having them expanded...
+
+Revision 1.2  2003/04/16 19:43:38  bporter
+Nearing the end of a releasable draft...
+
+Revision 1.1  2003/03/28 17:18:44  bporter
+First commit, next rev of the style guide
+</pre>
+</div>
+</div>
+</div>
+
+<script src="styleguide_files/ga_keyword.js" type="text/javascript"></script>
+<script src="styleguide_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+	_uacct = "UA-639778-1";
+	urchinTracker();
+	sleuth();
+</script>
+
+<script src="styleguide_files/mlt.js" type="text/javascript"></script>
+
+</body></html>

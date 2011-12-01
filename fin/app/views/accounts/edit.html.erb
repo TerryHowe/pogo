@@ -1,0 +1,32 @@
+<h1>Editing account</h1>
+
+<% form_for(@account) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :broker %><br />
+    <%= f.select :broker, Account.brokers.collect {|p| [ p, p ]} %>
+  </p>
+  <p>
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </p>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.text_field :password %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :subaccount %><br />
+    <%= f.text_field :subaccount %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @account %> |
+<%= link_to 'Back', accounts_path %>

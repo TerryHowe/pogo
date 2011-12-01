@@ -1,0 +1,27 @@
+<p>
+  <b>Type:</b>
+  <%=h @account.broker %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @account.user %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%=h @account.password %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @account.name %>
+</p>
+
+<p>
+  <b>Subaccount:</b>
+  <%=h @account.subaccount %>
+</p>
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', accounts_path %>

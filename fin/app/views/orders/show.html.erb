@@ -1,0 +1,33 @@
+<p>
+  <b>Number:</b>
+  <%=h @order.number %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%=h @order.date %>
+</p>
+
+<p>
+  <b>Transaction:</b>
+  <%=h @order.xaction %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%=h @order.company %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%=h @order.quantity %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%=h @order.ostate %>
+</p>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

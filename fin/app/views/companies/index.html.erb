@@ -1,0 +1,42 @@
+<h1>Listing companies</h1>
+
+<table>
+  <tr>
+    <th>Ticker</th>
+    <th>Account</th>
+    <th>Exchange</th>
+    <th>Googid</th>
+    <th>Quantity</th>
+    <th>Table</th>
+    <th>Tactic</th>
+    <th>P1</th>
+    <th>P2</th>
+    <th>P3</th>
+    <th>P4</th>
+    <th>P5</th>
+  </tr>
+
+<% for company in @companies %>
+  <tr>
+    <td><%=h company.ticker %></td>
+    <td><%=h company.account.broker %></td>
+    <td><%=h company.exchange.name %></td>
+    <td><%=h company.googid %></td>
+    <td><%=h company.quantity %></td>
+    <td><%=h company.table %></td>
+    <td><%=h company.tactic %></td>
+    <td><%=h company.p1 %></td>
+    <td><%=h company.p2 %></td>
+    <td><%=h company.p3 %></td>
+    <td><%=h company.p4 %></td>
+    <td><%=h company.p5 %></td>
+    <td><%= link_to 'Show', company %></td>
+    <td><%= link_to 'Edit', edit_company_path(company) %></td>
+    <td><%= link_to 'Destroy', company, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New company', new_company_path %>

@@ -1,0 +1,43 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+att:
+  ticker: T
+  account: stub
+  exchange: nyse
+  googid: 33312
+  quantity: 10000
+  table: One
+  tactic: hilo
+  p1: 1.0
+  p2: 3.0
+  p3: 0.0
+  p4: 0.0
+  p5: 0.0
+
+plcm:
+  ticker: PLCM
+  account: vse
+  exchange: nasdaq
+  googid: 660075
+  quantity: 10000
+  table: Two
+  tactic: hilo
+  p1: 1.0
+  p2: 4.0
+  p3: 0.0
+  p4: 0.0
+  p5: 0.0
+
+qwest:
+  ticker: Q
+  account: tdameritrade
+  exchange: nyse
+  googid: 658191
+  quantity: 10000
+  table: Three
+  tactic: hilo
+  p1: 1.0
+  p2: 2.0
+  p3: 0.0
+  p4: 0.0
+  p5: 0.0

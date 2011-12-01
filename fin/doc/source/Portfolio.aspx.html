@@ -1,0 +1,1108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html><head>
+
+
+	
+		<title>Virtual Stock Exchange - My Portfolio</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<style type="text/css">
+		@import url( ./assets/c/basic.css ); @import url( ./assets/themes/3cols/c/mainstyles.css ); @import url( ./assets/c/sponsored.css );
+	    </style>
+		<script src="Portfolio.aspx_files/pagefunctions.js" type="text/javascript"></script><link rel="stylesheet" media="screen" type="text/css" href="Portfolio.aspx_files/mainstyles.css"><link rel="stylesheet" media="screen" type="text/css" href="Portfolio.aspx_files/iewin1025plus.css">
+		<script src="Portfolio.aspx_files/styleswitcher.js" type="text/javascript"></script>
+		<script>cur_lyr ='holdingscontent'</script>
+	</head><body>
+		<form name="Form1" method="post" action="Portfolio.aspx" id="Form1">
+<div>
+<input name="__EVENTTARGET" id="__EVENTTARGET" value="" type="hidden">
+<input name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" type="hidden">
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTg1ODU5MzA2NA9kFgQCAQ9kFiQCAw9kFgYCBQ8PFgQeBFRleHQFCE15IEdhbWVzHgtDb21tYW5kTmFtZQUMVmlld0dhbWVMaXN0ZGQCBw8PFgIeB1Zpc2libGVoZGQCCQ9kFgICAQ8WAh4Fc3R5bGUFDmRpc3BsYXk6YmxvY2s7FgICAQ8WAh4LXyFJdGVtQ291bnQCAhYEAgEPZBYIAgEPDxYGHwAFDE1hZ3BpZSBTdG9jax8BBQhPcGVuR2FtZR4PQ29tbWFuZEFyZ3VtZW50BQlNYWdwaWUxMDFkZAIDD2QWAgIBDw8WBB8BBQ9WaWV3TXlQb3J0Zm9saW8fBQViaHR0cDovL3N5c3RlbS5tYXJrZXR3YXRjaC5jb20vdmlydHVhbHN0b2NrZXhjaGFuZ2UzL3BvcnRmb2xpby8wNGFkNzAyYy1hZTUwLTRkMWItYWNiZi0xOGNhOGZjYzdhMDJkZAIFDw8WBh8ABRBPdmVydmlldyAvIFJ1bGVzHwEFCE9wZW5HYW1lHwUFCU1hZ3BpZTEwMWRkAgcPZBYCAgEPDxYEHwUFXWh0dHA6Ly9zeXN0ZW0ubWFya2V0d2F0Y2guY29tL3ZpcnR1YWxzdG9ja2V4Y2hhbmdlMy9nYW1lLzZjMGJlZGM5LWIwMDQtNDU3Mi1hODFjLTEyMDk3NjhlMDlhNR8BBRJTaG93UGxheWVyUmFua2luZ3NkZAICD2QWCAIBDw8WBh8ABQ1UZWFtIEthd2FzYWtpHwEFCE9wZW5HYW1lHwUFB2phcmVkNTZkZAIDD2QWAgIBDw8WBB8BBQ9WaWV3TXlQb3J0Zm9saW8fBQViaHR0cDovL3N5c3RlbS5tYXJrZXR3YXRjaC5jb20vdmlydHVhbHN0b2NrZXhjaGFuZ2UzL3BvcnRmb2xpby9iN2QzMDA4YS00YjRkLTQyYjYtYjc0Ni02MzYyNjhhZTY4N2JkZAIFDw8WBh8ABRBPdmVydmlldyAvIFJ1bGVzHwEFCE9wZW5HYW1lHwUFB2phcmVkNTZkZAIHD2QWAgIBDw8WBB8FBV1odHRwOi8vc3lzdGVtLm1hcmtldHdhdGNoLmNvbS92aXJ0dWFsc3RvY2tleGNoYW5nZTMvZ2FtZS9hNmFhZTU5ZC1kYTk5LTQxNDEtOTJlZS1iZjE4ZDYwMDNkMGIf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Y2tleGNoYW5nZTMvb3JkZXIvZDIyZjdjMTYtZDI3MC00Y2E3LTg3NTQtMjI1ZTI2MjgxNmNmZGQCIw9kFgRmD2QWAgIDDw8WAh8ABRJHRSwgV01ULCBJTlRDLCBKTkpkZAICD2QWAgIDDw8WAh8ABRJHRSwgV01ULCBJTlRDLCBKTkpkZAIlD2QWBGYPFgIfAwUuUE9TSVRJT046IGFic29sdXRlOyBUT1A6IDcycHg7IGRpc3BsYXk6IGJsb2NrOxYEAgEPDxYCHwAFClRlcnJvckhvd2xkZAIDDw8WAh8FBQp+L0hvbWVwYWdlZGQCAg8WAh8DBS1QT1NJVElPTjogYWJzb2x1dGU7IFRPUDogNzJweDsgZGlzcGxheTogbm9uZTtkAisPZBYCAgEPZBYMAgMPFgIeCWlubmVyaHRtbAUHODAyNy40N2QCBQ8WAh4FY2xhc3MFEWluZGV4Y2hhbmdlICBkb3duFgICAQ8WAh8JBQctMjAwLjYzZAIHDxYCHwkFBzE0NTcuMzVkAgkPFgIfCgURaW5kZXhjaGFuZ2UgIGRvd24WAgIBDxYCHwkFBi00OS43MmQCCw8WAh8JBQY4MTguMTRkAg0PFgIfCgURaW5kZXhjaGFuZ2UgIGRvd24WAgIBDxYCHwkFBS0yMi4xZAIuDxUCBmhlYWRlcghwYWdlbmFtZWQCLw8PFgIfAAUNVGVhbSBLYXdhc2FraWRkAgIPFQGjAzxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0IiBzcmM9Imh0dHA6Ly9scy5hcGkubWFya2V0d2F0Y2guY29tL2FwaS9saXZlc3VpdGUvbGljZW5zZS5hc214PzA4OEJCMjk2QTBBM0JCQ0NBMDc4QzY3NDZGRDc5QzNFRkUwNDIxRjhGODYwODA1RTg4NEFCOThDQ0NERTg3RDQ1MTM2MDk1QTAxMjcwNjk2REE5NEUzRkEzODc3N0VCMjZCNzFFRjE0ODVDQTJGNDBEMzlGMzgzMjlFQjgyQTg1RDg5NENEQ0RCMUU0MzIyQ0UyMDVEMjVBRDhEM0NEOTcyRjQ4QjgxMDQyNzU1NTFFMzkxQzVDMEZGQkE1N0MyNTZBQ0JBODdCIj48L3NjcmlwdD48c2NyaXB0IHR5cGU9InRleHQvamF2YXNjcmlwdCI+aWYgKHdpbmRvdy5MaXZlUXVvdGVzR2F0ZXdheSAhPSBudWxsKSB7TGl2ZVF1b3Rlc0dhdGV3YXkuc2V0dXAoJ05McyxDU0snKTt9PC9zY3JpcHQ+ZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAgUnQ3JlYXRlT3JKb2luR2FtZTEkX0ZpbmRHYW1lVG9Kb2luQnV0dG9uBSpDcmVhdGVPckpvaW5HYW1lMSRfQ3JlYXRlR2FtZU5ld05hbWVCdXR0b26pSK44wRYNIriVAs/3Nl8LMZ9dFg==" type="hidden">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['Form1'];
+if (!theForm) {
+    theForm = document.Form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="Portfolio.aspx_files/WebResource.js" type="text/javascript"></script>
+
+			<div id="wrapper">
+				<div id="container">
+				    
+<script type="text/javascript" src="Portfolio.aspx_files/hatloader.js"></script><link rel="stylesheet" href="Portfolio.aspx_files/hat.css" type="text/css"><script type="text/javascript" src="Portfolio.aspx_files/hat.js"></script>
+<style type="text/css">
+#hat_div { visibility:hidden; }
+</style>
+<div id="hat_div" class="hat_vse hat_visible">
+	<div id="hat_logo"></div>
+	<ul class="hat_tabs">
+		<li id="hat_tab1" class="hat_tab" onmouseover="hat.tabover(this)" onmouseout="hat.tabout(this)">
+			<a id="hat_link1" href="http://online.wsj.com/home"></a>
+		</li>
+		<li id="hat_tab2" class="hat_tab" onmouseover="hat.tabover(this)" onmouseout="hat.tabout(this)">
+			<a id="hat_link2" href="http://www.marketwatch.com/"></a>
+		</li>
+		<li id="hat_tab3" class="hat_tab" onmouseover="hat.tabover(this)" onmouseout="hat.tabout(this)">
+			<a id="hat_link3" href="http://online.barrons.com/home"></a>
+		</li>
+		<li id="hat_tab4" class="hat_tab" onmouseover="hat.tabover(this)" onmouseout="hat.tabout(this)">
+			<a id="hat_link4" href="http://allthingsd.com/"></a>
+		</li>
+		<li id="hat_tab5" class="hat_tab" onmouseover="hat.moremenu()" onmouseout="hat.moremenuhide()">
+			<span>More</span>
+			<ul style="display: none;" id="hat_more_menu">
+				<li id="hat_more1" class="hat_drop_item" onmouseover="hat.menuover(this)" onmouseout="hat.menuout(this)">
+					<a href="http://www.smartmoney.com/">SmartMoney.com</a>
+				</li>
+				<li id="hat_more2" class="hat_drop_item" onmouseover="hat.menuover(this)" onmouseout="hat.menuout(this)">
+					<a href="http://bigcharts.marketwatch.com/">BigCharts</a>
+				</li>
+				<li id="hat_more3" class="hat_drop_item" onmouseover="hat.menuover(this)" onmouseout="hat.menuout(this)">
+					<a href="http://vse.marketwatch.com/Game/Homepage.aspx">Virtual Stock Exchange</a>
+				</li>
+				<li id="hat_more4" class="hat_drop_item" onmouseover="hat.menuover(this)" onmouseout="hat.menuout(this)">
+					<a href="http://www.filife.com/">FiLife.com</a>
+				</li>
+				<li id="hat_more5" class="hat_drop_item" onmouseover="hat.menuover(this)" onmouseout="hat.menuout(this)">
+					<a href="http://online.wsj.com/asia">WSJ Asia</a>
+				</li>
+			<li onmouseover="hat.menuover(this)" onmouseout="hat.menuout(this)" id="hat_more6" class="hat_drop_item"><a href="http://online.wsj.com/europe">WSJ Europe</a></li><li onmouseover="hat.menuover(this)" onmouseout="hat.menuout(this)" id="hat_more7" class="hat_drop_item"><a href="http://online.wsj.com/portuguese">WSJ Portuguese</a></li><li onmouseover="hat.menuover(this)" onmouseout="hat.menuout(this)" id="hat_more8" class="hat_drop_item"><a href="http://online.wsj.com/americas">WSJ Spanish</a></li><li onmouseover="hat.menuover(this)" onmouseout="hat.menuout(this)" id="hat_more9" class="hat_drop_item"><a href="http://chinese.wsj.com/gb/index.asp">WSJ Chinese</a></li><li onmouseover="hat.menuover(this)" onmouseout="hat.menuout(this)" id="hat_more10" class="hat_drop_item"><a href="http://www.efinancialnews.com/">Financial News Online</a></li><li onmouseover="hat.menuover(this)" onmouseout="hat.menuout(this)" id="hat_more11" class="hat_drop_item"><a href="http://www.feer.com/">Far Eastern Economic Review</a></li></ul>				
+		</li> 
+	</ul>
+	
+	<div class="hat_search">
+		<input id="hat_input" class="hat_input hat_unused" onfocus="hat.inputfocus(this)" onkeypress="javascript:hat.search_keypress(event)" value="Enter Keyword(s)">
+		<div onclick="javascript:hat.search();" class="hat_button">
+			<span class="hat_button_text">SEARCH</span>
+		</div>
+	</div>		
+	
+</div>
+					<div id="tradewidgetcontainer" style="z-index: 3;">
+						<div id="tradewidget" style="display: inline;">
+							<div id="tradewidgettop">
+								<p class="tradewidgetxbox"><a href="javascript:;" onclick="getElementById('tradewidgetiframe').src='http://vse.marketwatch.com/game/pleasewait.html';showF('tradewidget');return false">x</a></p>
+								<p class="tradewidgetclosewindow"><a href="javascript:;" onclick="getElementById('tradewidgetiframe').src='http://vse.marketwatch.com/game/pleasewait.html';showF('tradewidget');return false">Close Window</a></p>
+								<p class="tradewidgetheader"><a style="color: white;" href="javascript:;" onclick="MM_openBrWindow('./Help/RulesAndRegulations/TradingRules.html','','toolbar=no,location=no,status=yes,menubar=no,scrollbars=yes,resizable=yes,width=760px,height=640px')">Learn more about trading</a></p>
+							</div>
+							<div id="tradewidgetiframecontainer">
+								<iframe id="tradewidgetiframe" src="Portfolio.aspx_files/TradeWidget.html" marginwidth="0" marginheight="0" frameborder="0">
+								</iframe>
+							</div>
+						</div>
+					</div>
+					<div id="column1">
+						
+<div id="logo" onclick="MM_goToURL('parent','Homepage.aspx');return document.MM_returnValue" title="Virtual Stock Exchange Home"></div>
+<h4 class="leftnavbutton1"><a onclick="getElementById('tradewidgetiframe').src='TradeWidget.aspx?view=EnterSymbol';showF('tradewidget');return false" href="javascript:;">Make 
+		A Trade</a></h4>
+<h4 class="leftnavbutton2"><a id="leftNav__VewResearchPage" href="javascript:__doPostBack('leftNav$_VewResearchPage','')">Research</a></h4>
+<h4 class="leftnavbutton3"><a id="leftNav__ViewNews" href="javascript:__doPostBack('leftNav$_ViewNews','')">News</a></h4>
+<h4 class="leftnavbutton4"><a id="leftNav__ViewGameList" href="javascript:__doPostBack('leftNav$_ViewGameList','')">My Games</a></h4>
+<!-- PANEL _FINDCREATEGAMEPANEL -->
+<!-- PANEL _MYGAMEPANEL --><div id="leftNav__MyGamePanel">
+	
+<div class="leftnaviecommands">
+	<div id="leftNav_divCurrentGame" style="display: block;">
+		
+			
+				<div class="gamename" style="overflow: hidden; width: 114px;">
+					<p>
+						<a id="leftNav__MyGamesList_ctl01__MyGame" href="javascript:__doPostBack('leftNav$_MyGamesList$ctl01$_MyGame','')" style="color: black; text-decoration: none; cursor: text;">Magpie Stock</a>
+					</p>
+					<div class="leftnavlistsdiv">
+						<ul>
+							<li id="leftNav__MyGamesList_ctl01__ListItemMyPortfolio">
+								<a id="leftNav__MyGamesList_ctl01__MyPortfolio" href="javascript:__doPostBack('leftNav$_MyGamesList$ctl01$_MyPortfolio','')">My Portfolio</a>
+							</li>
+							<li>
+								<a id="leftNav__MyGamesList_ctl01__Overview" href="javascript:__doPostBack('leftNav$_MyGamesList$ctl01$_Overview','')">Overview / Rules</a></li>
+							<li id="leftNav__MyGamesList_ctl01__liPlayersAndRankings">
+								<a id="leftNav__MyGamesList_ctl01__Players" href="javascript:__doPostBack('leftNav$_MyGamesList$ctl01$_Players','')">Players &amp; Rank</a>
+								
+							</li>
+						</ul>
+					</div>
+				</div>
+			<div class="leftnavdivisionrule" style=""></div>
+			
+				<div class="gamename" style="overflow: hidden; width: 114px;">
+					<p>
+						<a id="leftNav__MyGamesList_ctl02__MyGame" href="javascript:__doPostBack('leftNav$_MyGamesList$ctl02$_MyGame','')" style="color: black; text-decoration: none; cursor: text;">Team Kawasaki</a>
+					</p>
+					<div class="leftnavlistsdiv">
+						<ul>
+							<li id="leftNav__MyGamesList_ctl02__ListItemMyPortfolio">
+								<a id="leftNav__MyGamesList_ctl02__MyPortfolio" href="javascript:__doPostBack('leftNav$_MyGamesList$ctl02$_MyPortfolio','')">My Portfolio</a>
+							</li>
+							<li>
+								<a id="leftNav__MyGamesList_ctl02__Overview" href="javascript:__doPostBack('leftNav$_MyGamesList$ctl02$_Overview','')">Overview / Rules</a></li>
+							<li id="leftNav__MyGamesList_ctl02__liPlayersAndRankings">
+								<a id="leftNav__MyGamesList_ctl02__Players" href="javascript:__doPostBack('leftNav$_MyGamesList$ctl02$_Players','')">Players &amp; Rank</a>
+								
+							</li>
+						</ul>
+					</div>
+				</div>
+			<div class="leftnavdivisionrule" style=""></div>
+			
+	</div>
+</div>
+
+</div>
+<!-- PANEL _FINDCREATEGAMEPANEL2 --><div id="leftNav__FindCreateGamePanel2">
+	
+<div class="leftnavlistsdiv" style="">
+	<ul>	
+		<li><a id="leftNav__FindAGame2" href="javascript:__doPostBack('leftNav$_FindAGame2','')">Find a Game to Join</a>
+		</li><li><a id="leftNav__CreateNewGame2" href="javascript:__doPostBack('leftNav$_CreateNewGame2','')">Create a New Game</a>
+		</li><li><a id="leftNav__CreatePortfolio2" href="javascript:__doPostBack('leftNav$_CreatePortfolio2','')">Create a Portfolio</a>
+	</li></ul>
+</div>
+
+</div>
+						<div class="clearall"></div>
+						<div class="leftnavdivisionrule"></div>
+					</div>
+					<div style="background: white none repeat scroll 0% 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; height: 83px;"></div>
+					<div id="column2" style="background: rgb(235, 235, 219) none repeat scroll 0% 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+						<div class="gameoverviewpod">
+							<p class="font80percent floatright" style="padding: 4px 10px 0px 0px;"> | <a id="_PortfolioLink" href='javascript:WebForm_DoPostBackWithOptions(new%20WebForm_PostBackOptions("_PortfolioLink",%20"",%20true,%20"",%20"",%20false,%20true))'>Link to this Portfolio</a></p>
+							<h2>&nbsp;<span id="_PortfolioName">My Portfolio</span></h2>
+							<div style="margin: 10px 0px;">
+								<div id="_RankPanel">
+	
+									<div class="floatleft" style="margin: 0pt 10px; padding: 0px;">
+
+<p style="margin: 0px; padding: 0px;"><span class="font90percent allcaps"><strong>Rank: </strong></span>
+<big><strong><span id="_CurrentRank">1</span></strong></big><big><span class="text999" style="font-weight: normal;"> (of <span id="_TotalEntries">5</span>)</span></big>
+</p>
+
+<p class="font80percent" style="padding-top: 5px;"><span id="_TimeToMarketClose">The Stock Exchange closes in 4 hrs. &amp; 51 mins.</span></p>
+									</div>
+								
+</div>
+								<div id="_DaysRemainingPanel">
+	
+									<div class="floatright" style="margin: 0pt 10px;">
+<p style="margin: 0px; padding: 0px;"><span class="font90percent allcaps"><strong>Days Remaining:</strong></span>
+<big><strong><span id="_DaysRemaining">83</span></strong></big></p>
+									</div>
+								
+</div>
+								<div class="clearall"></div>
+							</div>
+							<div class="column2divisionrule"><img src="Portfolio.aspx_files/0.html" width="1" height="2">
+							</div>
+							<div class="clearall"></div>
+							<div style="margin: 10px 0px;">
+								<div class="paddingof10" style="padding-top: 0px;">
+									<div class="floatleft" style="border-right: 1px dotted rgb(182, 182, 142); margin: 0px 6px 10px 0px; padding: 0px 6px 0px 0px;">
+										<span id="_TodaysReturnSpan">
+										<p class="allcaps font90percent margpadzero"><strong>Today's Return </strong>
+										</p>
+										<p style="font-weight: bold;" class="down"><big>-0.85%</big></p>
+										</span>
+										<p class="allcaps font90percent"><strong>Total Return </strong>
+										</p>
+										<p style="padding-bottom: 10px; font-weight: bold;"><big><span class="up">+0.96%</span></big></p>
+									</div>
+									<div class="floatleft" style="border-right: 1px dotted rgb(182, 182, 142); margin: 0px 6px 10px 0px; padding: 0px 6px 0px 0px;">
+										<span id="_WeeksReturnSpan">
+										<p class="allcaps font90percent margpadzero"><strong>Week's Return </strong>
+										</p>
+										<p style="font-weight: bold;" class="up"><big><strong>+0.00%</strong></big></p>
+										</span>
+										<p class="allcaps font90percent"><strong>Total Equity </strong>
+										</p>
+										<p style="padding-bottom: 10px;"><big><strong>$100,959.01</strong></big></p>
+									</div>
+									<div class="floatleft" style="border-right: 1px dotted rgb(182, 182, 142); margin: 0px 6px 10px 0px; padding: 0px 6px 0px 0px;">
+										<span id="_MonthsReturnSpan">
+										<p class="allcaps font90percent margpadzero"><strong>Month's Return </strong>
+										</p>
+										<p style="font-weight: bold;" class="up"><big><strong>+0.00%</strong></big></p>
+										</span>
+										<p class="allcaps font90percent"><strong>Cash</strong></p>
+										<p style="padding-bottom: 10px;"><big><strong>$62,012.72</strong></big></p>
+									</div>
+									<div class="ancillarydata">
+										<p>Interest Earned: <strong>$0.00</strong></p>
+										<p>Interest Paid: <strong>$0.00</strong></p>
+										<p>Status: <strong>N/A</strong></p>
+										<p>Margin: <strong>$0.00</strong></p>
+										<p>Long Positions: <strong>$38,946.29</strong></p>
+										<p>Short Positions: <strong>$0.00</strong></p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="clearall"></div>						
+						<div style="background: white none repeat scroll 0% 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; height: 20px;"></div>
+						<div id="holdingscontent" style="display: block;">
+						<table id="portfoliotabs" cellpadding="0" cellspacing="0">
+						<tbody><tr>
+							<td><p><a class="portfoliotabon" href="javascript:;">Holdings</a></p></td>
+							<td><p><a href="javascript:;" onclick="swapLayers('performancecontent'); var s=s_gi('djglobal,djvse'); void(s.tl(true, 'o', 'Portfolio Performance'));  return false">Performance</a></p></td>
+							<td><p><a href="javascript:;" onclick="swapLayers('orderscontent'); var s=s_gi('djglobal,djvse'); void(s.tl(true, 'o', 'Portfolio Orders'));  return false">Orders</a></p></td>
+							<td><p><a href="javascript:;" onclick="swapLayers('transhistorycontent'); var s=s_gi('djglobal,djvse'); void(s.tl(true, 'o', 'Portfolio Transactions History')); return false">Transaction History</a></p></td>
+							<td><p><a href="javascript:;" onclick="swapLayers('corphistorycontent'); var s=s_gi('djglobal,djvse'); void(s.tl(true, 'o', 'Portfolio Corporate Action History')); return false">Corporate Actions</a></p></td>
+						</tr>
+						</tbody></table>
+						
+						<table class="gameoverview" id="_HoldingsDataGrid" style="width: 519px; border-collapse: collapse;" border="0" cellpadding="0" cellspacing="0">
+	<tbody><tr>
+		<th scope="col">&nbsp;</th><th scope="col"><p class="textalignleft">Symbol</p></th><th scope="col"><p>Qty</p></th><th scope="col"><p class="textaligncenter">Type</p></th><th scope="col"><p class="textalignright">Change</p></th><th scope="col"><p class="textalignright">Mkt Value</p></th><th scope="col"><p class="textalignright">Last</p></th><th scope="col"><p class="textalignright">Cost</p></th><th scope="col"><p class="textalignright">Gain/<br>Loss</p></th><th scope="col"><p class="textalignright">%Equity</p></th>
+	</tr><tr class="odd">
+		<td><p class="tbox"><a onclick="getElementById('tradewidgetiframe').src='TradeWidget.aspx?view=ViewQuote&amp;Symbol=GE&amp;Shares=762.0000&amp;Type=Long&amp;GameId=jared56';showF('tradewidget');return false" href="javascript:;">t</a></p></td><td>
+									<p class="textalignleft">			
+										<a href="javascript:;" onmouseout='hideLayer("GELong")' onmouseover='showLayer("GELong"); getChart("GELong");' onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=GE','','')">GE</a>							
+										</p><div style="position: relative;">
+											<div onmouseover='showLayer("GELong");' onmouseout='hideLayer("GELong")' style="left: -1px; top: 0px; display: none; position: absolute;" id="GELong">
+												<div class="quotedToolTipBox">
+													<div class="companyName">
+														<strong>General Electric Company</strong>
+													</div>
+													<div style="border-bottom: 1px solid rgb(204, 204, 204); margin: 0pt 3px; padding: 8px 5px;">
+														<a id="_HoldingsDataGrid_ctl02__TradeLink" onclick="getElementById('tradewidgetiframe').src='TradeWidget.aspx?view=ViewQuote&amp;Symbol=GE&amp;Shares=762.0000&amp;Type=Long&amp;GameId=jared56';showF('tradewidget');hideLayer('GELong');return false;" href="javascript:;">Trade</a>, <a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/news.asp?symb=GE','','')">news</a>, <a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/intchart.asp?symb=GE','','')">
+															chart</a>, <a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/profile.asp?symb=GE','','')">profile</a>, <a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=GE','','')">more</a>
+													</div>
+													<div class="quoteData" style="margin: 8px 4px;">
+														Last: <span class="price">
+																<span class="mwlivequotes up realtime" mwfield="Price" mwformat=",2" mwsymbol="GE">12.52</span>
+															</span>
+															<span style="margin-left: 15px;">
+																<span class="mwlivequotes down realtime" mwfield="Change" mwformat="+2" mwsymbol="GE">-0.51</span>
+															</span>
+															<span style="margin-left: 15px;">
+																<span class="mwlivequotes down realtime" mwfield="PercentChange" mwformat="+2%" mwsymbol="GE">-3.91%</span>
+															</span>
+															<br>
+															<span class="liveQuotesDate">
+																<span class="mwlivequotes up realtime" style="margin-top: 6px;" mwfield="Timestamp" mwformat="h:nna/pm mm/dd/yyyy" mwsymbol="GE">11:13am 01/22/2009</span>
+															</span>
+														<div class="font90percent" style="color: rgb(102, 102, 102); margin-top: 8px;">
+														<strong>Chart from transaction date 01/15/2009</strong>
+														</div>
+														<img id="_HoldingsDataGrid_ctl02__Chart" class="quoteTipChart" chartaddress="http://www.marketwatch.com/charts/big.chart?style=1035&amp;size=1&amp;type=256&amp;uf=8192&amp;time=1dy&amp;freq=1mi&amp;symb=GE" src="Portfolio.aspx_files/loading-chart.gif" style="border-width: 0px;" border="0">
+													</div>
+												</div>
+											</div>
+										</div>
+									</td><td><p>762</p></td><td><p class="textaligncenter">L</p>
+									</td><td><p class="textalignright down">-0.38</p></td><td><p class="textalignright">$9,639.30</p></td><td><p class="textalignright">$12.65</p></td><td><p class="textalignright">$13.12</p></td><td><p class="textalignright down">-$358.14</p></td><td><p class="textalignright">9.55</p></td>
+	</tr><tr>
+		<td><p class="tbox"><a onclick="getElementById('tradewidgetiframe').src='TradeWidget.aspx?view=ViewQuote&amp;Symbol=WMT&amp;Shares=200.0000&amp;Type=Long&amp;GameId=jared56';showF('tradewidget');return false" href="javascript:;">t</a></p></td><td>
+									<p class="textalignleft">			
+										<a href="javascript:;" onmouseout='hideLayer("WMTLong")' onmouseover='showLayer("WMTLong"); getChart("WMTLong");' onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=WMT','','')">WMT</a>							
+										</p><div style="position: relative;">
+											<div onmouseover='showLayer("WMTLong");' onmouseout='hideLayer("WMTLong")' style="left: -1px; top: 0px; display: none; position: absolute;" id="WMTLong">
+												<div class="quotedToolTipBox">
+													<div class="companyName">
+														<strong>Wal-Mart Stores, Inc</strong>
+													</div>
+													<div style="border-bottom: 1px solid rgb(204, 204, 204); margin: 0pt 3px; padding: 8px 5px;">
+														<a id="_HoldingsDataGrid_ctl03__TradeLink" onclick="getElementById('tradewidgetiframe').src='TradeWidget.aspx?view=ViewQuote&amp;Symbol=WMT&amp;Shares=200.0000&amp;Type=Long&amp;GameId=jared56';showF('tradewidget');hideLayer('WMTLong');return false;" href="javascript:;">Trade</a>, <a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/news.asp?symb=WMT','','')">news</a>, <a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/intchart.asp?symb=WMT','','')">
+															chart</a>, <a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/profile.asp?symb=WMT','','')">profile</a>, <a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=WMT','','')">more</a>
+													</div>
+													<div class="quoteData" style="margin: 8px 4px;">
+														Last: <span class="price">
+																<span class="mwlivequotes up realtime" mwfield="Price" mwformat=",2" mwsymbol="WMT">48.39</span>
+															</span>
+															<span style="margin-left: 15px;">
+																<span class="mwlivequotes down realtime" mwfield="Change" mwformat="+2" mwsymbol="WMT">-0.75</span>
+															</span>
+															<span style="margin-left: 15px;">
+																<span class="mwlivequotes down realtime" mwfield="PercentChange" mwformat="+2%" mwsymbol="WMT">-1.53%</span>
+															</span>
+															<br>
+															<span class="liveQuotesDate">
+																<span class="mwlivequotes up realtime" style="margin-top: 6px;" mwfield="Timestamp" mwformat="h:nna/pm mm/dd/yyyy" mwsymbol="WMT">11:12am 01/22/2009</span>
+															</span>
+														<div class="font90percent" style="color: rgb(102, 102, 102); margin-top: 8px;">
+														<strong>Chart from transaction date 01/15/2009</strong>
+														</div>
+														<img id="_HoldingsDataGrid_ctl03__Chart" class="quoteTipChart" chartaddress="http://www.marketwatch.com/charts/big.chart?style=1035&amp;size=1&amp;type=256&amp;uf=8192&amp;time=1dy&amp;freq=1mi&amp;symb=WMT" src="Portfolio.aspx_files/loading-chart.gif" style="border-width: 0px;" border="0">
+													</div>
+												</div>
+											</div>
+										</div>
+									</td><td><p>200</p></td><td><p class="textaligncenter">L</p>
+									</td><td><p class="textalignright down">-0.66</p></td><td><p class="textalignright">$9,698.00</p></td><td><p class="textalignright">$48.49</p></td><td><p class="textalignright">$48.70</p></td><td><p class="textalignright down">-$42.00</p></td><td><p class="textalignright">9.61</p></td>
+	</tr><tr class="odd">
+		<td><p class="tbox"><a onclick="getElementById('tradewidgetiframe').src='TradeWidget.aspx?view=ViewQuote&amp;Symbol=INTC&amp;Shares=769.0000&amp;Type=Long&amp;GameId=jared56';showF('tradewidget');return false" href="javascript:;">t</a></p></td><td>
+									<p class="textalignleft">			
+										<a href="javascript:;" onmouseout='hideLayer("INTCLong")' onmouseover='showLayer("INTCLong"); getChart("INTCLong");' onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=INTC','','')">INTC</a>							
+										</p><div style="position: relative;">
+											<div onmouseover='showLayer("INTCLong");' onmouseout='hideLayer("INTCLong")' style="left: -1px; top: 0px; display: none; position: absolute;" id="INTCLong">
+												<div class="quotedToolTipBox">
+													<div class="companyName">
+														<strong>Intel Corporation</strong>
+													</div>
+													<div style="border-bottom: 1px solid rgb(204, 204, 204); margin: 0pt 3px; padding: 8px 5px;">
+														<a id="_HoldingsDataGrid_ctl04__TradeLink" onclick="getElementById('tradewidgetiframe').src='TradeWidget.aspx?view=ViewQuote&amp;Symbol=INTC&amp;Shares=769.0000&amp;Type=Long&amp;GameId=jared56';showF('tradewidget');hideLayer('INTCLong');return false;" href="javascript:;">Trade</a>, <a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/news.asp?symb=INTC','','')">news</a>, <a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/intchart.asp?symb=INTC','','')">
+															chart</a>, <a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/profile.asp?symb=INTC','','')">profile</a>, <a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=INTC','','')">more</a>
+													</div>
+													<div class="quoteData" style="margin: 8px 4px;">
+														Last: <span class="price">
+																<span class="mwlivequotes up realtime" mwfield="Price" mwformat=",2" mwsymbol="INTC">12.68</span>
+															</span>
+															<span style="margin-left: 15px;">
+																<span class="mwlivequotes down realtime" mwfield="Change" mwformat="+2" mwsymbol="INTC">-0.58</span>
+															</span>
+															<span style="margin-left: 15px;">
+																<span class="mwlivequotes down realtime" mwfield="PercentChange" mwformat="+2%" mwsymbol="INTC">-4.37%</span>
+															</span>
+															<br>
+															<span class="liveQuotesDate">
+																<span class="mwlivequotes up realtime" style="margin-top: 6px;" mwfield="Timestamp" mwformat="h:nna/pm mm/dd/yyyy" mwsymbol="INTC">11:12am 01/22/2009</span>
+															</span>
+														<div class="font90percent" style="color: rgb(102, 102, 102); margin-top: 8px;">
+														<strong>Chart from transaction date 01/15/2009</strong>
+														</div>
+														<img id="_HoldingsDataGrid_ctl04__Chart" class="quoteTipChart" chartaddress="http://www.marketwatch.com/charts/big.chart?style=1035&amp;size=1&amp;type=256&amp;uf=8192&amp;time=1dy&amp;freq=1mi&amp;symb=INTC" src="Portfolio.aspx_files/loading-chart.gif" style="border-width: 0px;" border="0">
+													</div>
+												</div>
+											</div>
+										</div>
+									</td><td><p>769</p></td><td><p class="textaligncenter">L</p>
+									</td><td><p class="textalignright down">-0.56</p></td><td><p class="textalignright">$9,773.99</p></td><td><p class="textalignright">$12.71</p></td><td><p class="textalignright">$13.07</p></td><td><p class="textalignright down">-$276.76</p></td><td><p class="textalignright">9.68</p></td>
+	</tr><tr>
+		<td><p class="tbox"><a onclick="getElementById('tradewidgetiframe').src='TradeWidget.aspx?view=ViewQuote&amp;Symbol=JNJ&amp;Shares=175.0000&amp;Type=Long&amp;GameId=jared56';showF('tradewidget');return false" href="javascript:;">t</a></p></td><td>
+									<p class="textalignleft">			
+										<a href="javascript:;" onmouseout='hideLayer("JNJLong")' onmouseover='showLayer("JNJLong"); getChart("JNJLong");' onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=JNJ','','')">JNJ</a>							
+										</p><div style="position: relative;">
+											<div onmouseover='showLayer("JNJLong");' onmouseout='hideLayer("JNJLong")' style="left: -1px; top: 0px; display: none; position: absolute;" id="JNJLong">
+												<div class="quotedToolTipBox">
+													<div class="companyName">
+														<strong>Johnson &amp; Johnson</strong>
+													</div>
+													<div style="border-bottom: 1px solid rgb(204, 204, 204); margin: 0pt 3px; padding: 8px 5px;">
+														<a id="_HoldingsDataGrid_ctl05__TradeLink" onclick="getElementById('tradewidgetiframe').src='TradeWidget.aspx?view=ViewQuote&amp;Symbol=JNJ&amp;Shares=175.0000&amp;Type=Long&amp;GameId=jared56';showF('tradewidget');hideLayer('JNJLong');return false;" href="javascript:;">Trade</a>, <a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/news.asp?symb=JNJ','','')">news</a>, <a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/intchart.asp?symb=JNJ','','')">
+															chart</a>, <a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/profile.asp?symb=JNJ','','')">profile</a>, <a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=JNJ','','')">more</a>
+													</div>
+													<div class="quoteData" style="margin: 8px 4px;">
+														Last: <span class="price">
+																<span class="mwlivequotes up realtime" mwfield="Price" mwformat=",2" mwsymbol="JNJ">56.20</span>
+															</span>
+															<span style="margin-left: 15px;">
+																<span class="mwlivequotes down realtime" mwfield="Change" mwformat="+2" mwsymbol="JNJ">-0.16</span>
+															</span>
+															<span style="margin-left: 15px;">
+																<span class="mwlivequotes down realtime" mwfield="PercentChange" mwformat="+2%" mwsymbol="JNJ">-0.29%</span>
+															</span>
+															<br>
+															<span class="liveQuotesDate">
+																<span class="mwlivequotes up realtime" style="margin-top: 6px;" mwfield="Timestamp" mwformat="h:nna/pm mm/dd/yyyy" mwsymbol="JNJ">11:12am 01/22/2009</span>
+															</span>
+														<div class="font90percent" style="color: rgb(102, 102, 102); margin-top: 8px;">
+														<strong>Chart from transaction date 01/15/2009</strong>
+														</div>
+														<img id="_HoldingsDataGrid_ctl05__Chart" class="quoteTipChart" chartaddress="http://www.marketwatch.com/charts/big.chart?style=1035&amp;size=1&amp;type=256&amp;uf=8192&amp;time=1dy&amp;freq=1mi&amp;symb=JNJ" src="Portfolio.aspx_files/loading-chart.gif" style="border-width: 0px;" border="0">
+													</div>
+												</div>
+											</div>
+										</div>
+									</td><td><p>175</p></td><td><p class="textaligncenter">L</p>
+									</td><td><p class="textalignright down">-0.15</p></td><td><p class="textalignright">$9,835.00</p></td><td><p class="textalignright">$56.20</p></td><td><p class="textalignright">$57.45</p></td><td><p class="textalignright down">-$218.75</p></td><td><p class="textalignright">9.74</p></td>
+	</tr>
+</tbody></table>	
+						<p class="font80percent" style="margin: 4px 10px;">As of 1/22/2009</p>
+					</div>
+					<div id="performancecontent" style="display: none;">
+						<table id="portfoliotabs" cellpadding="0" cellspacing="0">
+						<tbody><tr>
+							<td><p><a href="javascript:;" onclick="swapLayers('holdingscontent'); var s=s_gi('djglobal,djvse'); void(s.tl(true, 'o', 'Portfolio Holdings')); return false">Holdings</a></p></td>
+							<td><p><a class="portfoliotabon" href="javascript:;">Performance</a></p></td>
+							<td><p><a href="javascript:;" onclick="swapLayers('orderscontent'); var s=s_gi('djglobal,djvse'); void(s.tl(true, 'o', 'Portfolio Orders')); return false">Orders</a></p></td>
+							<td><p><a href="javascript:;" onclick="swapLayers('transhistorycontent'); var s=s_gi('djglobal,djvse'); void(s.tl(true, 'o', 'Portfolio Transactions History')); return false">Transaction History</a></p></td>
+							<td><p><a href="javascript:;" onclick="swapLayers('corphistorycontent'); var s=s_gi('djglobal,djvse'); void(s.tl(true, 'o', 'Portfolio Corporate Action History')); return false">Corporate Actions</a></p></td>
+						</tr>
+						</tbody></table>
+						<p class="font80percent" style="padding: 5px;">Performance history in the last 40 days</p>
+						<!--<div style="background: #B6B68E; height: 24px; margin: 0; padding: 5px 10px 0;">
+						<p class="font80percent floatleft" style="color: white; vertical-align: middle; margin-right: 25px;">Begin Date: <input style="font: 10px/10px normal normal Geneva, Arial, Helvetica, sans-serif; width: 100px;" name="textfield" type="text" size="10" />
+						</p>
+						<p class="font80percent floatleft" style="color: white; vertical-align: middle;">End Date: <input style="font: 10px/10px normal normal Geneva, Arial, Helvetica, sans-serif; width: 100px;" name="textfield" type="text" size="10" />
+						</p>
+						</div>-->
+						<table class="gameoverview" id="_PerformanceDataGrid" style="width: 519px; border-collapse: collapse;" border="0" cellpadding="0" cellspacing="0">
+	<tbody><tr>
+		<th scope="col">
+									<p class="textalignleft">
+										Date
+									</p>
+									</th><th scope="col">
+										<p>Long Value</p>
+									</th><th scope="col">
+										<p class="textalignright">
+											Short Value
+										</p>
+									</th><th scope="col">
+										<p class="textaligncenter">
+											Cash
+										</p>
+									</th><th scope="col">
+										<p class="textalignright">
+											Total Equity
+										</p>
+									</th><th scope="col"><p class="textalignright">Return</p>
+									</th>
+	</tr><tr class="odd">
+		<td>
+										<p class="textalignleft">1/16/09</p>
+									</td><td>
+										<p>$41,627.11</p>
+									</td><td>
+										<p class="textalignright">$0.00</p>
+									</td><td>
+										<p class="textaligncenter">$60,518.05</p>
+									</td><td>
+										<p class="textalignright">$102,145.16</p>
+									</td><td>
+										<p class="textalignright">+2.15%</p>
+									</td>
+	</tr><tr>
+		<td>
+										<p class="textalignleft">1/17/09</p>
+									</td><td>
+										<p>$41,627.11</p>
+									</td><td>
+										<p class="textalignright">$0.00</p>
+									</td><td>
+										<p class="textaligncenter">$60,518.05</p>
+									</td><td>
+										<p class="textalignright">$102,145.16</p>
+									</td><td>
+										<p class="textalignright">+2.15%</p>
+									</td>
+	</tr><tr class="odd">
+		<td>
+										<p class="textalignleft">1/18/09</p>
+									</td><td>
+										<p>$41,627.11</p>
+									</td><td>
+										<p class="textalignright">$0.00</p>
+									</td><td>
+										<p class="textaligncenter">$60,518.05</p>
+									</td><td>
+										<p class="textalignright">$102,145.16</p>
+									</td><td>
+										<p class="textalignright">+2.15%</p>
+									</td>
+	</tr><tr>
+		<td>
+										<p class="textalignleft">1/19/09</p>
+									</td><td>
+										<p>$41,627.11</p>
+									</td><td>
+										<p class="textalignright">$0.00</p>
+									</td><td>
+										<p class="textaligncenter">$60,518.05</p>
+									</td><td>
+										<p class="textalignright">$102,145.16</p>
+									</td><td>
+										<p class="textalignright">+2.15%</p>
+									</td>
+	</tr><tr class="odd">
+		<td>
+										<p class="textalignleft">1/20/09</p>
+									</td><td>
+										<p>$49,638.75</p>
+									</td><td>
+										<p class="textalignright">$0.00</p>
+									</td><td>
+										<p class="textaligncenter">$50,903.51</p>
+									</td><td>
+										<p class="textalignright">$100,542.26</p>
+									</td><td>
+										<p class="textalignright">+0.54%</p>
+									</td>
+	</tr><tr>
+		<td>
+										<p class="textalignleft">1/21/09</p>
+									</td><td>
+										<p>$39,816.80</p>
+									</td><td>
+										<p class="textalignright">$0.00</p>
+									</td><td>
+										<p class="textaligncenter">$62,012.72</p>
+									</td><td>
+										<p class="textalignright">$101,829.52</p>
+									</td><td>
+										<p class="textalignright">+1.83%</p>
+									</td>
+	</tr>
+</tbody></table>	
+					</div>
+					<div id="orderscontent" style="display: none;">
+						<table id="portfoliotabs" cellpadding="0" cellspacing="0">
+						<tbody><tr>
+							<td><p><a href="javascript:;" onclick="swapLayers('holdingscontent'); var s=s_gi('djglobal,djvse'); void(s.tl(true, 'o', 'Portfolio Holdings')); return false">Holdings</a></p></td>
+							<td><p><a href="javascript:;" onclick="swapLayers('performancecontent'); var s=s_gi('djglobal,djvse'); void(s.tl(true, 'o', 'Portfolio Performance')); return false">Performance</a></p></td>
+							<td><p><a class="portfoliotabon" href="javascript:;">Orders</a></p></td>
+							<td><p><a href="javascript:;" onclick="swapLayers('transhistorycontent'); var s=s_gi('djglobal,djvse'); void(s.tl(true, 'o', 'Portfolio Transactions History')); return false">Transaction History</a></p></td>
+							<td><p><a href="javascript:;" onclick="swapLayers('corphistorycontent'); var s=s_gi('djglobal,djvse'); void(s.tl(true, 'o', 'Portfolio Corporate Action History')); return false">Corporate Actions</a></p></td>
+						</tr>
+						</tbody></table>
+						<table class="gameoverview" id="_OrdersDataGrid" style="width: 519px; border-collapse: collapse;" border="0" cellpadding="0" cellspacing="0">
+	<tbody><tr>
+		<th scope="col">
+									<p class="textalignleft">
+										Order #
+									</p>
+									</th><th scope="col">
+										<p class="textaligncenter">Order Date &amp; Time</p>
+									</th><th scope="col">
+										<p class="textaligncenter">Duration</p>
+									</th><th scope="col">
+										<p class="textaligncenter">Transaction</p>
+									</th><th scope="col">
+										<p class="textaligncenter">Symbol</p>
+									</th><th scope="col"><p class="textaligncenter">
+										Quantity</p>
+									</th><th scope="col">
+										<p class="textaligncenter">Order Price
+										</p>
+									</th><th scope="col">
+										<p class="textaligncenter">Order Status</p>
+									</th>
+	</tr><tr class="odd">
+		<td>
+										<p class="textalignleft">35950118</p>
+									</td><td>
+										<p>1/21/09 2:30 PM</p>
+									</td><td>
+										<p class="textaligncenter">Day Order</p>
+									</td><td>
+										<p class="textaligncenter">Sell</p>
+									</td><td>
+										<p class="textaligncenter"></p><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=NOK','','')">NOK</a></p><p></p>
+									</td><td>
+										<p class="textalignright">800.00</p>
+									</td><td>
+										<p class="textaligncenter">Market</p>
+									</td><td>
+										<p class="textaligncenter">Complete </p>
+									</td>
+	</tr><tr>
+		<td>
+										<p class="textalignleft">35949400</p>
+									</td><td>
+										<p>1/21/09 2:22 PM</p>
+									</td><td>
+										<p class="textaligncenter">Day Order</p>
+									</td><td>
+										<p class="textaligncenter">Buy</p>
+									</td><td>
+										<p class="textaligncenter"></p><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=WMT','','')">WMT</a></p><p></p>
+									</td><td>
+										<p class="textalignright">200.00</p>
+									</td><td>
+										<p class="textaligncenter">Market</p>
+									</td><td>
+										<p class="textaligncenter">Complete </p>
+									</td>
+	</tr><tr class="odd">
+		<td>
+										<p class="textalignleft">35949308</p>
+									</td><td>
+										<p>1/21/09 2:21 PM</p>
+									</td><td>
+										<p class="textaligncenter">Day Order</p>
+									</td><td>
+										<p class="textaligncenter">Sell</p>
+									</td><td>
+										<p class="textaligncenter"></p><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=GOOG','','')">GOOG</a></p><p></p>
+									</td><td>
+										<p class="textalignright">34.00</p>
+									</td><td>
+										<p class="textaligncenter">Market</p>
+									</td><td>
+										<p class="textaligncenter">Complete </p>
+									</td>
+	</tr><tr>
+		<td>
+										<p class="textalignleft">35905192</p>
+									</td><td>
+										<p>1/20/09 4:03 PM</p>
+									</td><td>
+										<p class="textaligncenter">Day Order</p>
+									</td><td>
+										<p class="textaligncenter">Buy</p>
+									</td><td>
+										<p class="textaligncenter"></p><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=NOK','','')">NOK</a></p><p></p>
+									</td><td>
+										<p class="textalignright">800.00</p>
+									</td><td>
+										<p class="textaligncenter">Market</p>
+									</td><td>
+										<p class="textaligncenter">Complete </p>
+									</td>
+	</tr><tr class="odd">
+		<td>
+										<p class="textalignleft">35905126</p>
+									</td><td>
+										<p>1/20/09 4:02 PM</p>
+									</td><td>
+										<p class="textaligncenter">Day Order</p>
+									</td><td>
+										<p class="textaligncenter">Buy</p>
+									</td><td>
+										<p class="textaligncenter"></p><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=GOOG','','')">GOOG</a></p><p></p>
+									</td><td>
+										<p class="textalignright">34.00</p>
+									</td><td>
+										<p class="textaligncenter">Market</p>
+									</td><td>
+										<p class="textaligncenter">Complete </p>
+									</td>
+	</tr><tr>
+		<td>
+										<p class="textalignleft">35880786</p>
+									</td><td>
+										<p>1/20/09 11:08 AM</p>
+									</td><td>
+										<p class="textaligncenter">Day Order</p>
+									</td><td>
+										<p class="textaligncenter">Sell</p>
+									</td><td>
+										<p class="textaligncenter"></p><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=Q','','')">Q</a></p><p></p>
+									</td><td>
+										<p class="textalignright">2873.00</p>
+									</td><td>
+										<p class="textaligncenter">Market</p>
+									</td><td>
+										<p class="textaligncenter">Complete </p>
+									</td>
+	</tr><tr class="odd">
+		<td>
+										<p class="textalignleft">35815570</p>
+									</td><td>
+										<p>1/16/09 12:53 PM</p>
+									</td><td>
+										<p class="textaligncenter">Day Order</p>
+									</td><td>
+										<p class="textaligncenter">Buy</p>
+									</td><td>
+										<p class="textaligncenter"></p><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=GE','','')">GE</a></p><p></p>
+									</td><td>
+										<p class="textalignright">762.00</p>
+									</td><td>
+										<p class="textaligncenter">Market</p>
+									</td><td>
+										<p class="textaligncenter">Complete </p>
+									</td>
+	</tr><tr>
+		<td>
+										<p class="textalignleft">35815432</p>
+									</td><td>
+										<p>1/16/09 12:52 PM</p>
+									</td><td>
+										<p class="textaligncenter">Day Order</p>
+									</td><td>
+										<p class="textaligncenter">Buy</p>
+									</td><td>
+										<p class="textaligncenter"></p><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=Q','','')">Q</a></p><p></p>
+									</td><td>
+										<p class="textalignright">2873.00</p>
+									</td><td>
+										<p class="textaligncenter">Market</p>
+									</td><td>
+										<p class="textaligncenter">Complete </p>
+									</td>
+	</tr><tr class="odd">
+		<td>
+										<p class="textalignleft">35775348</p>
+									</td><td>
+										<p>1/16/09 9:50 AM</p>
+									</td><td>
+										<p class="textaligncenter">Day Order</p>
+									</td><td>
+										<p class="textaligncenter">Sell</p>
+									</td><td>
+										<p class="textaligncenter"></p><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=Q','','')">Q</a></p><p></p>
+									</td><td>
+										<p class="textalignright">2950.00</p>
+									</td><td>
+										<p class="textaligncenter">Limit at $3.55</p>
+									</td><td>
+										<p class="textaligncenter">Complete </p>
+									</td>
+	</tr><tr>
+		<td>
+										<p class="textalignleft">35759212</p>
+									</td><td>
+										<p>1/15/09 2:08 PM</p>
+									</td><td>
+										<p class="textaligncenter">Day Order</p>
+									</td><td>
+										<p class="textaligncenter">Buy</p>
+									</td><td>
+										<p class="textaligncenter"></p><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=JNJ','','')">JNJ</a></p><p></p>
+									</td><td>
+										<p class="textalignright">175.00</p>
+									</td><td>
+										<p class="textaligncenter">Market</p>
+									</td><td>
+										<p class="textaligncenter">Complete </p>
+									</td>
+	</tr><tr class="odd">
+		<td>
+										<p class="textalignleft">35759090</p>
+									</td><td>
+										<p>1/15/09 2:08 PM</p>
+									</td><td>
+										<p class="textaligncenter">Day Order</p>
+									</td><td>
+										<p class="textaligncenter">Buy</p>
+									</td><td>
+										<p class="textaligncenter"></p><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=INTC','','')">INTC</a></p><p></p>
+									</td><td>
+										<p class="textalignright">769.00</p>
+									</td><td>
+										<p class="textaligncenter">Market</p>
+									</td><td>
+										<p class="textaligncenter">Complete </p>
+									</td>
+	</tr><tr>
+		<td>
+										<p class="textalignleft">35759010</p>
+									</td><td>
+										<p>1/15/09 2:07 PM</p>
+									</td><td>
+										<p class="textaligncenter">Day Order</p>
+									</td><td>
+										<p class="textaligncenter">Buy</p>
+									</td><td>
+										<p class="textaligncenter"></p><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=Q','','')">Q</a></p><p></p>
+									</td><td>
+										<p class="textalignright">2950.00</p>
+									</td><td>
+										<p class="textaligncenter">Market</p>
+									</td><td>
+										<p class="textaligncenter">Complete </p>
+									</td>
+	</tr>
+</tbody></table>	
+				</div>
+				<div id="transhistorycontent" style="display: none;">
+					<table id="portfoliotabs" cellpadding="0" cellspacing="0">
+					<tbody><tr>
+						<td><p><a href="javascript:;" onclick="swapLayers('holdingscontent'); var s=s_gi('djglobal,djvse'); void(s.tl(true, 'o', 'Portfolio Holdings')); return false">Holdings</a></p></td>
+						<td><p><a href="javascript:;" onclick="swapLayers('performancecontent'); var s=s_gi('djglobal,djvse'); void(s.tl(true, 'o', 'Portfolio Performance')); return false">Performance</a></p></td>
+						<td><p><a href="javascript:;" onclick="swapLayers('orderscontent'); var s=s_gi('djglobal,djvse'); void(s.tl(true, 'o', 'Portfolio Orders')); return false">Orders</a></p></td>
+						<td><p><a class="portfoliotabon" href="javascript:;">Transaction History</a></p></td>
+						<td><p><a href="javascript:;" onclick="swapLayers('corphistorycontent'); var s=s_gi('djglobal,djvse'); void(s.tl(true, 'o', 'Portfolio Corporate Action History')); return false">Corporate Actions</a></p></td>
+					</tr>
+					</tbody></table>
+						<p class="font80percent" style="padding: 5px;">Transactions in the last 40 days</p>
+						<table class="gameoverview" id="_transactionHistoryDataGrid" style="width: 519px; border-collapse: collapse;" border="0" cellpadding="0" cellspacing="0">
+	<tbody><tr>
+		<th scope="col">
+									<p class="textalignleft">Order #</p></th><th scope="col"><p class="textaligncenter">Order Date &amp; Time</p></th><th scope="col"><p class="textaligncenter">Trans. Date &amp; Time</p></th><th scope="col"><p class="textaligncenter">Type</p></th><th scope="col"><p class="textalignleft">Symbol</p></th><th scope="col"><p class="textaligncenter">Qty</p></th><th scope="col"><p class="textalignright">Order Price</p></th><th scope="col"><p class="textalignright">Exec Price</p></th><th scope="col"><p class="textalignright">Com.</p></th>
+	</tr><tr class="odd">
+		<td><p class="textalignleft">35950118</p></td><td><p>1/21/09 2:10 PM</p></td><td><p>1/21/09 2:30 PM</p></td><td><p class="textaligncenter">Sell</p></td><td><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=NOK','','')">NOK</a></p></td><td><p class="textaligncenter">800</p></td><td><p class="textalignright">Market</p></td><td><p class="textalignright">$13.43</p></td><td><p class="textalignright">$9.95</p></td>
+	</tr><tr>
+		<td><p class="textalignleft">35949400</p></td><td><p>1/21/09 2:02 PM</p></td><td><p>1/21/09 2:22 PM</p></td><td><p class="textaligncenter">Buy</p></td><td><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=WMT','','')">WMT</a></p></td><td><p class="textaligncenter">200</p></td><td><p class="textalignright">Market</p></td><td><p class="textalignright">$48.70</p></td><td><p class="textalignright">$9.95</p></td>
+	</tr><tr class="odd">
+		<td><p class="textalignleft">35949308</p></td><td><p>1/21/09 2:01 PM</p></td><td><p>1/21/09 2:21 PM</p></td><td><p class="textaligncenter">Sell</p></td><td><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=GOOG','','')">GOOG</a></p></td><td><p class="textaligncenter">34</p></td><td><p class="textalignright">Market</p></td><td><p class="textalignright">$298.09</p></td><td><p class="textalignright">$9.95</p></td>
+	</tr><tr>
+		<td><p class="textalignleft">35905192</p></td><td><p>1/20/09 3:43 PM</p></td><td><p>1/20/09 4:03 PM</p></td><td><p class="textaligncenter">Buy</p></td><td><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=NOK','','')">NOK</a></p></td><td><p class="textaligncenter">800</p></td><td><p class="textalignright">Market</p></td><td><p class="textalignright">$13.01</p></td><td><p class="textalignright">$9.95</p></td>
+	</tr><tr class="odd">
+		<td><p class="textalignleft">35905126</p></td><td><p>1/20/09 3:42 PM</p></td><td><p>1/20/09 4:02 PM</p></td><td><p class="textaligncenter">Buy</p></td><td><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=GOOG','','')">GOOG</a></p></td><td><p class="textaligncenter">34</p></td><td><p class="textalignright">Market</p></td><td><p class="textalignright">$285.90</p></td><td><p class="textalignright">$9.95</p></td>
+	</tr><tr>
+		<td><p class="textalignleft">35880786</p></td><td><p>1/20/09 10:48 AM</p></td><td><p>1/20/09 11:08 AM</p></td><td><p class="textaligncenter">Sell</p></td><td><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=Q','','')">Q</a></p></td><td><p class="textaligncenter">2,873</p></td><td><p class="textalignright">Market</p></td><td><p class="textalignright">$3.67</p></td><td><p class="textalignright">$9.95</p></td>
+	</tr><tr class="odd">
+		<td><p class="textalignleft">35815570</p></td><td><p>1/16/09 12:33 PM</p></td><td><p>1/16/09 12:53 PM</p></td><td><p class="textaligncenter">Buy</p></td><td><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=GE','','')">GE</a></p></td><td><p class="textaligncenter">762</p></td><td><p class="textalignright">Market</p></td><td><p class="textalignright">$13.12</p></td><td><p class="textalignright">$9.95</p></td>
+	</tr><tr>
+		<td><p class="textalignleft">35815432</p></td><td><p>1/16/09 12:32 PM</p></td><td><p>1/16/09 12:52 PM</p></td><td><p class="textaligncenter">Buy</p></td><td><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=Q','','')">Q</a></p></td><td><p class="textaligncenter">2,873</p></td><td><p class="textalignright">Market</p></td><td><p class="textalignright">$3.47</p></td><td><p class="textalignright">$9.95</p></td>
+	</tr><tr class="odd">
+		<td><p class="textalignleft">35775348</p></td><td><p>1/15/09 4:05 PM</p></td><td><p>1/16/09 9:50 AM</p></td><td><p class="textaligncenter">Sell</p></td><td><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=Q','','')">Q</a></p></td><td><p class="textaligncenter">2,950</p></td><td><p class="textalignright">Limit at $3.55</p></td><td><p class="textalignright">$3.63</p></td><td><p class="textalignright">$9.95</p></td>
+	</tr><tr>
+		<td><p class="textalignleft">35759212</p></td><td><p>1/15/09 1:48 PM</p></td><td><p>1/15/09 2:08 PM</p></td><td><p class="textaligncenter">Buy</p></td><td><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=JNJ','','')">JNJ</a></p></td><td><p class="textaligncenter">175</p></td><td><p class="textalignright">Market</p></td><td><p class="textalignright">$57.45</p></td><td><p class="textalignright">$9.95</p></td>
+	</tr><tr class="odd">
+		<td><p class="textalignleft">35759090</p></td><td><p>1/15/09 1:47 PM</p></td><td><p>1/15/09 2:08 PM</p></td><td><p class="textaligncenter">Buy</p></td><td><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=INTC','','')">INTC</a></p></td><td><p class="textaligncenter">769</p></td><td><p class="textalignright">Market</p></td><td><p class="textalignright">$13.07</p></td><td><p class="textalignright">$9.95</p></td>
+	</tr><tr>
+		<td><p class="textalignleft">35759010</p></td><td><p>1/15/09 1:47 PM</p></td><td><p>1/15/09 2:07 PM</p></td><td><p class="textaligncenter">Buy</p></td><td><p class="textalignleft"><a href="javascript:;" onclick="MM_openBrWindow ('http://www.marketwatch.com/tools/quotes/quotes.asp?symb=Q','','')">Q</a></p></td><td><p class="textaligncenter">2,950</p></td><td><p class="textalignright">Market</p></td><td><p class="textalignright">$3.41</p></td><td><p class="textalignright">$9.95</p></td>
+	</tr>
+</tbody></table>
+					</div>
+				<div id="corphistorycontent" style="display: none;">
+					<table id="portfoliotabs" cellpadding="0" cellspacing="0">
+					<tbody><tr>
+						<td><p><a href="javascript:;" onclick="swapLayers('holdingscontent'); var s=s_gi('djglobal,djvse'); void(s.tl(true, 'o', 'Portfolio Holdings')); return false">Holdings</a></p></td>
+						<td><p><a href="javascript:;" onclick="swapLayers('performancecontent'); var s=s_gi('djglobal,djvse'); void(s.tl(true, 'o', 'Portfolio Performance')); return false">Performance</a></p></td>
+						<td><p><a href="javascript:;" onclick="swapLayers('orderscontent'); var s=s_gi('djglobal,djvse'); void(s.tl(true, 'o', 'Portfolio Orders')); return false">Orders</a></p></td>
+						<td><p><a href="javascript:;" onclick="swapLayers('transhistorycontent'); var s=s_gi('djglobal,djvse'); void(s.tl(true, 'o', 'Portfolio Transactions History')); return false">Transaction History</a></p></td>
+						<td><p><a class="portfoliotabon" href="javascript:;">Corporate Actions</a></p></td>
+					</tr>
+					</tbody></table>
+						<p class="font80percent" style="padding: 5px;">Corporate Actions in the last 40 days</p>
+						<table class="gameoverview" id="_corporateHistoryDataGrid" style="width: 519px; border-collapse: collapse;" border="0" cellpadding="0" cellspacing="0">
+	<tbody><tr>
+		<th scope="col"><p class="textalignleft">Type</p></th><th scope="col"><p class="textalignleft">Trans. Date &amp; Time</p></th><th scope="col"><p class="textalignleft">Symbol</p></th><th scope="col"><p class="textalignleft">Qty</p></th><th scope="col"><p class="textalignleft">Price</p></th><th scope="col"><p class="textalignleft">Info</p></th>
+	</tr>
+</tbody></table>
+					</div>
+<!-- *********************************************************END OF BLOCL -->
+						
+											
+						
+						<div style="background: white none repeat scroll 0% 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; height: 20px;"></div>
+						<h2>News</h2>
+						
+						<style>
+							#NewsControl{}
+							#NewsControl .heading {padding: 5px 10px; font-weight:bold;float:left; background: #D3D3B2; width: 499px; border-bottom: 1px solid white;}
+							#NewsControl .symbolList{font-weight:bold;color:#006DC1;margin-left:3px;}
+							#NewsControl .spanSplit{height:10px;}
+							
+							#NewsControl .timestamp{float:left;width:75px;}
+							#NewsControl .symbolMatch{float:left;width:40px;}
+							#NewsControl .headline{margin: 5px 0; padding: 5px 10px; border-bottom: 1px solid white;}
+							#NewsControl .headlineLink{float:left;width:375px;}
+							#NewsControl .attribution{float:left;width:375px;}
+							
+							#MarketNewsModule{border:solid 1px black;background:#ffffff;margin:0 12px 0 12px}
+							#MarketNewsModule .stockIndexes{font-weight:bold}
+							
+							#MarketNewsModule .index{border-top:solid 1px black;padding:5px 0 0px 0;margin-top:5px;clear:both;}
+							#MarketNewsModule .indices{padding:0px 0 0px 0 ;clear:both;}
+						
+							#MarketNewsModule .symbol{float:left;width:70px;}
+							#MarketNewsModule .indexprice{color:black;font-weight:normal;float:left; width:80px;  text-align:right;}
+							#MarketNewsModule .indexprice .mwlivequotes.up{color:black;font-weight:normal;text-align:right;}
+							#MarketNewsModule .indexchange{float:right;}
+							#MarketNewsModule .indexchange .mwlivequotes{}
+	
+							
+							#MarketNewsModule .mwlivequotes.tradeup { background: #DDFFDD; }
+							#MarketNewsModule .mwlivequotes.tradedown { background: #FFDDDD; }
+							
+							#MarketNewsModule .topNews{clear:both;border-top:solid 1px black;margin-top:5px;}
+							#MarketNewsModule .headlineAbstract{}
+							#MarketNewsModule .headline{padding-top:5px;}
+							#MarketNewsModule .headlineLink{}
+							.paidNews { padding: 3px 10px 6px; }
+							/* putting this here to get me roolling thinking we may switch this. */
+							#column3 h2{ margin:0 5px  0 5px; padding: 3px 10px 2px; background: #000000; font-size: 100%; color: white; text-transform: uppercase;}
+						</style>
+						
+						<div id="NewsControl">
+							<div id="newsHeadlines_headlinePanel">
+	
+	<div id="newsHeadlines_headlineHeading" class="heading">News for</div>
+	<span id="newsHeadlines_headlineSymbols" class="symbolList">GE, WMT, INTC, JNJ</span>
+	<div class="clearall"></div>
+<div class="headline"><div class="timestamp">11:01 AM</div><div class="symbolMatch"><div>INTC</div></div><div class="headlineLink"><a href="http://www.marketwatch.com/news/story/thursdays-biggest-gaining-declining-stocks/story.aspx?guid=%7B9F966394%2D8D25%2D4053%2DAEBD%2DC86A2BBC21FB%7D" target="_blank">Thursday's biggest gaining and declining stocks</a><div class="attribution">[MarketWatch.com]</div></div><div class="clearall"></div></div><div class="headline"><div class="timestamp">10:44 AM</div><div class="symbolMatch"><div>INTC</div></div><div class="headlineLink"><a href="http://www.marketwatch.com/news/story/microsoft-losses-lead-broad-tech/story.aspx?guid=%7B22EE3EA5%2D1F48%2D402C%2DA492%2D10FBA78AE6CF%7D" target="_blank">Microsoft losses lead broad tech retreat</a><div class="attribution">[MarketWatch.com]</div></div><div class="clearall"></div></div><div class="headline"><div class="timestamp">10:30 AM</div><div class="symbolMatch"><div>GE</div></div><div class="headlineLink"><a href="http://www.marketwatch.com/news/story/benjamin-button-leads-pack-oscar/story.aspx?guid=%7B38D799A4%2D84FB%2D480A%2D9C94%2DA9E65075ADF9%7D" target="_blank">'Benjamin Button' leads pack of Oscar nominees</a><div class="attribution">[MarketWatch.com]</div></div><div class="clearall"></div></div><div class="headline"><div class="timestamp">10:01 AM</div><div class="symbolMatch"><div>GE</div></div><div class="headlineLink"><a href="http://www.marketwatch.com/news/story/updates-advisories-surprises/story.aspx?guid=%7B80990155%2D75A6%2D41E6%2D820D%2D0F9B7792147C%7D" target="_blank">Updates, advisories and surprises</a><div class="attribution">[MarketWatch.com]</div></div><div class="clearall"></div></div><div class="headline"><div class="timestamp">9:47 AM</div><div class="symbolMatch"><div>GE</div></div><div class="headlineLink"><a href="http://www.marketwatch.com/news/newsfinder/pulseone.asp?guid=%7B9b94aeca-859c-46d5-a8a8-798ce0a9540b%7D" target="_blank">GE takes part in $20 million venture round for blade maker</a><div class="attribution">[MarketWatch.com]</div></div><div class="clearall"></div></div>
+</div>
+<div class="spanSplit"></div>
+<div id="newsHeadlines_pressReleasePanel">
+	
+	<div id="newsHeadlines_pressReleaseHeading" class="heading">Press Releases about</div>
+	<span id="newsHeadlines_pressRelaseSymbols" class="symbolList">GE, WMT, INTC, JNJ</span>
+	<div class="clearall"></div>
+<div class="headline"><div class="timestamp">9:00 AM</div><div class="symbolMatch"><div>JNJ</div></div><div class="headlineLink"><a href="http://www.marketwatch.com/news/newsfinder/newsarticles.asp?guid=%7B55b07135-fd6a-461b-b2db-5a88687782d5%7D" target="_blank">Madison-Area Optometrists Partner With Senator Kohl in Improving Infant Eye and Vision Care</a><div class="attribution">[PR Newswire]</div></div><div class="clearall"></div></div><div class="headline"><div class="timestamp">8:00 AM</div><div class="symbolMatch"><div>GE</div></div><div class="headlineLink"><a href="http://www.marketwatch.com/news/newsfinder/newsarticles.asp?guid=%7B2956e12f-41d9-48bd-a142-63302b080f17%7D" target="_blank">OMVC Highlights the Future of Mobile DTV for Television Programmers</a><div class="attribution">[BusinessWire]</div></div><div class="clearall"></div></div><div class="headline"><div class="timestamp">7:30 AM</div><div class="symbolMatch"><div>JNJ</div></div><div class="headlineLink"><a href="http://www.marketwatch.com/news/newsfinder/newsarticles.asp?guid=%7B3278b0f8-f30f-44db-bd23-03e3b9d8a957%7D" target="_blank">Enlight Biosciences Expands to direct up to $52 Million to Transformational Enabling Technologies</a><div class="attribution">[PR Newswire]</div></div><div class="clearall"></div></div><div class="headline"><div class="timestamp">7:00 AM</div><div class="symbolMatch"><div>GE</div></div><div class="headlineLink"><a href="http://www.marketwatch.com/news/newsfinder/newsarticles.asp?guid=%7Bb61a50c6-6264-4753-8421-9907131bec05%7D" target="_blank">TPI Composites Raises $20 Million of Growth Capital From GE and Existing Investors</a><div class="attribution">[PR Newswire]</div></div><div class="clearall"></div></div><div class="headline"><div class="timestamp">1/21/2009</div><div class="symbolMatch"><div>INTC</div></div><div class="headlineLink"><a href="http://www.marketwatch.com/news/newsfinder/newsarticles.asp?guid=%7B606e8fa8-50a3-463c-8038-7f379c2abcaf%7D" target="_blank">Intel to Consolidate Manufacturing Operations</a><div class="attribution">[BusinessWire]</div></div><div class="clearall"></div></div>
+</div>
+<div class="clearall"></div>
+<div class="paidNews">($ = paid news and commentary)</div>
+<div class="clearall"></div>
+
+						</div>
+					</div>
+					<div id="column3">
+						<div style="background: transparent url(./assets/themes/3cols/i/bkg/userandlogininfoboxbkg.gif) no-repeat scroll 0% 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 300px; height: 63px;"><div id="LoginCorner1__LoggedInBlock" style="position: absolute; top: 72px; display: block;">
+	<p class="font80percent" style="margin-left: 10px;">Welcome&nbsp;<span id="LoginCorner1__DisplayName">TerrorHowl</span>&nbsp;|&nbsp;<a id="LoginCorner1__LogOut" href="javascript:__doPostBack('LoginCorner1$_LogOut','')">Log Out</a>&nbsp;|&nbsp;<a id="LoginCorner1__ShowMyAccount" href="javascript:__doPostBack('LoginCorner1$_ShowMyAccount','')">My Account</a>&nbsp;|&nbsp;<a href="http://vse.marketwatch.com/Game/Help/Overview/Welcome.html">Help</a>
+	</p>
+</div>
+<div id="LoginCorner1__NotLoggedInBlock" style="position: absolute; top: 72px; display: none;">
+	<p class="font80percent" style="margin-left: 10px;"><a id="LoginCorner1__LogInLink" href="javascript:__doPostBack('LoginCorner1$_LogInLink','')">Log in</a> or 
+		<a id="LoginCorner1__RegisterLink" href="javascript:__doPostBack('LoginCorner1$_RegisterLink','')">Register</a>&nbsp;|&nbsp;<a href="http://vse.marketwatch.com/Game/Help/Overview/Welcome.html">Help</a>
+	</p>
+</div></div>
+						<div style="background: rgb(215, 235, 251) none repeat scroll 0% 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; height: 20px;"></div>
+						<div><div class="contentBlock"><script language="JavaScript" type="text/javascript">document.write('<iframe src="http://ad.doubleclick.net/adi/game.marketwatch.com/myportfolios;game=jared56;s=8_10001;u=lA;sz=300x250;ord=945843043" name="rmw" width="300" height="250" frameborder="0" border="0"  marginwidth="0" marginheight="0" scrolling="no">');if(navigator.userAgent.indexOf("Gecko")==-1){document.write('<script language="JavaScript1.1" src="http://ad.doubleclick.net/adj/game.marketwatch.com/myportfolios;game=jared56;s=8_10001;u=lA;sz=300x250;abr=!ie;ord=945843043"><\/script>');}document.write('</iframe>');</script><iframe src="Portfolio.aspx_files/myportfolios.html" name="rmw" border="0" marginwidth="0" marginheight="0" scrolling="no" width="300" frameborder="0" height="250"></iframe><noscript><a
+href="http://ad.doubleclick.net/jump/game.marketwatch.com/myportfolios;game=jared56;s=8_10001;kw=945843043;u=lA;sz=300x250;ord=945843043"><img
+src="http://ad.doubleclick.net/ad/game.marketwatch.com/myportfolios;game=jared56;s=8_10001;u=lA;sz=300x250;ord=945843043"
+width="300" height="250" border="0"></a></noscript></div></div>
+						<div style="background: rgb(215, 235, 251) none repeat scroll 0% 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; height: 20px;"></div>
+						<div id="_RightNavPhat">
+	<table width="251" bgcolor="#ebebdb" border="0" bordercolor="#ff6600" cellpadding="3" cellspacing="0"><tbody><tr><td colspan="2" bgcolor="#ebebdb"><img src="Portfolio.aspx_files/feature2-300.png" width="300" border="0" height="45"></td></tr><tr><td bordercolor="#FF6600" width="4" bgcolor="#ebebdb">&nbsp;</td><td bordercolor="#FF6600" width="235" bgcolor="#ebebdb"><br><b><font size="4">January 2009<br></font></b> <br>Compete against our editors this month in our <b>January</b> competition.<br><br><a name="" href="http://www.marketwatch.com/newscommentary/tradingstrategies">Choose a January strategy</a>.<br> <p><a name="" href="http://vse.marketwatch.com/Game/StartViewGame.aspx?id=MKTW-Jan-2009"><img src="Portfolio.aspx_files/join-game-btn.png" width="121" border="0" height="28"></a></p><p><br><br></p></td></tr></tbody></table><p>&nbsp;</p><!--pagepath=VirtualStockExchange/VSE_editorial/rightnav.asp-->
+</div>
+						<div class="clearall"></div>
+						<div style="background: rgb(215, 235, 251) none repeat scroll 0% 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; height: 20px;"></div>
+						<h2 style="margin: 0pt 12px;">Market News</h2>
+						<div id="MarketNewsModule" class="paddingof10">
+							
+
+<style>
+span.indexprice span.mwlivequotes .up
+{
+	color:black;
+	font-weight:normal;
+}
+span.mwlivequotes .tradeup { background: #DDFFDD; }
+span.mwlivequotes .tradedown { background: #FFDDDD; }
+</style>
+
+<div id="MarketNews_stockIndexesPanel">
+	
+	<div class="stockIndexes">Stock Indexes</div>
+	<div>
+		<div class="atClose">* at close</div>
+		<div id="MarketNews_timeStamp" class="timeStamp"></div>
+	</div>
+	<div class="indices">
+	<div class="index">
+		<div class="symbol">DJIA</div>
+		<div class="indexprice"><span id="MarketNews_djiaLast" class="mwlivequotes" mwsymbol="US:indu" mwformat=",2" mwfield="Price">8027.47</span></div><div id="MarketNews_djiaChangeClass" class="indexchange down">
+			<span id="MarketNews_djiaChange" class="mwlivequotes" mwsymbol="US:indu" mwformat="2" mwfield="Change">-200.63</span></div>
+	</div>
+	<div class="index">
+		<div class="symbol">Nasdaq</div>
+		<div class="indexprice"><span id="MarketNews_nasdaqLast" class="mwlivequotes up delayed" mwsymbol="US:comp" mwformat=",2" mwfield="Price">1,459.56</span></div><div id="MarketNews_nasdaqChangeClass" class="indexchange down">
+			<span id="MarketNews_nasdaqChange" class="mwlivequotes down delayed" mwsymbol="US:comp" mwformat="2" mwfield="Change">-47.51</span></div>
+	</div>
+	<div class="index">
+		<div class="symbol">SP500</div>
+		<div class="indexprice"><span id="MarketNews_spLast" class="mwlivequotes up tradedown delayed" mwsymbol="US:spx" mwformat=",2" mwfield="Price">818.92</span></div><div id="MarketNews_spChangeClass" class="indexchange down">
+			<span id="MarketNews_spChange" class="mwlivequotes down tradedown delayed" mwsymbol="US:spx" mwformat="2" mwfield="Change">-21.32</span></div>
+		</div>
+	</div>
+
+</div>
+<div class="clearall"></div>
+<div id="MarketNews_topNewsPanel" class="topNews">
+	<div class="headline"><a href="http://www.marketwatch.com/news/story.asp?guid=%7B663A9759-FA41-4DE9-8397-A7EC546BEDA0%7D" class="headlineLink">Microsoft reports drop in earnings, plans to lay off 5,000</a><div class="timestamp">Last upate: 1/22/2009 10:27:00 AM</div><div class="headlineAbstract">Microsoft
+Corp. reports a drop in earnings for its fiscal second quarter and
+announces plans to lay off as many as 5,000 workers as the slowing
+economy has hurt the software giant’s businesses.</div></div><div class="headline"><a href="http://www.marketwatch.com/news/story.asp?guid=%7B94DBCBCB-73C7-4E91-8FEB-8CAE26FF7681%7D" class="headlineLink">Boosted by strong iPod sales, Apple shares rise</a></div><div class="headline"><a href="http://www.marketwatch.com/news/story.asp?guid=%7B7396C6C4-4EA8-4DF1-92DF-F2F08469A75C%7D" class="headlineLink">Nokia says profit drops 69%, lowers 2009 view</a></div><div class="headline"><a href="http://www.marketwatch.com/news/story.asp?guid=%7B04B77EF5-5180-4272-93C1-665C6F9ECFDB%7D" class="headlineLink">Bank losses batter S&amp;P 500 earnings outlooks</a></div><div class="headline"><a href="http://www.marketwatch.com/news/story.asp?guid=%7BBB74DAB2-025F-451E-9D2A-87169B484EFF%7D" class="headlineLink">Housing still heading for a bottom, but should get there in '09</a></div>
+</div>
+
+						</div>
+						
+						
+						
+						<div style="margin: 0px; padding: 12px; width: 276px; color: white;">
+							
+<div style="border: 1px solid white; margin: 0px; padding: 0px; background: rgb(0, 0, 0) none repeat scroll 0% 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 274px;">
+	<p style="border-bottom: 1px solid rgb(204, 204, 204); padding: 4px; font-weight: normal; font-size: 90%; color: white;">Create 
+		or Join a Game</p>
+	<div style="padding: 7px; float: left; width: 123px;">
+		<p class="font90percent" style="padding-bottom: 5px; color: white;">Invited to Join 
+			a Game?<br>
+			<span class="font80percent">Enter the Game ID</span>
+		</p>
+		<p><input name="CreateOrJoinGame1$_GameId" id="CreateOrJoinGame1__GameId" style="width: 80px;" type="text">
+			<input name="CreateOrJoinGame1$_FindGameToJoinButton" id="CreateOrJoinGame1__FindGameToJoinButton" src="Portfolio.aspx_files/arrowsubmitbutton.gif" style="border-width: 0px;" type="image">
+		</p>
+		<p style="padding: 5px 0px; color: white;"></p>
+	</div>
+	<div style="padding: 7px; float: left; width: 123px;">
+		<p class="font90percent" style="padding-bottom: 5px; color: white;">Want to Start a 
+			Game?<br>
+			Enter name of your game
+		</p>
+		<p><input name="CreateOrJoinGame1$_GameName" id="CreateOrJoinGame1__GameName" style="width: 80px;" type="text">
+			<input name="CreateOrJoinGame1$_CreateGameNewNameButton" id="CreateOrJoinGame1__CreateGameNewNameButton" src="Portfolio.aspx_files/arrowsubmitbutton.gif" style="border-width: 0px;" type="image">
+		</p>
+		
+		
+	</div>
+	<div class="clearall"></div>
+</div>
+
+						</div>
+						<script type="text/javascript"> 
+                            <!-- 
+                                microsoft_adunitid="994"; 
+                                microsoft_adunit_width="300"; 
+                                microsoft_adunit_height="250";
+                            //--> 
+                        </script> 
+                        <script type="text/javascript" src="Portfolio.aspx_files/getads.js"></script><iframe src="Portfolio.aspx_files/a.html" allowtransparency="true" marginwidth="0" marginheight="0" hspace="0" vspace="0" scrolling="no" width="300" frameborder="0" height="250"></iframe>
+					</div>
+					<div class="clearall"></div>
+					<div class="clearall"></div>
+					<div id="headercontainer">
+						<div id="header">
+							<div id="pagename">
+								<p><span id="_GameName">Team Kawasaki</span></p>
+							</div>
+						</div>
+					</div>
+					<div id="footer">
+						
+<div style="background: white none repeat scroll 0% 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; height: 20px;"></div>
+<div id="footerinside">
+	<p>Virtual Stock Exchange is brought to you by MarketWatch
+	</p>
+	<p><a href="http://vse.marketwatch.com/Game/UserAgreement.aspx">User Agreement</a> | <a href="http://www.marketwatch.com/support/privacy.asp?siteid=vse">
+			Privacy Policy</a> |
+		<a id="Footer1__FeedbackLink" href='javascript:WebForm_DoPostBackWithOptions(new%20WebForm_PostBackOptions("Footer1$_FeedbackLink",%20"",%20true,%20"",%20"",%20false,%20true))'>Feedback 
+  &amp; Suggestions</a>
+		| <a href="http://vse.marketwatch.com/Game/AboutUs.aspx">About Us</a></p>
+		
+    <p>Copyright © 2008 MarketWatch, Inc. All rights reserved.<br>
+    By using this site, you agree to the <a href="http://www.marketwatch.com/support/disclaimer.asp?siteid=vse">
+			Terms of Service</a> and <a href="http://www.marketwatch.com/support/privacy.asp?siteid=vse">
+			Privacy Policy</a>.</p>
+    <p>Intraday data provided by Interactive Data Real Time Services, a division of Interactive Data Corp. and subject to terms of use.<br>
+    Historical and current end-of-day data provided by Interactive Data Pricing and Reference Data.<br>
+    Intraday data delayed 15 minutes for Nasdaq, and 20 minutes for other exchanges. <br>
+    All quotes are in local exchange time. </p>
+	<p><img src="Portfolio.aspx_files/dowjonesfooterlogo.gif"></p>
+</div><div id="Tracking">
+	<!-- SiteCatalyst code version: H.3.
+Copyright 1997-2005 Omniture, Inc. More info available at
+http://www.omniture.com -->
+<script language="JavaScript" src="TradeWidget_data/s_code.js"></script><img src="Portfolio.aspx_files/s39023692438107.gif" name="s_i_djglobal" alt="" width="1" border="0" height="1">
+<script language="JavaScript">
+s.pageName="/game/portfolio"
+s.server="vse.marketwatch.com"
+s.channel="Virtual Stock Exchange"
+s.prop1="game"
+s.prop2="Portfolio Holdings"
+s.prop5="http://vse.marketwatch.com/game/portfolio.aspx"
+s.prop6="http://vse.marketwatch.com/game/portfolio.aspx"
+s.prop9="reg"
+s.prop10=""
+s.prop11=""
+s.prop25="3b1a55e0-02df-43f6-8ab6-58ef7b9c0f93"
+s.hier="Virtual Stock Exchange,game,Portfolio Holdings,/game/portfolio,http://vse.marketwatch.com/game/portfolio.aspx"
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+<script language="JavaScript"><!--
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+//--></script> <!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.3. -->
+<!-- GENERATED ON SBK-VSEWEB02 -->
+<!-- START: RSI Code  -->
+<script type="text/javascript" src="TradeWidget_data/gw.js"></script><script type="text/javascript" src="Portfolio.aspx_files/pcx.js" charset="ISO-8859-1"></script>
+
+<script language="JavaScript"><!--
+DM_cat("Virtual Stock Exchange>game>Portfolio Holdings>/game/portfolio");
+DM_tag();//-->
+</script>
+<!-- END: RSI Code  -->
+</div>
+					</div>
+				</div>
+			</div>
+		<script type="text/javascript" language="javascript">var tcdacmd="dt";</script>
+</form>
+		<script type="text/javascript" src="TradeWidget_data/license.asmx"></script><script type="text/javascript">if (window.LiveQuotesGateway != null) {LiveQuotesGateway.setup('NLs,CSK');}</script>
+	</body></html>

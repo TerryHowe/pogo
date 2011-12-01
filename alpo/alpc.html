@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.5: http://docutils.sourceforge.net/" />
+<title>The Art &amp; Logic Programming Challenge</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger
+:Contact: goodger@python.org
+:Date: $Date: 2006-05-21 22:44:42 +0200 (Sun, 21 May 2006) $
+:Revision: $Revision: 4564 $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin-left: 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left {
+  clear: left }
+
+img.align-right {
+  clear: right }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font-family: serif ;
+  font-size: 100% }
+
+pre.literal-block, pre.doctest-block {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="the-art-logic-programming-challenge">
+<h1 class="title">The Art &amp; Logic Programming Challenge</h1>
+
+<p>Last updated: 11 Jun 08</p>
+<div class="section" id="overview">
+<h1>Overview</h1>
+<p>Thank you for taking the Art &amp; Logic Programming Test. This test is an
+important part of our hiring process; over the years, we have learned that
+there's not always a strong correlation between the contents of a candidate's
+resume and their ability to design and implement code at the level that we
+demand. The only way to determine how well someone writes code is to ask them
+to roll up their sleeves and write some. We anticipate that completing this
+test should take you somewhere between 6 and 10 hours.</p>
+<p>Completing this test will give you an opportunity to display your
+abilities on some tasks that are not too different from those that are
+routinely encountered on Art &amp; Logic projects. It's fairly typical
+on a project that an engineer will be handed a fairly high-level
+specification for a piece of functionality and be asked to design and
+implement a clean, elegant, flexible solution to the problem in a short
+period of time. We also end up needing to jump into projects that are
+already in progress. Sometimes this means stepping into an existing Art
+&amp; Logic project, but frequently it means inheriting a pile of broken
+and undocumented code written by a client (and typically, the original
+programmer responsible for this code is long gone, so debugging skills
+and detective work are required).  Please bear in mind while completing
+this exercise that your goal should not be just to demonstrate your
+competence. We evaluate many more applicants than we have the capacity
+to hire; this test is key to identifying the most exceptional.</p>
+<p>On this test, the requirements have intentionally been left somewhat hazy
+-- you might want to think of it as a programming Rorschach test; we're
+very interested to gain some insights into your development habits. One
+requirement that is not hazy is that we expect all code submitted to
+follow the guidelines laid out in the Art &amp; Logic Programming Style Guide
+(available at <a class="reference" href="http://www.artlogic.com/careers/styleguide.html">http://www.artlogic.com/careers/styleguide.html</a>).</p>
+<p>You may complete parts 1a (optional) and 2 in one of our preferred languages:</p>
+<blockquote>
+<ul class="simple">
+<li>C++</li>
+<li>Python</li>
+<li>PHP</li>
+<li>ActionScript</li>
+<li>Objective-C</li>
+</ul>
+</blockquote>
+<p>We will also accept submissions in Java or C#.</p>
+<p>Part 1b (optional) should be implemented using HTML, JavaScript and CSS
+as indicated. Parts 3 and 4 are self-explanatory. Please choose and
+complete either part 1a or 1b for your submission.</p>
+<p>Your submission to us should include whatever source, documentation,
+project support files (makefiles, etc.) or other associated materials
+are required to build your code and understand the approach taken in your
+solution. Also, please indicate the amount of time used to complete each
+portion of the test when returning your test to us.</p>
+<p>After completing your solutions, you may submit it to us by completing the
+form at <a class="reference" href="http://www.artlogic.com/careers/talent-entrance.php">http://www.artlogic.com/careers/talent-entrance.php</a></p>
+</div>
+<div class="section" id="part-1a-fixed-point-class">
+<h1>Part 1a: Fixed Point Class</h1>
+<p><strong>Please complete either this section, or Part 1b, below</strong></p>
+<p>Design and implement a class or set of functions to work with the following
+encoding of a fixed-point number. We often work with client hardware that uses
+proprietary or unusual protocols or data formats. For this exercise, assume
+that we are developing software that receives data values from a piece of
+client-provided hardware in the binary-encoded format described below. The
+task at hand is to create a class that can correctly encode and decode those
+values and make them usable by other software.</p>
+<p>In this instance, a fixed-point number is packed into a 32-bit unsigned
+integer as follows:</p>
+<pre class="literal-block">
+s i i i i i i i   i i i i i i i i   i f f f f f f f   f f f f f f f f
+</pre>
+<p>where:</p>
+<blockquote>
+<p><tt class="docutils literal"><span class="pre">s</span></tt> : sign bit (1 == negative)</p>
+<p><tt class="docutils literal"><span class="pre">i</span></tt> : 16 integer bits</p>
+<p><tt class="docutils literal"><span class="pre">f</span></tt> : 15 fraction bits</p>
+</blockquote>
+<p>Examples:</p>
+<blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<tbody valign="top">
+<tr><td>Value</td>
+<td>Fixed Point encoding</td>
+</tr>
+<tr><td>1.0</td>
+<td><tt class="docutils literal"><span class="pre">0x00008000</span></tt></td>
+</tr>
+<tr><td>-1.0</td>
+<td><tt class="docutils literal"><span class="pre">0x80008000</span></tt></td>
+</tr>
+<tr><td>2.0</td>
+<td><tt class="docutils literal"><span class="pre">0x00010000</span></tt></td>
+</tr>
+<tr><td>-2.5</td>
+<td><tt class="docutils literal"><span class="pre">0x80014000</span></tt></td>
+</tr>
+<tr><td>3.14</td>
+<td><tt class="docutils literal"><span class="pre">0x000191eb</span></tt></td>
+</tr>
+<tr><td>100.99</td>
+<td><tt class="docutils literal"><span class="pre">0x00327eb8</span></tt></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>Your class should support at least the following operations:</p>
+<ul class="simple">
+<li>Create Fixed Point object from floating point value</li>
+<li>Create Fixed Point object from packed 32-bit value</li>
+<li>Idiomatic conversion to string (as <em>&lt;&lt;optional sign&gt;&gt;&lt;&lt;integer
+part&gt;&gt;.&lt;&lt;fractional part&gt;&gt;</em>) For example, an instance of your Fixed Point
+class initialized from an encoded value of <tt class="docutils literal"><span class="pre">0x80008000</span></tt> would be converted
+to the string &quot;-1.0&quot;.</li>
+<li>Convert value to closest floating point equivalent</li>
+</ul>
+</div>
+<div class="section" id="part-1b-dynamic-web-page">
+<h1>Part 1b: Dynamic Web Page</h1>
+<p><strong>Please complete either this section, or Part 1a, above</strong></p>
+<p>Create a single web page with the following requirements:</p>
+<ul class="simple">
+<li>Displays a rounded rectangle on the screen, in a solid color. The rounded
+corners should use a 5 pixel radius.</li>
+<li>When the user moves their mouse into the rectangle, the background color of
+the rectangle should change to a different solid color.</li>
+<li>Using the Yahoo! Web Services API for Web Search, perform a search for a
+word passed to the page as a query string. Using the data returned by this
+search, display both the word and the number of results available for that
+search in the center of the rectangle when the user has moused over the
+rectangle, hiding it otherwise.</li>
+</ul>
+<p>For example, when viewing <tt class="docutils literal"><span class="pre">file:///C:/MyTest/test1b.html?Banana</span></tt> , the page
+should perform a query to Yahoo to search for the word 'Banana', and find that
+there are 2329896 results available (as of the time this is written).</p>
+<ul class="simple">
+<li>Use the application ID <tt class="docutils literal"><span class="pre">A+L_ProgrammingTest</span></tt> when querying Yahoo!</li>
+<li>You may use a single HTML file and no more than one image file.</li>
+<li>Your page must work correctly on current Mozilla, Safari, Opera, and IE browsers.</li>
+<li>The HTML code in your page must validate.</li>
+</ul>
+</div>
+<div class="section" id="part-2-text-file-parser">
+<h1>Part 2: Text File Parser</h1>
+<p>Design and implement a class that can parse the following configuration file
+format:</p>
+<pre class="literal-block">
+[section name 1]
+key: value
+key2 : value
+
+[section name 2]
+key3: value that is too long for one line, so we wrap onto a second line
+  and continue by using any whitespace character in the first column.
+</pre>
+<p>Or more specifically:</p>
+<ul>
+<li><p class="first">The file is broken up into named sections. The name of each section is
+enclosed by square brackets, and the opening bracket  must be placed in column
+0.</p>
+</li>
+<li><p class="first">The first non-blank line in a file must be a section heading.</p>
+</li>
+<li><p class="first">Each line is terminated by a CR/LF pair (on all platforms).</p>
+</li>
+<li><p class="first">Whitespace between the opening bracket and the first non-whitespace
+character of the section name is discarded, as is any whitespace between the
+last character of the section name and the closing bracket. The following
+section names are all identical:</p>
+<pre class="literal-block">
+[Section demonstration]
+[   Section demonstration]
+[ Section demonstration     ]
+</pre>
+</li>
+<li><p class="first">Each non blank line of the file inside a section consists of a key and a
+value, separated by a colon. Whitespace surrounding the colon is discarded, so
+the following lines are identical:</p>
+<pre class="literal-block">
+key:value
+key :value
+key :  value
+</pre>
+</li>
+<li><p class="first">Key names within each section must be unique (but key names may be reused in
+different sections).</p>
+</li>
+<li><p class="first">Each section name must be unique within the file.</p>
+</li>
+<li><p class="first">Each key must begin in column zero.</p>
+</li>
+<li><p class="first">Long lines may be wrapped by continuing them onto the next line and placing
+one or more whitespace characters in column zero. When reading the file in,
+the combination CR/LF followed by whitespace is treated as if it were just the
+whitespace. Only the value component of a line may be wrapped.</p>
+</li>
+</ul>
+<p>Your class must support at least the following operations:</p>
+<ul class="simple">
+<li>Create a parser object given a file name.</li>
+<li>Get a string value associated with a given section and key names.</li>
+<li>Get an integer value associated with a given section and key names.</li>
+<li>Get a floating point value associated with a given section and key names.</li>
+<li>Set a string value for a given section and key names, writing the new file
+to disk.</li>
+<li>Set an integer value for a given section and key names, writing the new file
+to disk.</li>
+<li>Set a floating point value for a given section and key names, writing the new file
+to disk.</li>
+</ul>
+<p>You may use the following test data for your development:</p>
+<pre class="literal-block">
+[header]
+project: Programming Test
+budget : 4.5
+accessed :205
+
+[meta data]
+description : This is a tediously long description of the Art &amp; Logic
+ programming test that you are taking. Tedious isn't the right word, but
+ it's the first word that comes to mind.
+
+correction text: I meant 'moderately,' not 'tediously,' above.
+
+[ trailer ]
+budget:all out of budget.
+</pre>
+</div>
+<div class="section" id="part-3-debugging">
+<h1>Part 3: Debugging</h1>
+<p>Fix the following piece of broken code. When executed, it should convert
+the buffer parameter (using the provided data -- changing the contents
+of the input buffer doesn't count as fixing a bug) into the string
+&quot;Art&amp;Logic&quot;, but it does not. This example code is in C/C++, but the
+problems it has are also problems in all the other ALGOL-derived languages
+that we work with.</p>
+<pre class="literal-block">
+#define kSpace 032
+
+char buffer[] = {0x42, 0x73, 0x75, 0x27, 0x13, 0x1C, 0x68, 0x1B, 0x64};
+
+#define mBufferLen(buf) (sizeof(buf) / sizeof(buf[0]))
+
+
+/*
+ * convert the contents of 'buffer' in place so that they are decoded. The
+ * above buffer should convert to the ASCII string &quot;Art&amp;Logic&quot; (but it doesn't as
+ * presented here....)
+ */
+void Convert(char* buffer)
+{
+   int i;
+
+   for (i = 0; i &lt;= mBufferLen(buffer); ++i)
+   {
+      if (buffer[i] &gt; kSpace)
+      {
+         buffer[i] -= 1;
+      }
+      else
+      {
+         buffer[i] = buffer[i] &lt;&lt; 2 + 4 - i;
+      }
+   }
+}
+
+int main(void)
+{
+   int i;
+   const char kTarget[] = &quot;Art&amp;Logic&quot;;
+
+   Convert(buffer);
+   for (i = 0; i &lt; mBufferLen(buffer); ++i)
+   {
+      assert(kTarget[i] == buffer[i]);
+   }
+}
+</pre>
+</div>
+<div class="section" id="part-4-questionnaire">
+<h1>Part 4: Questionnaire</h1>
+<p>Answer the following questions. Include them with your test in a plain
+text file using the format <tt class="docutils literal"><span class="pre">Your_Name_Questionnaire.txt</span></tt> (or rtf).</p>
+<p>Note: “software” might refer to an application, web site, web application,
+driver, etc.</p>
+<p><strong>Please answer both of the following questions:</strong></p>
+<ol class="arabic simple">
+<li>Describe the most difficult project you ever worked on and explain
+what made it so difficult.</li>
+<li>Given a specification for a task,
+how would you go about estimating how long it will take for you to
+complete the task?</li>
+</ol>
+<p><strong>Choose four of the following seven:</strong></p>
+<ol class="arabic simple">
+<li>What is a “software defect?” What should and shouldn’t be covered by
+that term? Detail some approaches that will help prevent their occurrence
+or reduce their severity.</li>
+<li>Do you prefer open-source or proprietary technologies, and why?</li>
+<li>Where do you think most software projects go wrong?</li>
+<li>What do you think of formal design methodologies?</li>
+<li>Describe an experience working in a team. What was your role on the
+team? How did you communicate with other members of the team?</li>
+<li>What technologies would you choose to develop a high performance,
+highly scalable web application and why?</li>
+<li>Describe the most and the least rewarding experiences you’ve ever
+had while working on software.</li>
+</ol>
+<p><strong>Choose one of the following three:</strong></p>
+<ol class="arabic simple">
+<li>Describe a product (other than software) that you’d like to improve,
+and describe how you would improve it.</li>
+<li>What’s the latest thing you’ve learned, or what did you learn last
+week, or what are you currently learning?</li>
+<li>Describe something in your life that you haven’t yet accomplished
+but would like to.</li>
+</ol>
+</div>
+</div>
+</body>
+</html>

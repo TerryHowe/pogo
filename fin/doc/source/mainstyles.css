@@ -1,0 +1,1170 @@
+/*
+Theme Name: 3Cols
+Theme URI: http://www.marketwatch.com/
+Description: 3 column standard-view version of the new MarketWatch.com
+Version: 1.5.2
+Author: Christopher M. Leighton-Brooder
+Author URI: http://cmbdg.com/blog/content/
+This document is set up in 6 sections:
+     1) Basic Formatting for all display devices
+     2) Standard Element Types specific for this theme
+     3) Basic Page Structure
+     4) Divs
+     5) Classes
+     6) Table Structure and associated components
+
+
+A quick note: anywhere you see an underscore in the beginning of a statement,
+like "_font-size: 12px;", do not think this is an error. This is the simplest hack
+for the M$ IE set of browsers. Isn't IE fun?!?! The easy explanation for this is:
+Using an underscore to begin a CSS statement is invalid, but, IE being IE, well, it
+just simply doesn't know this. Instead of ignoring the command like all good
+DOM browser's do, it simply strips out the underscore so you are left with a valid
+statement. Way to go M$! Yet another way to implement IE only styles. One
+might think that this was a smart way to implement a workaround, when in fact
+M$ just doesn't know what they're doing and we figure out how to hack it to
+make it work. Oh man, don't get me started...
+
+
+1)
+This begins the Basic stylesheet for this Skin. Styles in this first section,
+if applicable, get written over with a more specific ID or Class. This is done
+by design: Implementing it this way allows for a skin to be switched at the
+click of a mouse, one file changes it all. There is also another style sheet,
+basic.css, that loads in the browser before this one. It is that stylesheet
+that defines the absolute bare-minimum of styles for all screen or
+handheld devices.
+*/
+
+
+body {
+margin: 0; padding: 0;
+}
+body, p, ul, ol, li {
+font-family: helvetica, arial, sans-serif; color: #333; background-color: transparent; line-height: 120%;
+}
+p {
+margin: 0 0 15px; padding: 0; text-align: left; background-color: transparent; 
+}
+form {
+margin: 0; padding: 0; background-color: transparent; 
+}
+a:link {
+color: #006DC1; background-color: transparent; text-decoration: none;
+}
+a:visited {
+color: #006DC1; background-color: transparent; text-decoration: none;
+}
+a:hover, a:visited:hover {
+color: #ff8000; background-color: transparent; text-decoration: underline;
+}
+h1, h2, h3, h4, h5, h6 {
+margin: 15px 0 10px; padding: 0; text-align: left; background-color: transparent; 
+}
+h1 {
+color: #DB9220; font-size: 2em; text-transform: uppercase; font-weight: bold;
+}
+h2 {
+color: #DB9220; font-size: 1.5em; font-weight: bold; 
+}
+h3 {
+color: #DB9220; font-size: 1.4em; font-weight: bold; 
+}
+h4 {
+color: #DB9220; font-size: 1.25em; font-weight: bold; 
+}
+h5, h6 {
+color: #DB9220; font-size: 1.1em; font-weight: bold; 
+ }
+ul, ol {
+text-align: left; background: transparent; 
+}
+ul li {
+list-style-type: square; list-style-position: outside; text-align: left; background: transparent; 
+}
+ol li {
+list-style-position: outside; text-align: left; background: transparent; 
+}
+/* -- This ends the Basic stylesheet for this skin. -- */
+/*
+2)
+Standard Element Types
+*/
+body {
+margin: 0 auto;
+font: normal normal 76%/100% helvetica, 'lucida grande', arial, 'trebuchet ms', tahoma, verdana;
+_font: normal normal 12px/14px arial, 'lucida sans unicode', 'trebuchet ms', tahoma, verdana;
+background: #fff url(http://i.mktw.net/mw3/Misc/mw_center_bkgd.gif) center top repeat-y;
+}
+blockquote {
+margin: 0 20px; padding: 0px 6px;
+}
+blockquote p {
+margin: 0; padding: 0 0 4px;
+}
+blockquote ul {
+margin: 0 10px; padding: 0 10px;
+}
+blockquote ul li { list-style-type: disc; 
+}
+img {
+border: none;
+}
+p {
+font-size: 100%; _font-size: 92%;
+}
+/*
+3)
+Basic Page Structure
+*/
+#wrapper {
+width: 100%; margin: 0 auto; padding: 0; text-align: left;
+}
+#container {
+width: 990px; margin: 0 auto; padding: 0; text-align: left;  background: #fff url(../i/bkg/pagebkg3.gif) repeat-y;
+}
+#twoinnercolumns #container {
+background: #fff url(../i/bkg/pagebkgsplit.gif) repeat-y;
+}
+#headercontainer {
+z-index: 1; width: 519px; position: absolute; top: 28px; margin: 9px 320px 0 151px; padding: 0; height: 63px; border: none; vertical-align: top; background: #fff;
+}
+body.homepageheader form #wrapper #container #headercontainer #header {
+z-index: 2; width: 519px; height: 63px; margin: 0; padding: 0; background: #fff url(../i/elements/header.gif) no-repeat; vertical-align: bottom;
+}
+#header {
+z-index: 2; width: 519px; height: 63px; margin: 0; padding: 0; background: #fff url(../i/elements/header-interior.gif) top left no-repeat; vertical-align: bottom;
+}
+#column1and2combined, #maincontent {
+width: 638px; padding: 0; float: left; vertical-align: top; margin: 100px 20px 10px 10px; _margin-left: 5px;
+}
+#maincontent {
+background: #e2e2e2; border: 1px solid #fff;
+}
+#contentcolumnone, #contentcolumntwo, #contentcolumnthree {
+float: left; text-align: left; background-color: transparent; margin: 0; padding: 0;
+}
+#contentcolumntwo {}
+#column1 {
+float: left; margin: 0px 0 15px; border-top: 9px solid #ffffff; padding: 0; width: 131px; text-align: left; background: #C3DBEF;
+}
+#column2top {
+float: left; margin: 0 20px; padding: 0; width: 519px; text-align: left; background: white; height: 20px;
+}
+#column2 {
+float: left; margin: 0 20px 0; padding: 0; width: 519px; text-align: left;
+}
+#column3 {
+float: left; margin: -74px 0 15px; padding: 0; width: 300px; text-align: left;  background: #C3DBEF;
+}
+#column2a {
+float: left; margin: 0 15px 0 0; padding: 0; width: 252px; text-align: left;  background: #EBEBDB url(../i/elements/column2bkg.gif);
+}
+#column2b {
+float: left; margin: 0; padding: 0; width: 252px; text-align: left; background: #EBEBDB;
+}
+#createorjoingamesnav {
+margin-top: 10px; text-align: center; vertical-align: middle;
+}
+#mainnavcontainer2 {
+position: absolute; top: 53px; margin: 0 auto; background: #ffc; height: 29px; width: 980px; margin: 0; padding: 0; text-align: left;
+}
+#mainnav2 {
+text-align: left; vertical-align: top;
+}
+#footer {
+width: 990px; padding: 0; clear: both; background: #e3e7eb;
+}
+/*
+4)
+Divs
+*/
+#maincontenttopbkg {
+padding: 10px 10px 0; min-height: 540px; _height: 540px; overflow: visible; vertical-align: top;
+}
+#createorjoingamesnav li {
+display: inline; margin: 0 5px; font-size: 80%; font-weight: bold; text-transform: capitalize;
+}
+#createorjoingamesnav li a:link, #createorjoingamesnav li a:visited, #createorjoingamesnav li a:hover, #createorjoingamesnav li a:visited:hover {
+padding: 1px 0; text-align: center; vertical-align: middle; text-decoration: none;
+}
+#createorjoingamesnav li a:link, #createorjoingamesnav li a:visited {
+background: transparent; border: none; border-bottom: 1px dashed #006DC1;
+}
+#createorjoingamesnav li a:hover, #createorjoingamesnav li a:visited:hover, #createorjoingamesnav li a:active,
+#createorjoingamesnav li a.on:link, #createorjoingamesnav li a.on:hover, #createorjoingamesnav li a.on:visited:hover, #createorjoingamesnav li a.on:active {
+color: #ff8000; background: transparent; border: none; border-bottom: 1px dashed #ff8000;
+}
+#createorjoingamesnav li a.on:link, #createorjoingamesnav li a.on:hover, #createorjoingamesnav li a.on:visited:hover, #createorjoingamesnav li a.on:active {
+cursor: text; 
+}
+#mainnav ul li {
+width: 110px; height: 29px; display: inline; text-transform: capitalize; font-weight: bold; margin: 0; padding: 0;
+}
+#mainnav ul li a:link, #mainnav ul li a:visited, #mainnav ul li a:hover, #mainnav ul li a:visited:hover {
+height: 17px; padding: 5px; margin: 0; color: #fff; text-align: center; vertical-align: middle; text-decoration: none; text-transform: uppercase;
+}
+#mainnav ul li a:link, #mainnav ul li a:visited {
+border: 1px solid #ff8000; color: #fff; background: #ff8000 url(../i/bkg/createorjoingamesnavbkgon.jpg) repeat-x left top;
+}
+#mainnav ul li a:hover, #mainnav ul li a:visited:hover, #mainnav ul li a:active,
+#mainnav ul li.on a:link, #mainnav ul li.on a, #mainnav ul li.on a:hover, #mainnav ul li.on a:visited:hover, #mainnav ul li.on a:active {
+border: 1px #35a1f4 solid; color: #fff; margin: 0; background: #35a1f4 url(../i/bkg/createorjoingamesnavbkgover.jpg) repeat-x left top;
+}
+#mainnav ul li.on a:link, #mainnav ul li.on a, #mainnav ul li.on a:hover, #mainnav ul li.on a:visited:hover, #mainnav ul li.on a:active {
+cursor: text; 
+}
+#footerinside {
+margin: 0; padding: 22px 10px 16px; background-color: transparent;
+}
+#footerinside p {
+color: #000; margin: 0; padding: 0 0 15px; font-size: 90%; text-align: center;
+}
+#footerinside p a {
+font-weight: bold;
+}
+#game {
+_margin-left: 20px;
+}
+#game p {
+margin: 0 10px; padding: 14px 20px 0;
+}
+#gamecreate p {
+margin: 0; padding: 10px;
+}
+#game p.alt {}
+#header h1, #header p { 
+color: #fff;
+}
+#header h1 { 
+font-size: 3em; margin-top: 0;  text-shadow: #00325C 0px 0px 5px;
+}
+#column1 h3, #column2 h3, #column2 h2, #column3 h3, #column32coldesign h3, #column1and2combined h3 {
+}
+#column1 h3, #column1and2combined h3 {
+}
+#column2 h2 {
+margin: 0; padding: 3px 10px 2px; background: #b6b68e; font-size: 100%; color: white; text-transform: uppercase;
+}
+#column2 h3 {
+margin: 0 0 5px; padding: 0; font-size: 100%; color: #9D6E14; text-transform: uppercase;
+}
+#column3 h3, #column32coldesign h3 {
+}
+#header h1 a:link, #header h1 a:visited {
+color: #fff; text-decoration: none;
+}
+#header h1 a:hover, #header h1 a:visited:hover {
+color: #C1E4FF; text-decoration: none;
+}
+#marginauto {
+margin-left: auto; margin-right: auto;
+}
+#contentcolumncontent .userlogin h4, .userlogin, #contentcolumncontent h4  {
+color: #eee;
+} 
+/* currently not being used 
+#contentcolumncontent h2 { 
+margin: 0 0 10px; padding: 3px 10px; background: #666 url(../i/bkg/contentcolumnh2bkg.jpg) repeat-x left top; border-top: 2px #09f solid; border-bottom: 2px #09f solid;
+}
+#contentcolumncontent p {
+padding: 0 10px 15px; margin: 0;
+}*/
+#gametemplate {
+margin: 0 10px; _margin: 0; float: right; width: 150px; border: 2px solid #ccc; background: #eee;
+}
+#gametemplate h3 {
+margin: 0 0 10px; color: #fff;
+}
+#gametemplate p {
+margin: 0; padding: 0 10px; font-size: 90%;
+}
+#makeatradecontainer {
+visibility: hidden; position: absolute; top: 99px; margin: 0 0 20px 10px; padding: 10px 0 10px 10px;  background: #ccc; width: 626px; border: 2px solid #000;
+}
+#makeatraderesearch {
+margin: 0 10px 20px; _margin: 0 12px 10px 0; border: 2px solid #000; _border: 2px solid #000; _border-top: none; background: #fff; padding: 0;
+}
+#makeatraderesearch h3, #makeatraderesearch h4 {
+padding: 0 10px;
+}
+#makeatraderesearch p {
+margin: 0; font-size: 90%; line-height: 140%; padding: 7px 10px;
+}
+#makeatradestocklookup {
+background-color: #fff; padding: 8px 0 0; margin: 0; border: 1px solid #000; border-top: none; border-bottom: none; width: 286px;
+}
+#makeatradedailypicks {
+margin-top: 0; padding: 10px; background-color: #e2e2e2; border: 1px solid #000; border-top: 2px solid #999; width: 266px;
+}
+#makeatradelearnmore {
+margin-top: 0; padding: 10px; background-color: transparent; border: 1px solid #000; border-top: none; width: 266px;
+}
+/*
+.makeatradebuttonon {
+background: #393939; float: left; border: 2px solid #1d1d1d; border-bottom: 2px solid #393939; margin: 0 5px 0 0; _margin: 0 5px -5px 0; z-index: 2;
+}
+.makeatradebutton {
+background: #666; float: left; border: 2px solid #1d1d1d; margin: 0 5px 0 0; _margin: 0 5px -5px 0;
+}
+.makeatradebuttonon p, .makeatradebutton p {
+padding: 2px 6px; margin: 0;
+}
+.makeatradebuttonon {
+padding-bottom: 6px;
+}
+*/
+.makeatradebutton ul, .makeatradebuttonon ul {
+float: left; margin: 0 0 10px; _margin: 0 0 -10px; padding: 0;
+}
+.makeatradebutton ul li, .makeatradebuttonon ul li {
+display: inline; margin: 0 5px 0 0;
+}
+.makeatradebuttonon ul {
+_padding-bottom: 10px;
+}
+.makeatradebutton ul li a:link, .makeatradebutton ul li a:visited  {
+padding: 2px 6px; margin: 0; background: #e2e2e2; border: 2px solid #F79F47; _border: none; color: #7a7a7a;
+}
+.makeatradebutton ul li a:hover, .makeatradebutton ul li a:visited:hover  {
+padding: 2px 6px; margin: 0; background: #fff; border: 2px solid #09f; _border: none; text-decoration: none; color: #0869B4;
+}
+.makeatradebuttonon ul li a:link, .makeatradebuttonon ul li a:visited  {
+padding: 2px 6px 8px; margin: 0; background: #fff; border: 2px solid #bbb; border-bottom: 2px solid #fff; _border: none; text-decoration: none; color: #333;
+}
+.makeatradebuttonon ul li a:hover, .makeatradebuttonon ul li a:visited:hover  {
+padding: 2px 6px 8px; margin: 0; background: #fff; border: 2px solid #bbb; border-bottom: 2px solid #fff; _border: none; cursor: text; text-decoration: none; color: #333;
+}
+/*
+5)
+Classes
+*/
+.logo {
+margin-bottom: 5px; text-align: left; background: #eee url(../i/bkg/headerbkg.gif) no-repeat left top; width: 660px; height: 48px; cursor: pointer; cursor: hand;
+}
+.mwlogo {
+width: 320px; background: #CBD7E7 url(../i/elements/marketwatchlogo.jpg) no-repeat right top; height: 48px; margin-bottom: 5px; text-align: right; cursor: pointer;
+}
+.columnouterborder {
+background: #ddd; border: 1px #fff solid; margin-bottom: 15px;
+}
+.columninnerborder {
+border: 5px solid #496D96; margin: 0; padding: 0;
+}
+.columninnerborder p {
+padding: 7px 10px; margin: 0;
+}
+.border {
+border: 1px #666 solid;
+}
+.bottomborder {
+border-top: 1px #666 solid;
+}
+.compsummaryitem {
+border-bottom: 1px solid #fff; width: 479px; height: 16px; padding: 2px 10px;
+}
+.makeatradegame {
+border-bottom: 1px solid #fff; padding: 4px 0;
+}
+.makeatradegame p {
+margin: 0; padding: 0;
+}
+.gametojoin {
+border-bottom: 1px dashed #444; height: 16px; padding: 4px 0;
+}
+.compsummaryitem h3, .gametojoin h3 {
+margin-top: 0; padding-bottom: 15px; text-transform: uppercase;
+}
+.compsummaryitem h4, .gametojoin h4 {
+margin: 0 20px; color: #333;
+}
+.compsummaryitem p, .gametojoin p {
+margin: 0; padding: 0;
+}
+.contentcolumncontent {
+background-color: transparent;
+}
+.contentcolumnborderouter {
+border: 1px none #000; margin: 115px 10px 10px; padding: 0; width: 308px; overflow: visible;
+}
+.contentcolumnborderinner {
+border: 3px none #666; margin: 0; padding: 0; background-color: #333;
+}
+.contentcolumnstyleone {
+background: url(../i/bkg/sidebarbkg0.jpg) repeat-y fixed right top;
+}
+.clearall {
+clear: both;
+}
+.userlogin {}
+.userlogin p, .novseaccount p, .sinupforvseaccount p, .contentcolumncontent p {
+margin: 0; padding: 5px 10px 7px;
+}
+.novseaccount {
+cursor: pointer; margin-top: 10px;
+}
+.sinupforvseaccount {}
+.novseaccount p {
+margin: 0; padding: 5px 10px 7px;
+}
+.novseaccount h3 {
+text-align:right; padding:10px 20px 15px 0 !important; color:#35a1f4 !important; margin-bottom:0 !important; background-color: transparent !important; 
+}
+.novseaccount h4 {
+text-align: right; padding: 0 20px 15px 0;  color: #35a1f4; margin-bottom: 0;
+}
+.centering {
+text-align: center;
+}
+.formbutton {
+border: 2px outset #f4f4f4; color: #ff8000; font-weight: bold; background: #bbb url(../i/bkg/formbuttonbkg.gif) repeat-x left top;
+}
+.error, .userlogin p.error, #game .creategameerror p {
+color: #f00; margin: 10px 0 0; padding: 0;
+}
+.error strong, .userlogin p.error strong, .error b, .userlogin p.error b { 
+color: #f00; font-weight: bold;
+}
+.hide {
+display: none;
+}
+.hidefrommobiledevices {
+display: block;
+}
+.ltyellowtext {
+color: #666;
+}
+ul.pagebuttons {
+margin: 0; padding: 0; text-align: center;
+}
+ul.navbuttons {
+position: absolute; top: 63px; left: 0; margin: 0; padding: 0; text-align: left;
+}
+ul.navbuttons li {
+width: 110px; margin: 0; padding: 0;
+}
+.sectionseparation {
+margin-bottom: 30px; border-bottom: 2px solid #666;
+}
+.floatleft {
+float: left; margin: 0; padding: 0;
+}
+.floatright {
+float: right; margin: 0; padding: 0;
+}
+.formfloatcolumn {
+float: left; margin-right: 60px; _margin-bottom: 60px; padding-right: 30px; border-right: 1px dashed #aaa;
+}
+.formfloatcolumn2 {
+float: right; margin: 308px;
+}
+.centertext {
+text-align: center;
+}
+.rightaligntext {
+text-align: right;
+}
+.gameoutershell, .gameoutershellnowidth {
+border: 1px none #1d1d1d; margin: 10px 10px 20px;
+}
+.gameoutershell h2, .gameoutershellnowidth h2, h2.gameoutershellnowidth, .contentcolumncontent h2 {
+background: #666; color: #ff0; font-size: 1em; padding: 6px 10px; margin: 0; text-transform: uppercase; border-bottom: 1px solid #000;
+}
+.gameoutershell h2 {
+width: 585px; 
+}
+.contentcolumncontent h2 {
+ color: #09f;
+}
+.gameoutershell h2 a:link, .gameoutershell h2 a:visited, .gameoutershellnowidth h2 a:link, .gameoutershellnowidth h2 a:visited {
+color: #ccc; font-size: 80%; margin: 0 10px; text-decoration: none;
+}
+.gameoutershell h2 a:hover, .gameoutershell h2 a:visited:hover, .gameoutershellnowidth h2 a:hover, .gameoutershellnowidth h2 a:visited:hover {
+color: #fff; font-size: 80%; margin: 0 10px; text-decoration: none;
+}
+.gamepadding, .paddingof10 {
+margin: 0; padding: 10px; _pading: 0 10px 10px;
+}
+.paddingof10 p {
+margin: 0; padding: 5px 0 0 0; _pading: 0;
+}
+/*.gamepadding */ .gamelist {
+background: #f4f4f4; border-bottom: 1px solid #999;
+}
+/*
+6)
+Table Structure and associated components
+*/
+colgroup {
+margin: 0; padding: 0;
+}
+thead {
+margin: 0; padding: 0;
+}
+tbody {
+margin: 0; padding: 0;
+}
+table {
+margin: 0; padding: 0; border: 0;
+}
+th, .likeath {
+font-weight: bold; text-align: left; height: 18px; padding: 0 4px; margin: 0 4px; vertical-align: bottom; border-bottom: 1px solid #666; 
+}
+.ranksteadytop, .ranksteadybottom {
+border: 1px solid #09f;
+}
+.rankplustop, .rankplusbottom {
+border: 1px solid #3c0;
+}
+.rankminustop, .rankminusbottom {
+border: 1px solid #f33;
+}
+.ranksteadytop, .rankplustop, .rankminustop {
+border-bottom: none;
+}
+.ranksteadybottom, .rankplusbottom, .rankminusbottom {
+border-top: none;
+}
+.ranksteadytop, .ranksteadybottom, .rankplustop, .rankplusbottom, .rankminustop, .rankminusbottom {
+background-color: #eee; vertical-align: middle;
+}
+.ranksteadytop p, .ranksteadybottom p, .rankplustop p, .rankplusbottom p, .rankminustop p, .rankminusbottom p {
+color: #333; text-align: center; vertical-align: middle;
+}
+th, td {
+}
+.likeath {}
+div.singletablecontainer {
+margin-top: 15px; margin-left: 8px; margin-bottom: 15px; width:560px;
+}
+div.dualtablecontainer {
+margin-left: 8px; margin-bottom: 15px; width:580px; background-color: #e2e2e2; border: 1px solid #999;
+}
+div.dualtablecontainer table tr td, div.singletablecontainer table tr td {
+vertical-align: top;
+}
+table.dualtableleft, table.dualtableright {
+width: 280px;
+}
+table.singletable {
+width: 578px; border-left: 1px solid #999; border-bottom: 1px solid #999;
+}
+table.singletableborderless {
+width: 578px; border: none;
+}
+table.dualtableleft td, table.dualtableright td, table.singletable td, table.singletableborderless td {
+vertical-align: top; padding: 2px 5px;
+}
+th p, td.likeath p {
+margin: 0; padding: 0; font-size: 80%; _font-size: 90%; font-weight: bold; text-transform: uppercase; color: #222; vertical-align: middle;
+}
+tr.oddrows td p, tr.evenrows td p, tr.oddrows th p, tr.evenrows th p {
+margin: 0; padding: 0 10px 0 0;
+}
+tr.oddrows {
+background: #ccc;
+}
+tr.evenrows {
+background: #eee;
+}
+tr.oddrows td {
+border-right: 1px solid #999; margin: 0;
+}
+tr.evenrows td {
+border-right: 1px solid #999; margin: 0;
+}
+.noborder {
+border: none;
+}
+.ancillarydatacontainer {
+background-color: #e2e2e2; border: 1px solid #ff8000; margin: 0; padding: 0;
+}
+.ancillarydata, .portfolio2column {
+float: left; padding: 0; margin: 0;
+}
+div.ancillarydata p {
+font-size: 90%; text-transform: uppercase; color: #9E6E12; margin: 0; padding: 0;
+}
+div.ancillarydata p strong {
+color: #333;
+}
+.up, .down, .steady {
+font-weight: bold; margin: 0; padding: 0;
+}
+.up {
+color: #390;
+}
+.down {
+color: #f33;
+}
+.steady {
+color: #09f;
+}
+.black {
+color: #000;
+}
+.emptyrow {
+height: 10px;
+}
+.emptyrow p {
+margin: 0; padding: 0; height: 1px;
+}
+.margpadzero, p.margpadzero {
+margin: 0; padding: 0;
+}
+.topnav1, .topnav2, .topnav3, .topnav4, .topnav5, .topnav6 {
+width: 110px; height: 29px; float: left; margin: 0; padding: 0; cursor: pointer; _cursor: auto;
+}
+.topnav1 {
+background-color: #3096C3;
+}
+.topnav2 {
+background-color: #59A6CF;
+}
+.topnav3 {
+background-color: #79BAD7;
+}
+.topnav4 {
+background-color: #DB9220;
+}
+.topnav5 {
+background-color: #DFA238;
+}
+.topnav6 {
+background-color: #EBAE51;
+}
+.topnav1 p, .topnav2 p, .topnav3 p, .topnav4 p, .topnav5 p, .topnav6 p {
+text-align: center; margin: 0; padding: 8px 0 0; width: 108px; height: 19px; color: #fff; font-weight: bold; text-transform: none;  border: 1px none #ffc;
+}
+.topnav1 p:hover, .topnav2 p:hover, .topnav3 p:hover {
+background: #165088; color: #fff; border: 1px solid #fff; width: 108px; height: 19px;
+}
+.topnav4 p:hover, .topnav5 p:hover, .topnav6 p:hover {
+background: #c60; color: #fff; border: 1px solid #fff; width: 108px; height: 19px;
+}
+.topnav1 p a:link, .topnav2 p a:link, .topnav3 p a:link, .topnav4 p a:link, .topnav5 p a:link, .topnav6 p a:link,
+.topnav1 p a:visited, .topnav2 p a:visited, .topnav3 p a:visited, .topnav4 p a:visited, .topnav5 p a:visited, .topnav6 p a:visited,
+.topnav1 p a:hover, .topnav2 p a:hover, .topnav3 p a:hover, .topnav4 p a:hover, .topnav5 p a:hover, .topnav6 p a:hover,
+.topnav1 p a:visited:hover, .topnav2 p a:visited:hover, .topnav3 p a:visited:hover, .topnav4 p a:visited:hover, .topnav5 p a:visited:hover, .topnav6 p a:visited:hover  {
+color: #fff;
+}
+.topnav1 p a:hover, .topnav2 p a:hover, .topnav3 p a:hover, .topnav4 p a:hover, .topnav5 p a:hover, .topnav6 p a:hover,
+.topnav1 p a:visited:hover, .topnav2 p a:visited:hover, .topnav3 p a:visited:hover, .topnav4 p a:visited:hover, .topnav5 p a:visited:hover, .topnav6 p a:visited:hover  {
+text-decoration: none; _text-decoration: underline;
+}
+.loginout {
+float: left ; width: 320px;
+}
+.loginout p {
+text-align: right; font-size: 90%; font-weight: bold; color: #999; padding: 6px 15px 5px 0; margin: 0;
+}
+.loginout p a {
+color: #284561;
+}
+.myportfoliostab1, .myportfoliostab2 {
+float: left; margin: 0; padding: 0; cursor: pointer; background: #EBEBDB; width: 50%; text-align: center;
+}
+.myportfoliostab2, .myportfoliostab2 p {
+background: #D3D3B2;
+}
+.myportfoliostab1 p, .myportfoliostab2 p {
+margin: 0; padding: 3px 10px; min-height: 13px; _height: 13px; float: left;
+}
+.myportfoliostab1 p a, .myportfoliostab2 p a {
+font-weight: bold;
+}
+.myportfoliostab1 p a:link, .myportfoliostab1 p a:visited {
+color: #000;
+}
+.myportfoliostab1 p a:hover, .myportfoliostab1 p a:visited:hover {
+color: #0051B6; text-decoration: none;
+}
+.myportfoliostab2 p a:link, .myportfoliostab2 p a:visited {
+color: #0051B6;
+}
+.myportfoliostab2 p a:hover, .myportfoliostab2 p a:visited:hover {
+color: #000; text-decoration: none;
+}
+#myportfoliostab1contentleft {
+float: left; width: 129px; padding: 10px; margin: 0;
+}
+#myportfoliostab1contentleft h4 {
+color: #999; text-transform: uppercase; font-size: 90%; font-weight: bold; margin: 0 10px; padding: 0;
+}
+#myportfoliostab1contentleft h5 {
+margin: 0 10px 10px; padding: 0;
+}
+#myportfoliostab1contentright {
+float: left; width: 149px; padding: 0; margin: 0;
+}
+.mpt1crcolumn1, .mpt1crcolumn3 {
+float: left; width: 55px; padding: 0; margin: 0;
+}
+.mpt1crcolumn2 {
+float: left; width: 39px; padding: 0; margin: 0;
+}
+.mpt1crcolumn1 h4, .mpt1crcolumn2 h4, .mpt1crcolumn3 h4 {
+margin: 5px 0; padding: 0; color: #2D4481; font-weight: bold; font-size: 100%;
+}
+.mpt1crcolumn1 p, .mpt1crcolumn2 p, .mpt1crcolumn3 p {
+margin: 0 5px 3px; padding: 0; color: #2D4481; font-size: 90%;
+}
+.myrankingspod {
+margin: 0; padding: 5px 10px 0;
+}
+.myrankingspod .floatleft p {
+margin: 0; padding: 0; text-transform: uppercase;
+}
+.myrankingspod .floatright p {
+margin: 0; padding: 0; font-size: 90%;
+}
+.gamestats {
+margin: 3px 0;
+}
+.gamestats p {
+position: relative; background: #666; color: #fff; margin: 0; padding: 4px 10px; font-size: 90%; 
+}
+.myrankingsad img {
+margin: 10px 0 10px 5px;
+}
+.pickingstockslinksleft {
+width: 119px; height: 15px; float: left; padding: 0 0 10px;
+}
+.pickingstockslinksleft p {
+margin: 0 0 0 10px; padding: 0; font-size: 90%;
+}
+.pickingstockslinksright {
+width: 179px; height: 15px; float: left; padding: 0 0 10px;
+}
+.pickingstockslinksright p {
+margin: 0 0 0 5px; padding: 0; font-size: 90%;
+}
+.adboxtopright {
+margin: 5px 5px 15px; padding: 0;
+}
+.storyphoto {
+float: left; margin: 0 10px 10px 0;
+}
+.font90percent {
+font-size: 90%;
+}
+.font80percent {
+font-size: 80%;
+}
+.font70percent {
+font-size: 70%;
+}
+.allcaps {
+text-transform: uppercase;
+}
+.allcaps strong, .allcaps b, .allcaps em {
+color: #9E6E12;
+}
+.wordcaps {
+text-transform: capitalize;
+}
+
+
+
+
+/* ADDITIONAL STYLES THAT NEED TO BE SORTED OUT */
+.leftnavbutton1, .leftnavbutton2, .leftnavbutton3, .leftnavbutton4, .leftnavbutton5, .leftnavbutton6 {
+margin: 0; padding: 0; text-transform: uppercase; font-size: 90%; color: #fff;
+}
+.leftnavbutton5, .leftnavbutton6 {
+font-weight: bold; font-size: 92%; background-color: #5E8BAC; text-transform: none;
+}
+.leftnavbutton1 a:link, .leftnavbutton2 a:link, .leftnavbutton3 a:link, .leftnavbutton4 a:link, .leftnavbutton5 a:link, .leftnavbutton6 a:link,
+.leftnavbutton1 a:visited, .leftnavbutton2 a:visited, .leftnavbutton3 a:visited, .leftnavbutton4 a:visited, .leftnavbutton5 a:visited, .leftnavbutton6 a:visited {
+margin: 0; padding: 3px 0 3px 8px; _padding: 3px 0 3px 6px; min-height: 10px; _height: 10px; color: #fff; display: block; text-decoration: none;
+}
+.leftnavbutton1 a:link, .leftnavbutton1 a:visited {
+background: #193c93 url(../i/bkg/leftnavarroweast.gif) top right no-repeat;
+}
+.leftnavbutton2 a:link, .leftnavbutton2 a:visited {
+background: #3461c3 url(../i/bkg/leftnavarroweast.gif) top right no-repeat;
+}
+.leftnavbutton3 a:link, .leftnavbutton3 a:visited {
+background: #4979e3 url(../i/bkg/leftnavarroweast.gif) top right no-repeat;
+}
+.leftnavbutton4 a:link, .leftnavbutton4 a:visited {
+background: #000 url(../i/bkg/leftnavarroweast.gif) top right no-repeat;
+}
+.leftnavbutton5 a:link, .leftnavbutton5 a:visited {
+background: #5E8BAC;
+}
+.leftnavbutton6 a:link, .leftnavbutton6 a:visited {
+background: #5E8BAC;
+}
+.leftnavbutton1 a:hover, .leftnavbutton2 a:hover, .leftnavbutton3 a:hover,
+.leftnavbutton1 a:visited:hover, .leftnavbutton2 a:visited:hover, .leftnavbutton3 a:visited:hover {
+background: #ff6500 url(../i/bkg/leftnavarroweast.gif) top right no-repeat; color: #fff;
+}
+.leftnavbutton4 a:hover, .leftnavbutton4 a:visited:hover {
+background: #000 url(../i/bkg/leftnavarroweast.gif) top right no-repeat; color: #fff;
+}
+.leftnavbutton5 a:hover, .leftnavbutton6 a:hover, .leftnavbutton5 a:visited:hover, .leftnavbutton6 a:visited:hover {
+background: #5E8BAC; color: #fff;
+}
+.leftnavlistsdiv {
+margin: 0 0 0 -20px; _margin: 0 0 0 -25px; padding: 0 10px 0 0;
+}
+.leftnavlistsdiv ul {
+margin-top: 8px; margin-bottom: 10px;
+}
+.leftnavlistsdiv li {
+font-size: 92%; list-style-image: url(../i/bkg/lidot.gif); _list-style-image: url(../i/bkg/lidot4iewin.gif); list-style-position: outside; padding: 0; margin-top: 0;
+}
+.leftnavlistsdiv li a:link, .leftnavlistsdiv li a:visited {
+}
+.leftnavlistsdiv li a:hover, .leftnavlistsdiv li a:visited:hover {
+text-decoration: underline;
+}
+.gamename {
+/* Empty for now. Only used to set up the p tag */
+}
+.gamename p {
+font-size: 92%; font-weight: bold; margin: 5px 0; padding: 5px 5px 0 7px; 
+}
+.gamename .leftnavlistsdiv ul {
+margin-top: 5px; margin-bottom: 10px;
+}
+
+/* The following are for IE only. Yeah, I know, what a shocker. */
+
+.leftnaviecommands .gamename .leftnavlistsdiv ul {
+_margin-top: 4px;
+}
+.leftnaviecommands .leftnavlistsdiv ul {
+_margin-top: 0;
+}
+
+/* Thus concludes this set of IE hacks.. */
+
+.contentlistsdiv {
+margin: 0 0 0 -15px; padding: 0 10px 0 0;
+}
+.contentlistsdiv ul {
+margin-top: 5px; margin-bottom: 5px;
+}
+.contentlistsdiv li {
+list-style-image: url(../i/bkg/lidot.gif); _list-style-image: url(../i/bkg/lidot4iewin.gif); list-style-position: outside; padding-top: 0; padding-bottom: 5px; margin-top: 0;
+}
+.contentlistsdiv li a:link, .contentlistsdiv li a:visited {
+color: #0253B6;
+}
+.contentlistsdiv li a:hover, .contentlistsdiv li a:visited:hover {
+color: #000; text-decoration: underline;
+}
+li.add {
+list-style-image: url(../i/bkg/add.gif); _list-style-image: url(../i/bkg/add4iewin.gif);
+}
+.leftnavdivisionrule {
+height: 2px; background: url(../i/bkg/leftnavdivisionrule.gif) repeat-x; display: block;  white-space: nowrap; clear: both; margin: 0; padding: 0;
+}
+.column2divisionrule {
+height: 2px; background: url(../i/bkg/column2divisionrule.gif) repeat-x; margin: 10px 0 0; padding: 0; display: block; white-space: nowrap; clear: both;
+}
+.tradewidgetdivisionrule {
+height: 2px; background: url(../i/bkg/tradewidgetdivisionrule.gif) repeat-x; display: block;  white-space: nowrap; clear: both;
+}
+.leftnavsplitcolumnleft {
+float: left; margin: 0; padding: 4px 0 4px 8px; width: 62px;
+}
+.leftnavsplitcolumnright {
+float: left; margin: 0; padding: 4px 4px 4px 0; width: 52px;
+}
+.leftnavsplitcolumnleft h5, .leftnavsplitcolumnright h5 {
+margin: 0; padding: 0; color: #333; font-size: 90%;
+}
+.leftnavsplitcolumnleft div, .leftnavsplitcolumnright div {
+margin: 0; padding: 0; height: 2px;  background: url(../i/bkg/leftnavdivisionrule.gif) repeat-x; 
+}
+.leftnavsplitcolumnleft p, .leftnavsplitcolumnright p {
+color: #000; font-size: 90%; margin: 0; padding: 4px 4px 0 0; _padding: 0;
+}
+p.join {
+color: #000; font-size: 80%; margin: 0; padding: 0; font-weight: bold;
+}
+p.join a:link, p.join a:visited {
+color: #0253B6;
+}
+p.join a:hover, p.join a:visited:hover {
+color: #000;
+}
+#column2a h4, #column2b h4 {
+}
+#logo {
+margin:0; padding: 0; height: 63px; width: 131px; background-image: url(../i/elements/logo.gif); background-repeat: no-repeat;  cursor: pointer; cursor: hand;
+ }
+.gameindicator {
+margin: 0; padding: 0 0 0 5px; font-size: 8px; text-transform: lowercase; color: #5582A6;
+}
+.alluppercase {
+text-transform: uppercase;
+}
+.text999 {
+color: #999;
+}
+.textblack {
+color: black;
+}
+.htextcolor {
+color: #9E6E12;
+}
+.zeromarginandpadding {
+margin: 0; padding: 0;
+}
+#gamecreate h2, #gamecreate h3, #gamecreate h4, #gamecreate h5, #gamecreate h6 {
+margin: 10px; padding: 2px 10px; color: #333; 
+}
+#gamecreate h2 {
+color: #fff; 
+}
+#gamecreate h3 {
+margin: 10px 0; padding: 2px 10px;
+}
+.tdtagwhitetopborder {
+margin: 0; padding: 0 4px 0 4px; border-top: 1px solid #fff;
+}
+table, tr, td, p, a, .tdtagwhitetopborder p, .tdtagwhitetopborder p a {
+margin: 0; padding: 0;
+}
+.leftnavgamesdisplay {
+width: 114px; margin: 10px 9px 18px 8px;
+}
+.leftnavgamesdisplay td div {
+width: 57px; overflow: hidden; vertical-align: top;
+}
+.leftnavgamesdisplay td {
+background: url(../i/bkg/leftnavdivisionrule.gif) repeat-x left bottom;  vertical-align: top;
+}
+.leftnavgamesdisplay td p {
+vertical-align: top; font-size: 92%; padding: 2px 0; _padding: 0 0 6px; line-height: 100%;
+}
+.leftnavdisplayedu {
+width: 114px; margin: 10px 9px 18px 8px;
+}
+.leftnavdisplayedu td div {
+width: 57px; overflow: hidden; vertical-align: top;
+}
+.leftnavdisplayedu td {
+background: url(../i/bkg/leftnavdivisionrule.gif) repeat-x left bottom;  vertical-align: top;
+}
+.leftnavdisplayedu td p {
+vertical-align: top; font-size: 92%; padding: 2px 0; _padding: 0 0 6px; line-height: 100%;
+}
+#portfoliotabs {
+margin: 0; padding: 0; width: 519px;
+}
+#portfoliotabs td {
+margin: 0; padding: 0;
+}B6B68E
+#portfoliotabs td p {
+width: 100%; margin: 0; padding: 0; text-align: center; font-size: 100%; display: block;
+}
+#portfoliotabs td p a:link, #portfoliotabs td p a:visited, #portfoliotabs td p a:hover, #portfoliotabs td p a:visited:hover {
+width: 100%; padding: 3px 0; margin: 0; text-align: center; vertical-align: middle; text-decoration: none; background: #D3D3B2; display: block;
+}
+#portfoliotabs td p a:hover, #portfoliotabs td p a:visited:hover, #portfoliotabs td p a:active {
+width: 100%; color: #fff; background: #8B8B63;
+}
+#portfoliotabs td p a.portfoliotabon:link, #portfoliotabs td p a.portfoliotabon:visited {
+width: 100%; color: #fff; background: #B6B68E;
+}
+#portfoliotabs td p a.portfoliotabon:hover, #portfoliotabs td p a.portfoliotabon:visited:hover, #portfoliotabs td p a.portfoliotabon:active {
+width: 100%; cursor: text;
+}
+.tbox {
+text-transform: uppercase; margin: 5px; _margin: 7px 5px;
+}
+.tbox a:link, .tbox a:visited {
+background: #193C93; color: white; padding: 2px; border: 1px solid white; text-decoration: none;
+}
+.tbox a:hover, .tbox a:visited:hover {
+background: #ff6500; color: white; padding: 2px; border: 1px solid white; text-decoration: none;
+}
+table, .gameoverview, .gameoverviewsmall {
+border-collapse: collapse;
+margin: 0;
+padding: 0;
+}
+.gameoverview {
+width: 100%;
+}
+.gameoverviewsmall {
+width: 232px;
+}
+.gameoverview td, .gameoverviewsmall td {
+margin: 0; padding: 2px 4px;
+}
+.gameoverview td p, .gameoverviewsmall td p {
+margin: 0; padding: 0;
+}
+caption, p.caption {
+font-stretch: extra-condensed;
+font-weight: bold;
+text-align: left;
+text-transform: uppercase;
+color: #9D742C;
+margin-bottom: 5px;
+}
+p.caption {
+border-bottom: 2px solid #cccc9b;
+}
+.gameoverviewsmall th, .gameoverviewsmall td, .gameoverview th, .gameoverview td {
+border-bottom: 1px solid #cccc9b;
+vertical-align: middle;
+padding: 2px 4px;
+}
+.gameoverviewsmall th p, .gameoverview th p {
+font-size: 90%;
+font-weight: bold;
+text-align: center;
+color: #9D742C;
+text-transform: none;
+}
+.gameoverviewsmall td p, .gameoverview td p {
+font-size: 90%;
+text-align: center;
+vertical-align: middle;
+}
+.gameoverviewsmall td p.textalignleft, .gameoverview td p.textalignleft, .gameoverviewsmall th p.textalignleft, .gameoverview th p.textalignleft {
+text-align: left;
+}
+.gameoverviewsmall td p.textaligncenter, .gameoverview td p.textaligncenter, .gameoverviewsmall th p.textaligncenter, .gameoverview th p.textaligncenter {
+text-align: center;
+}
+.gameoverviewsmall td p.textalignright, .gameoverview td p.textalignright, .gameoverviewsmall th p.textalignright, .gameoverview th p.textalignright {
+text-align: right;
+}
+tr.odd td, tr.odd th {
+background-color: #D7D7C3;
+}
+tfoot th {
+text-align: right;
+}
+.blackheaders th p {
+color: black;
+}
+.thalignright p, .thalignright th p, .thalignright td p {
+text-align: right;
+}
+.thalignright td p {
+text-align: left;
+}
+.thalignleft p, .thalignleft th p, .thalignleft td p {
+text-align: left;
+}
+.textaligncenter, p.textaligncenter {
+text-align: center;
+}
+.textalignright, p.textalignright {
+text-align: right;
+}
+.textalignleft, th, td, th p, td p, p.textalignleft {
+text-align: left;
+}
+#pagename {
+margin: 0; padding: 36px 10px 0;
+}
+#pagename p {
+color: white; font-size: 150%;
+}
+#tradewidgetcontainer {
+position: absolute; top: 100px; width: 559px; margin-left: 131px; _margin-left: 0;
+}
+#tradewidget {
+width: 559px; margin: 0; padding: 0; background: #DFEBF7;
+}
+#tradewidgetiframecontainer {
+width: 553px; padding: 0 0 3px 6px; _padding: 0 0 6px 6px; background: #ff6500;
+}
+#tradewidgetiframe {
+width: 547px; height: 377px; border: none; background: #DFEBF7;
+}
+#tradewidgettop {
+background: #ff6500; height: 12px; margin: 0; padding: 4px 0; border-right: 6px solid #ff6500; border-left: 6px solid #ff6500;
+}
+.tradewidgetxbox {
+float: right; margin: 0; padding: 0 2px; color: white; border: 1px solid white; font-size: 70%; text-transform: uppercase;
+}
+.tradewidgetxbox a:link, .tradewidgetxbox a:visited, .tradewidgetclosewindow a:link, .tradewidgetclosewindow a:visited {
+color: white;
+}
+.tradewidgetclosewindow {
+float: right; margin: 0 5px; padding: 0; color: white; font-size: 80%;
+}
+.tradewidgetheader {
+margin: 0; padding: 0 0 0 18px; color: white; text-transform: uppercase; font-size: 80%;
+}
+.loginbox {
+background: #d7d7c3; width: 232px;
+}
+.loginbox p {
+padding: 10px 0 0 10px;
+}
+.loginbox p.loginorregisterswap {
+padding: 2px 10px 2px 10px; border-bottom: #afaf91 1px solid; BACKGROUND: #f5f5ef;  width: 210px;
+}
+big {
+font-size: 120%; font-weight: bold; _font-size: 130%;
+}
+.tip, .note {
+color: white; padding: 2px 4px 1px; font-weight: bold; font-size: 90%; text-transform: uppercase;
+}
+.tip {
+background: green;
+}
+.note {
+background: #9c6c12;
+}
+
+#researchModuleDiv .heading {
+font-weight: bold;
+}
+#researchModuleDiv UL { 
+margin: 0; padding: 0; list-style-type: none;
+}
+#researchModuleDiv LI { 
+margin: 0; padding: 4px 0; list-style-type: none; border-bottom: 1px solid white;
+}
+/*
+Quoted tool box thingy
+*/
+
+.quotedToolTipBox
+{
+	border: solid 1px #B6B68E;
+	background-color: #EBEBDB;
+	width: 242px;
+}
+.quotedToolTipBox .companyName 
+{
+	padding: 8px;
+	background-color: #B6B68E;
+	text-transform: uppercase;
+}
+.liveQuotesDate span.mwlivequotes .up, .liveQuotesDate span.mwlivequotes .down, .liveQuotesDate span.mwlivequotes .unchanged
+{
+	font-size: 80%;
+	color: Black;
+}
+
+span.price span.mwlivequotes .up, span.price span.mwlivequotes .down, span.price span.mwlivequotes .unchanged
+{
+	color:Black;
+	font-size: 140%;
+	font-weight: bold;
+}
+.hiddenFeedBack
+{
+    position:absolute;
+    left: -500;
+    visibility:hidden;
+}
+
+
+
+
+

@@ -1,0 +1,28 @@
+#
+# Linux specific make options
+#
+
+include $(TOP)/make.defines
+
+CC=g++
+CCC=g++
+LINK=g++
+LD=g++
+INCLUDES = -I$(TOP) -I.
+CCFLAGS = -g -pthread $(INCLUDES)
+CCCFLAGS = $(CCFLAGS)
+CPPFLAGS = $(CCFLAGS)
+CXXFLAGS = $(CCFLAGS)
+LDFLAGS = -shared
+LINKFLAGS = $(LDFLAGS)
+LDFLAGS=-shared -g
+LINKFLAGS=-pthread -g
+
+
+CXX = $(CCC)
+
+#
+# Libs
+#
+SOCKETLIBS=
+PTHREADLIBS=-lpthread

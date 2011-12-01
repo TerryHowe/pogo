@@ -1,0 +1,28 @@
+<h1>Listing accounts</h1>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>User</th>
+    <th>Password</th>
+    <th>Name</th>
+    <th>Subaccount</th>
+  </tr>
+
+<% for account in @accounts %>
+  <tr>
+    <td><%=h account.broker %></td>
+    <td><%=h account.user %></td>
+    <td><%=h account.password %></td>
+    <td><%=h account.name %></td>
+    <td><%=h account.subaccount %></td>
+    <td><%= link_to 'Show', account %></td>
+    <td><%= link_to 'Edit', edit_account_path(account) %></td>
+    <td><%= link_to 'Destroy', account, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New account', new_account_path %>

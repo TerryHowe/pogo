@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+nyse:
+  name: nyse
+  openhour: 9
+  openminute: 30
+  closehour: 16
+  closeminute: 00
+  timezone: Eastern Time (US & Canada)
+
+nasdaq:
+  name: nasdaq
+  openhour: 9
+  openminute: 30
+  closehour: 16
+  closeminute: 00
+  timezone: Eastern Time (US & Canada)

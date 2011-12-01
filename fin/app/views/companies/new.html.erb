@@ -1,0 +1,59 @@
+<h1>New company</h1>
+
+<% form_for(@company) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :ticker %><br />
+    <%= f.text_field :ticker %>
+  </p>
+  <p>
+    <%= f.label :account %><br />
+    <%= f.select :account_id, Account.getSelectable() %>
+  </p>
+  <p>
+    <%= f.label :exchange %><br />
+    <%= f.select :exchange_id, Exchange.getSelectable() %>
+  </p>
+  <p>
+    <%= f.label :googid %><br />
+    <%= f.text_field :googid %>
+  </p>
+  <p>
+    <%= f.label :quantity %><br />
+    <%= f.text_field :quantity %>
+  </p>
+  <p>
+    <%= f.label :table %><br />
+    <%= f.select :table, Company.getDataTables() %>
+  </p>
+  <p>
+    <%= f.label :tactic %><br />
+    <%= f.select :tactic, TacticFactory.getTactics() %>
+  </p>
+  <p>
+    <%= f.label :p1 %><br />
+    <%= f.text_field :p1 %>
+  </p>
+  <p>
+    <%= f.label :p2 %><br />
+    <%= f.text_field :p2 %>
+  </p>
+  <p>
+    <%= f.label :p3 %><br />
+    <%= f.text_field :p3 %>
+  </p>
+  <p>
+    <%= f.label :p4 %><br />
+    <%= f.text_field :p4 %>
+  </p>
+  <p>
+    <%= f.label :p5 %><br />
+    <%= f.text_field :p5 %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', companies_path %>

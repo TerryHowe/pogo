@@ -1,0 +1,20 @@
+stub:
+  broker: Stub
+  user: ed
+  password: nottelling
+  name: noIdear
+  subaccount: subaccount
+
+vse:
+  broker: VSE
+  user: terry@jeeptech.com
+  password: abc123
+  name: TerrorHowl
+  subaccount: Team Kawasaki
+
+tdameritrade:
+  broker: TDAmeritrade
+  user: ted
+  password: supersecret
+  name: Top Secret
+  subaccount: subaccount

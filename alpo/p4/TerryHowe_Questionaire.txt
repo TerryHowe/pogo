@@ -1,0 +1,87 @@
+Part 4: Questionnaire
+
+Please answer both of the following questions:
+
+1. Describe the most difficult project you ever worked on and explain what made it so difficult.
+
+The most difficult project I ever worked on was an ASN.1 encoder/decoder for
+H.248 Megaco a VoIP call signaling protocol.  The project was difficult because:
+ - The event structure was based on the ABNF version of the protocol and there
+   were a lot of differences between the text and ASN.1 versions.
+ - The parsing engine expected would traverse a tree of structures representing
+   the syntax and with a pointer into an event structure.  It was easy to get
+   lost.  There was a lot of crazy pointer arithmetic.
+ - There were not any unit tests.
+ - The protocol was so new, it wasn't supported by protocol analyzers.
+In retrospect, we should not of reused parsing engine.  We also should of set
+up unit tests.  We had automated tests, but they were at the message level
+rather than the message component level.
+
+
+2. Given a specification for a task, how would you go about estimating how long it will take for you to complete the task?
+
+I've used function point analysis to estimate tasks, but I find I get better
+results using using Agile Programming Methodologies.  I break down stories,
+iterations, tasks and give the tasks estimated times.  I don't do as much
+analysis on how things are going to be done at this time as I would if I
+was actually breaking the task down to work on.
+
+
+
+Choose four of the following seven:
+
+2. Do you prefer open-source or proprietary technologies, and why?
+
+Ironically, I've found you get a lot better support for open-source
+technologies.  There are always problems when you are trying to integrate
+a product and you have questions.  Open-source projects typically have
+forums, mailing lists, wikis, etc that proprietary products do not have.
+If you really have to, you can always look at the source too.
+
+
+3. Where do you think most software projects go wrong?
+
+I think the two most common problems are unreasonable expectations and
+using the wrong tool for the job.  Expectations are unreasonable when
+deadlines are set by outside forces such as trade shows.  The right tool
+for one job can be wrong for another.  I am a java fan, but I recently
+worked on a simple web application using Java/Wicket/Hibernate that would
+of been way easier using Ruby on Rails.
+
+
+4. What do you think of formal design methodologies?
+
+It is important for engineers to be familiar with object diagrams, use
+cases, ladder diagrams, etc to communicate ideas.  It normally is not
+necessary to generate huge documents containing these diagrams before
+writing code.  Generally, I do not write any design document unless there
+is a particularly difficult part of the project that needs to be worked
+out.  If someone needs a design document before a project, I'm happy to
+provide one.  It is also useful creating design documents when you pass
+a project on to another person or team.
+
+
+5. Describe an experience working in a team. What was your role on the team?
+How did you communicate with other members of the team?
+
+I pretty happy playing any role on a team, I can be the guy that gets things
+done or the team lead.  I've been doing Agile development for the past four
+years, so I'm used to working closely with others.  A lot of that time was
+spent pair programming.  A lot of this work was on small teams and since we
+were pairing, communication was not an issue.  On projects were team members
+are remote, normally email will work, but sometimes IM and IRC can be useful.
+
+
+
+Choose one of the following three:
+
+2. What’s the latest thing you’ve learned, or what did you learn last week, or what are you currently learning?
+
+Last week I bought a single speed mountain bike with 29" wheels (aka a 29er).
+I love riding bikes, but I haven't had a bike with one gear since I was a kid.
+I'm learning how to pace myself on climbs and when to get off and push.  I'm
+learning how to maneuver a bike with bigger wheels and the advantages and
+disadvantages of a 29er.  I better get it all figured out by tomorrow, because
+I'll be running the Single Speed World Championship, my first race with the
+bike.
+

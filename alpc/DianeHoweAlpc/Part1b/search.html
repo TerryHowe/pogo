@@ -1,0 +1,116 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Diane Howe's Rectangle Search</title>
+<style type="text/css">
+   .roundedRectangle { height: 200px; width: 300px; 
+      background-color:#3399ff }
+
+   b.roundTop, b.roundBottom{display:block;background: #fff}
+   b.roundTop b, b.roundBottom b{display:block;height: 1px;
+    overflow: hidden; background: #3399ff}
+   b.r1{margin: 0 5px}
+   b.r2{margin: 0 3px}
+   b.r3{margin: 0 2px}
+   b.roundTop b.r4, b.roundBottom b.r4{margin: 0 1px;height: 2px}
+
+</style>
+
+<script type="text/javascript">
+totalResults=0;
+function handleResults(serverResponse)
+{
+   totalResults = serverResponse.ResultSet.totalResultsAvailable;
+}
+
+function getTotalResults()
+{
+   return totalResults;
+}
+
+function getSearchString()
+{
+   if (location.search.indexOf("?") > -1)
+   {
+      var searchString = location.search.substr(
+       location.search.indexOf("?") + 1);
+      return searchString;
+   }
+   return("");
+}
+
+function changeColor(color)
+{
+   if (color == "default")
+   {
+      document.getElementById('rr').style.backgroundColor = "#3399ff";
+      document.getElementById('rt1').style.backgroundColor= "#3399ff";
+      document.getElementById('rt2').style.backgroundColor= "#3399ff";
+      document.getElementById('rt3').style.backgroundColor= "#3399ff";
+      document.getElementById('rt4').style.backgroundColor= "#3399ff";
+      document.getElementById('rb1').style.backgroundColor= "#3399ff";
+      document.getElementById('rb2').style.backgroundColor= "#3399ff";
+      document.getElementById('rb3').style.backgroundColor= "#3399ff";
+      document.getElementById('rb4').style.backgroundColor= "#3399ff";
+      document.getElementById('searchResults').style.visibility = "hidden";
+   }
+   else
+   {
+      document.getElementById('rr').style.backgroundColor= "#ffcc99";
+      document.getElementById('rt1').style.backgroundColor= "#ffcc99";
+      document.getElementById('rt2').style.backgroundColor= "#ffcc99";
+      document.getElementById('rt3').style.backgroundColor= "#ffcc99";
+      document.getElementById('rt4').style.backgroundColor= "#ffcc99";
+      document.getElementById('rb1').style.backgroundColor= "#ffcc99";
+      document.getElementById('rb2').style.backgroundColor= "#ffcc99";
+      document.getElementById('rb3').style.backgroundColor= "#ffcc99";
+      document.getElementById('rb4').style.backgroundColor= "#ffcc99";
+      document.getElementById('searchResults').style.visibility = "visible";
+      document.getElementById('searchString').innerHTML = getSearchString();
+      document.getElementById('searchCount').innerHTML = getTotalResults();
+   }
+   return;
+}
+
+function buildSearchResults()
+{
+   var this_doc = document.getElementsByTagName('head').item(0);
+
+   var searchScript = document.createElement('script');
+   searchScript.setAttribute('type', 'text/javascript');
+   searchScript.setAttribute('src', 
+    "http://api.search.yahoo.com/WebSearchService/V1/webSearch?appid=A+L_ProgrammingTest&output=json&results=1&callback=handleResults&query=" 
+    + getSearchString() );
+ 
+   this_doc.appendChild(searchScript);  
+}
+
+</script>
+   
+</head>
+
+<body onLoad=buildSearchResults(); >
+<div class="roundedRectangle" id="rr" onmouseover="changeColor('newColor')"
+   onmouseout="changeColor('default')" >
+   <b class="roundTop" id="rt">
+      <b class="r1" id="rt1"></b>
+      <b class="r2" id="rt2"></b>
+      <b class="r3" id="rt3"></b>
+      <b class="r4" id="rt4"></b>
+   </b>
+
+   <div id="searchResults" align="center"
+    style="visibility: hidden; width: 100%; height: 190">
+      <div id="searchString"> </div>
+      <div id="searchCount"> </div>
+   </div>
+
+      <b class="roundBottom" id="rb">
+         <b class="r4" id="rb1"></b> 
+         <b class="r3" id="rb2"></b>
+         <b class="r2" id="rb3"></b>
+         <b class="r1" id="rb4"></b>
+      </b>
+</div>
+
+</body>
+</html>

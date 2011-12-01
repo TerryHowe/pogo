@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @exchange.name %>
+</p>
+
+<p>
+  <b>Open:</b>
+  <%=h @exchange.opentime %>
+</p>
+
+<p>
+  <b>Close:</b>
+  <%=h @exchange.closetime %>
+</p>
+
+<p>
+  <b>Timezone:</b>
+  <%=h @exchange.timezone %>
+</p>
+
+
+<%= link_to 'Edit', edit_exchange_path(@exchange) %> |
+<%= link_to 'Back', exchanges_path %>

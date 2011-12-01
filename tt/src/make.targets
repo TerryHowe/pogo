@@ -1,0 +1,31 @@
+
+all: $(LIB1) $(EXE1)
+	@for dir in $(SUBDIRS) x ; do \
+		test "$$dir" = "x" || ( cd $(TOP)/$$dir ; make all; ) \
+	done
+	@echo "Done $(SUBDIRNAME)"
+
+$(LIB1): $(LIBDIR)/lib$(LIB1).so
+$(LIBDIR)/lib$(LIB1).so: $(LIB1_OBJS)
+	$(LD) $(LDFLAGS) -o $(LIBDIR)/lib$(LIB1).so $(LIB1_OBJS)
+
+$(EXE1): $(EXE1_OBJS)
+	$(LINK) $(LINKFLAGS) -o $(EXE1) $(EXE1_OBJS) $(EXE1_LIBS)
+
+
+TARFILESTMP = tester.cc $(SRCS) $(INCS) Makefile
+TARFILES = $(TARFILESTMP:%=$(SUBDIRNAME)/%)
+TARFILES += make.*.defines make.defines make.targets
+TARFILE = tt.tar
+tarball:
+	touch $(TARFILE)
+	cd $(TOP) ; tar -uvf $(TARFILE) $(TARFILES)
+	@for dir in $(SUBDIRS) x ; do \
+		test "$$dir" = "x" || ( cd $(TOP)/$$dir ; make tarball; ) \
+	done
+
+clean:
+	$(RM) -r $(EXE1) $(LIBDIR)/* $(INCDIR)/* *.o core SunWS_cache ir.out $(TARFILE)
+	@for dir in $(SUBDIRS) x ; do \
+		test "$$dir" = "x" || ( cd $(TOP)/$$dir ; make clean; ) \
+	done

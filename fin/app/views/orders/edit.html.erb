@@ -1,0 +1,36 @@
+<h1>Editing order</h1>
+
+<% form_for(@order) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :number %><br />
+    <%= f.text_field :number %>
+  </p>
+  <p>
+    <%= f.label :date %><br />
+    <%= f.datetime_select :date %>
+  </p>
+  <p>
+    <%= f.label :xaction %><br />
+    <%= f.text_field :xaction %>
+  </p>
+  <p>
+    <%= f.label :company %><br />
+    <%= f.select :company_id, Account.getSelectable() %>
+  </p>
+  <p>
+    <%= f.label :quantity %><br />
+    <%= f.text_field :quantity %>
+  </p>
+  <p>
+    <%= f.label :state %><br />
+    <%= f.text_field :ostate %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @order %> |
+<%= link_to 'Back', orders_path %>

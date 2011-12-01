@@ -1,0 +1,14 @@
+[header]
+project: Programming Test
+budget : 4.5
+accessed :205
+
+[meta data]
+description : This is a tediously long description of the Art & Logic
+ programming test that you are taking. Tedious isn't the right word, but
+ it's the first word that comes to mind.
+
+correction text: I meant 'moderately,' not 'tediously,' above.
+
+[ trailer ]
+budget:all out of budget.

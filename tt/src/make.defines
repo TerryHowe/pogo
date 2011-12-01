@@ -1,0 +1,8 @@
+#
+# Generic make defines
+#
+
+SUBDIRS = 
+LIBDIR = $(TOP)/lib
+INCDIR = $(TOP)/include
+

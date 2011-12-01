@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  number: 1
+  account: vse
+  date: 2009-04-03 12:27:15
+  xaction: Buy
+  company: att
+  quantity: 1
+  ostate: 1
+
+two:
+  number: 2
+  account: vse
+  date: 2009-04-03 12:27:15
+  xaction: Sell
+  company: qwest
+  quantity: 2
+  ostate: 1

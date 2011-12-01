@@ -1,0 +1,207 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
+   "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<HTML>
+	<HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<style type="text/css">
+			@import url( ./assets/c/basic.css );
+			@import url( ./assets/themes/3cols/c/mainstyles.css ); 
+		</style>
+		<script src="./assets/j/pagefunctions.js" type="text/javascript"></script>
+		<script src="./assets/j/styleswitcher.js" type="text/javascript"></script>
+		<style type="text/css">
+			<!--
+				html { overflow-x: hidden;
+				}
+				body, form {
+				margin: 0; padding: 0;
+				}
+				body {
+				background: #DFEBF7;
+				}
+			-->
+		</style>
+	</HEAD>
+	<body>	
+		<form name="Form1" method="post" action="TradeWidget.aspx" id="Form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUINDEyNzc5MzEPZBYEAgEPZBYCAgEPZBYCZg9kFgICAQ8QDxYCHgtfIURhdGFCb3VuZGdkEBUBDVRlYW0gS2F3YXNha2kVAQ1UZWFtIEthd2FzYWtpFCsDAWdkZAICDxUBAGRkld05Z8DBqicw5ncMN5VwX7xxR3U=" />
+
+			
+
+<script src="http://i.mktw.net/yui/0.10.0/yahoo/yahoo.js"></script>  
+<script src="http://i.mktw.net/yui/0.10.0/dom/dom.js"></script>  
+<script src="http://i.mktw.net/yui/0.10.0/event/event.js"></script>  
+<script src="http://i.mktw.net/yui/0.10.0/connection/connection.js"></script>  
+<script src="http://i.mktw.net/yui/0.10.0/animation/animation.js"></script>  
+<script src="http://i.mktw.net/yui/0.10.0/autocomplete/autocomplete.js"></script>  
+
+<style>
+    #myContainer{width:420px;bottom:4px;right:4px;border:1px solid #404040;background:#EBEBDB;font-size:85%;overflow:hidden;display:none;}
+    #myContainer ul {width:100%;list-style:none;}
+    #myContainer li {padding-left: 5px;cursor:default;white-space:nowrap;display:list-item;Cursor: pointer }
+    #myContainer li.highlight {background:#FF6500;color:#FFF}
+    #ysearchresult {font: normal 12px arial;}
+    .resulttable{padding:0; margin:0}
+    .resulttable .col1 {width:50px; }
+    .resulttable .col2 {width:300px; overflow: hidden;}
+    .resultTable .col3 {width:70px; text-align:right; }
+    .text{font:normal 12px arial;}
+    span.price{color:Black; font: normal 12px arial; font-weight: bold;}  
+	div,dl,dt,dd,ul,ol,li,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;	padding:0;}
+	table{border-collapse:collapse;border-spacing:0;}
+	fieldset,img{border:0;}
+	h1,h2,h3{font-family:arial;}
+	address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+	ol,ul {list-style:none;}
+	caption,th {text-align:left;}
+	q:before,q:after{content:'';}
+</style>
+<div style="BACKGROUND: #dfebf7">
+	<div class="tradewidgetcompartment">
+		<div style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px 10px 10px; PADDING-TOP: 0px">
+			<div style="HEIGHT: 10px"><img src="./assets/i/elements/0.gif" style="WIDTH: 1px; HEIGHT: 10px"></div>
+			<p style="PADDING-RIGHT: 10px; DISPLAY: inline; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 120%; PADDING-BOTTOM: 0px; PADDING-TOP: 10px">Make 
+				a Trade
+			</p>
+			<p>Select the game you are playing from the drop-down list. This trade will be 
+				listed in that game’s portfolio.</p>
+		</div>
+		<div class="clearall"></div>
+		<div style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 8px 0px 10px 10px; PADDING-TOP: 0px">
+			<p style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 90%; PADDING-BOTTOM: 0px; MARGIN: 0px; TEXT-TRANSFORM: uppercase; COLOR: #9e6e14; PADDING-TOP: 0px">Select 
+				Game:</p>
+			<p><select name="_TradeControl$EnterSymbol$_GameDropDownList" id="_TradeControl_EnterSymbol__GameDropDownList" style="FONT: 10px/10px normal normal Geneva, Arial, Helvetica, sans-serif">
+	<option selected="selected" value="Team Kawasaki">Team Kawasaki</option>
+
+</select></p>
+			<p style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 90%; PADDING-BOTTOM: 0px; MARGIN: 10px 0px 0px; TEXT-TRANSFORM: uppercase; COLOR: #9e6e14; PADDING-TOP: 0px">
+				
+				Enter a U.S. Company Symbol:
+			</p>
+			<p class="font80percent"><input name="_TradeControl$EnterSymbol$_SymbolTextBox" type="text" id="_TradeControl_EnterSymbol__SymbolTextBox" style="FONT: 10px/10px normal normal Geneva, Arial, Helvetica, sans-serif" />&nbsp;<a id="_TradeControl_EnterSymbol_LinkButton1" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;_TradeControl$EnterSymbol$LinkButton1&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))" style="FONT-WEIGHT: bold; FONT-SIZE: 130%">Go</a>
+			</p>
+			<div id="myContainer" style="float: left;"></div>
+		</div>
+		<div class="clearall"></div>
+	</div>
+	<div class="tradewidgetdivisionrule"></div>
+</div>
+<script language="JavaScript">
+var serverLocation = "/SymbolComplete/GetSymbolsJSON.aspx"; 
+var resultSchema = ["Results","Symbol","Name","Price"];   
+var dataSource = new YAHOO.widget.DS_XHR(serverLocation, resultSchema);   
+dataSource.responseType = dataSource.TYPE_JSON; 
+dataSource.scriptQueryAppend = "count=10&getPrices=true"; 
+var autoComp = new YAHOO.widget.AutoComplete('_TradeControl_EnterSymbol__SymbolTextBox','myContainer', dataSource);  
+autoComp.maxResultsDisplayed = 10;
+autoComp.queryDelay = .025;
+autoComp.typeAhead = false;
+autoComp.animVert = false;
+
+// This function returns markup that bolds the original query,   
+// and also displays to additional pieces of supplemental data.   
+autoComp.formatResult = function(aResultItem, sQuery) {   
+    var result1 = aResultItem[0].toUpperCase(); // the entire result key   
+    var result2 = aResultItem[1]; // the entire result key   
+    sQuery= sQuery.toUpperCase();
+  // debugger;
+    if(IndexofFirstLetterOfQuery(result1, sQuery) > -1)
+	{
+		var sKeyQuery = result1.substr(IndexofFirstLetterOfQuery(result1, sQuery), sQuery.length); // the query itself   
+		var sKeyRemainder = result1.substr(sQuery.length); // the rest of the result   
+
+		var aMarkup = ["<div id='ysearchresult'>",   
+			"<table class=resulttable><tr><td class=col1><span style='font-weight:bold'>",   
+			sKeyQuery,   
+			"</span>",   
+			sKeyRemainder,   
+			"</td><td class=col2>",   
+			aResultItem[1],   
+			"</td><td class=col3 align='left'><span class='price'>",
+			aResultItem.Price.toFixed(2),
+			"</span></td></tr></table></div>"]; 
+
+		return (aMarkup.join(""));   
+	}
+	else
+	{
+		var pos =  IndexofFirstLetterOfQuery(result2.toUpperCase(), sQuery);
+		var start = result2.substr(0, pos)
+		var sKeyQuery = result2.substr(pos, sQuery.length); // the query itself   
+		var sKeyRemainder = result2.substr(pos + sQuery.length); // the rest of the result   
+
+		var aMarkup = ["<div id='ysearchresult'>",   
+			"<table class=resulttable><tr><td class=col1>",   
+			aResultItem[0],   
+			"</td><td class=col2>",
+			start,
+			"<span style='font-weight:bold'>",
+			sKeyQuery,   
+			"</span>",   
+			sKeyRemainder,   
+			"</td><td class=col3 align='left'><span class='price'>",
+			aResultItem.Price.toFixed(2),
+			"</span></td></tr></table></div>"]; 
+
+		return (aMarkup.join(""));   
+	}
+};
+
+function IndexofFirstLetterOfQuery(s, query)
+{
+//debugger;
+    var pos = -1;
+    pos = s.indexOf(query)
+    
+    while(pos <= s.length-1 && pos > -1)
+    {
+        if (pos == 0) return pos;
+        if (pos > 0 && s.substr(pos-1,1) == " ")
+            return pos;
+        else 
+            pos++;
+
+        pos = s.indexOf(query,pos)
+    }
+    return pos;
+}
+</script>
+<div id="_TradeControl_EnterSymbol_Tracking">
+	<!-- SiteCatalyst code version: H.3.
+Copyright 1997-2005 Omniture, Inc. More info available at
+http://www.omniture.com -->
+<script language="JavaScript" src="http://vse.marketwatch.com/Game/assets/j/s_code.js"></script>
+<script language="JavaScript">
+s.pageName="/game/tradewidget"
+s.server="vse.marketwatch.com"
+s.channel="Virtual Stock Exchange"
+s.prop1="game"
+s.prop2="Enter Trade"
+s.prop5="http://vse.marketwatch.com/game/tradewidget.aspx"
+s.prop6="http://vse.marketwatch.com/game/tradewidget.aspx"
+s.prop9="reg"
+s.prop10=""
+s.prop11=""
+s.prop25="3b1a55e0-02df-43f6-8ab6-58ef7b9c0f93"
+s.hier="Virtual Stock Exchange,game,Enter Trade,/game/tradewidget,http://vse.marketwatch.com/game/tradewidget.aspx"
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+<script language="JavaScript"><!--
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+//--></script> <!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.3. -->
+<!-- GENERATED ON SBK-VSEWEB01 -->
+<!-- START: RSI Code  -->
+<script type="text/javascript" src="http://js.revsci.net/gateway/gw.js?csid=G07608"></script>
+<script language="JavaScript"><!--
+DM_cat("Virtual Stock Exchange>game>Enter Trade>/game/tradewidget");
+DM_tag();//-->
+</script>
+<!-- END: RSI Code  -->
+</div>
+		<script type="text/javascript" language="javascript">var tcdacmd="dt";</script>
+</form>
+		
+	</body>
+</HTML>

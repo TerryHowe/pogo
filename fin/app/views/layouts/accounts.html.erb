@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Accounts: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold' %>
+</head>
+<body>
+
+<%= render :file => "links" %>
+
+<p style="color: green"><%= flash[:notice] %></p>
+<% if flash[:error] != nil -%>
+   <div id="errorExplanation">
+     <h2><%= flash[:error_title] %></h2>
+     <p><%= flash[:error] %></p>
+   </div>
+   <%= flash[:error] = nil %>
+   <%= flash[:error_title] = nil %>
+<% end -%>
+
+<%= yield  %>
+
+</body>
+</html>

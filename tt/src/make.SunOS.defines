@@ -1,0 +1,25 @@
+#
+# Sun specific make defines
+#
+
+include $(TOP)/make.defines
+
+CC = /opt/SUNWspro/bin/CC
+CCC = /opt/SUNWspro/bin/CC
+LINK = /opt/SUNWspro/bin/CC
+LD = /opt/SUNWspro/bin/CC
+INCLUDES = -I$(TOP) -I.
+CCFLAGS=-mt -g -xs -xsb -filt=errors,names,returns $(INCLUDES)
+CXXFLAGS=$(CCFLAGS)
+CCCFLAGS=$(CCFLAGS)
+CPPFLAGS=$(CCFLAGS)
+LDFLAGS=-G -mt -g -xs -xsb -filt=errors,names,returns
+LINKFLAGS=-mt -g -xs -xsb -filt=errors,names,returns
+
+CXX = $(CCC)
+
+#
+# Libs
+#
+SOCKETLIBS=-lsocket -lnsl
+PTHREADLIBS=-lpthread

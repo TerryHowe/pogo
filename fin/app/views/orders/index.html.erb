@@ -1,0 +1,30 @@
+<h1>Listing orders</h1>
+
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Date</th>
+    <th>Transaction</th>
+    <th>Company</th>
+    <th>Quantity</th>
+    <th>State</th>
+  </tr>
+
+<% for order in @orders %>
+  <tr>
+    <td><%=h order.number %></td>
+    <td><%=h order.date %></td>
+    <td><%=h order.xaction %></td>
+    <td><%=h order.company %></td>
+    <td><%=h order.quantity %></td>
+    <td><%=h order.ostate %></td>
+    <td><%= link_to 'Show', order %></td>
+    <td><%= link_to 'Edit', edit_order_path(order) %></td>
+    <td><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New order', new_order_path %>

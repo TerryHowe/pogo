@@ -1,0 +1,2 @@
+EXINIT="set shiftwidth=3 expandtab tabstop=3"
+export EXINIT

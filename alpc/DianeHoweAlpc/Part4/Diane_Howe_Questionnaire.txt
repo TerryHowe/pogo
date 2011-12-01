@@ -1,0 +1,136 @@
+1. Describe the most difficult project you ever worked on and explain 
+what made it so difficult.
+
+Early in my career at AT&T, we were developing a software based 
+audio-conferencing system, essentially moving away from the switch based 
+system.
+
+Back then, they used a "waterfall" process of developing software
+and the development timeframe was sometimes even years.  On this particular
+application, I arrived as a developer early in the development cycle.  
+The person working on design had been working it for almost 2 years by
+himself, had produced a huge draft design document (several hundred pages), 
+and was still working on changes to design.  Meanwhile, a promised delivery
+deadline was looming.
+
+The developers needed to start working on the application even with the
+possible changes that were being worked in design.  We were able to identify 
+and start working a core functionality that probably would not change 
+as the design changed.  We were able to set up some common classes, a core 
+set of database tables that were fairly static, and basic functionality. 
+
+As the deadline approached, we had some functionality available and 
+we were able to manage which design changes were "in" or "out" based
+on priority.  Another challenge at this point was "feature creep".
+As we approached the deadline, all sorts of features never mentioned
+were suddenly critical.  Managers and team leads spent much time in 
+meetings trying to address all this and our priorities as developers
+often changed.   
+
+2. Given a specification for a task, how would you go about estimating how 
+long it will take for you to complete the task?
+
+I mostly break down the task into "functional points" along the following
+lines:  count each object (i.e. class), each web page, and each [major] 
+database table.
+
+Using the break-down of components, estimate based on complexity.  Items
+that affect complexity are number of interfaces, graphics, security, etc.
+Factor in time to test (unit, functional, cross-platform, etc), meetings 
+with customer, if applicable, and unknowns of which there shouldn't
+be any/many. 
+
+Then, add 50%.  This 50% gives me a chance to handle gnarly bugs or issues 
+that creep in from misunderstandings or miscommunications.  It also gives me 
+the opportunity to over-deliver or at least meet the promised date if an
+application is particulary tricky.
+
+===== Next Section (pick 4) ====
+
+4. What do you think of formal design methodologies.
+
+I think it's important for technical people to be able to discuss
+software using pictures and models that visually show how things
+work.  And, if people use the same "language", for example an ERD
+or OO diagram, then communication is clear.
+
+I also think it's important not to spend too much time designing
+towards a possibly moving target and in producing copious amounts
+of design documents.  That's why I'm a fan of using Agile 
+methodologies when producing software.
+
+With Agile, you still need to keep a big picture design in mind, 
+but you start working on core/basic functionality one feature at a 
+time.  There may be a few simple diagrams created along with code so 
+that team members can communicate and are on the same page.  
+
+As development continues, you may find better ways to do things or 
+the customer may change their mind, but Agile methodologies such
+as automated tests, etc, facilitate these changes.  
+
+5. Describe an experience working in a team.  What was your role on 
+the team? How did you communicate with other members of the team?
+
+Lately, I've been on several Agile projects.  I was one of three
+developers hired as the experienced members of the team.  The
+company also hired four new graduates to round out the team.
+
+In this shop, we pair programmed so a new grad was often paired
+with a more experienced team member.  Pairs changed daily, so there
+was lots of communication within the pairs and team members.
+
+Other ways we used to communicate was wikis and, to a lesser degree,
+IM and email.  This company embraced wikis for information on projects,
+clients, and general tools and technology.  IM and email was used to 
+communicate with other members in the company who weren't necessarily 
+on your team.
+
+6. What technologies would you choose to develop a high performance, 
+highly scalable web application and why?
+
+I would lean toward using Java code and Apache servers.  Apache
+is already scalable in that you can run multiple instances.  Java
+is a robust language and compiled into bytecode to give good efficiency.
+Also, Java is portable which facilitates software development.
+
+Ruby on Rails is a great way to quickly set up the pieces needed
+for a functioning web app using the Model-View-Controller framework.  
+And, there are many extensions that have been developed to give it 
+robustness.  But, since Ruby is interpreted it lacks in speed 
+compared to Java.
+ 
+7. Describe the most and the least rewarding experiences you’ve 
+ever had while working on software.
+
+The most satisfying experience when working with software is seeing
+the software at work in the field.  One particular event that
+comes to mind is working on a 800 routing system for British 
+Telecom.  The operations folk were in U.K. when they turned up the
+system and they related the cheers when it went up and started 
+routing calls.
+
+Conversely, the least rewarding experience is when an application
+or a feature of an application doesn't make it into the field.
+One particular instance that comes to mind is when I was working
+at a small start-up and we developed a VoIP software switch.  The
+tech bubble burst and a lot of companies went under.  Even though
+the software was done and in beta labs, there just wasn't enough
+money to keep the company going and the software got sold in 
+bankruptcy. 
+
+=== Next Section, pick 1 =========
+1. Describe a product (other than software) that you’d like 
+to improve, and describe how you would improve it.
+
+I would like to improve rigid containers so that when the 
+content is used up, the container can shrink accordingly.
+For example, picture a gallon of milk in your refridgerator
+and as you drink the milk, the container can reshape
+smaller so it's not taking up the same amount of room as when it 
+was full.   It would also be able to reshape into a square or
+rectangle or whatever shape is required.
+
+
+
+
+
