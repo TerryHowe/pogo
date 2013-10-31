@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+bearcub:
+  name: BearCub
+
+butterfly:
+  name: Butterfly
+
+caterpillar:
+  name: Caterpillar

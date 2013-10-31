@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+<% if @teacher.photo != nil %>
+<p>1</p>
+<%= form_for @teacher do |f| %>
+<p>2</p>
+<%= f.hidden_field :way_back, edit_teacher_path(@teacher) %>
+<p>3</p>
+<%= f.image_submit_tag(@teacher.photo.image.url(:original)) %>
+<p>4</p>
+<% end %>
+<% end %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @teacher.name %>
+</p>
+
+<p>
+  <b>Room:</b>
+<% if @teacher.room != nil %>
+  <%= @teacher.room.name %>
+<% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
+<%= link_to 'See all', teachers_path %>

@@ -1,0 +1,8 @@
+
+<p id="notice"><%= notice %></p>
+
+<p><%= image_tag @photo.image.url(:original) %></p>
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Destroy', @photo, :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'See all', photos_path %>

@@ -1,0 +1,7 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+smiley:
+  image_file_name: smiley.jpg
+
+frowney:
+  image_file_name: frowney.jpg

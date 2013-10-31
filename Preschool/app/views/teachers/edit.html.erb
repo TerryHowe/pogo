@@ -1,0 +1,12 @@
+<h1>Editing teacher</h1>
+
+<p>
+<% if @teacher.photo != nil %>
+<%= link_to image_tag(@teacher.photo.image.url(:original)), edit_photo_path(@teacher.photo, :title => @teacher.name, :teacher_id => @teacher.id ) %>
+<% end %>
+</p>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @teacher %> |
+<%= link_to 'See all', teachers_path %>

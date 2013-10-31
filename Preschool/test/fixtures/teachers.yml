@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+sam:
+  name: Sam
+  room: bearCub
+  photo: smiley
+
+leslie:
+  name: Leslie
+  room: butterfly
+  photo: frowney
