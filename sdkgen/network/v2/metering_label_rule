@@ -1,0 +1,5 @@
+id id IDENTIFIER
+remote_ip_prefix
+direction
+metering_label_id
+excluded excluded False

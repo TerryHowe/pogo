@@ -1,0 +1,19 @@
+}
+
+
+class TestCamel(testtools.TestCase):
+
+    def test_basic(self):
+        sot = asdf.Camel()
+        self.assertEqual('asdf', sot.resource_key)
+        self.assertEqual('asdfs', sot.resources_key)
+        self.assertEqual('/v2.0/baser', sot.base_path)
+        self.assertEqual('network', sot.service.service_type)
+        self.assertTrue(sot.allow_create)
+        self.assertTrue(sot.allow_retrieve)
+        self.assertTrue(sot.allow_update)
+        self.assertTrue(sot.allow_delete)
+        self.assertTrue(sot.allow_list)
+
+    def test_make_it(self):
+        sot = asdf.Camel(EXAMPLE)

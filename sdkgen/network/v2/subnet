@@ -1,0 +1,11 @@
+id id IDENTIFIER
+name
+enable_dhcp enable_dhcp True
+network_id
+project_id tenant_id
+dns_nameservers
+allocation_pools
+host_routes
+ip_version
+gateway_ip
+cidr

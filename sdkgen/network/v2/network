@@ -1,0 +1,12 @@
+status
+subnets
+name
+provider:physical_network
+admin_state_up
+provider:network_type
+router:external
+shared shared True
+project_id tenant_id
+id id IDENTIFIER
+provider:segmentation_id
+segments

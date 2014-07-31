@@ -1,0 +1,6 @@
+status
+external_gateway_info
+name
+admin_state_up admin_state_up True
+project_id tenant_id
+id id IDENTIFIER

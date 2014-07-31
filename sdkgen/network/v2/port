@@ -1,0 +1,18 @@
+id id IDENTIFIER
+project_id tenant_id
+status
+binding:host_id
+name
+allowed_address_pairs
+admin_state_up admin_state_up True
+network_id
+extra_dhcp_opts
+binding:vif_details
+binding:vif_type
+device_owner
+mac_address
+binding:profile
+binding:vnic_type
+fixed_ips
+security_groups
+device_id
