@@ -1,6 +1,10 @@
 INPUT=$1
 NAME=$(basename $1)
 CLASS=$(dirname $1)
+SWERVICE=image
+BIG_SWERVICE=Image
+DESTER=v1
+VERSION=v1
 if [ -z "${NAME}" -o -z "${CLASS}" ]
 then
   echo 'gimme a name'
@@ -19,10 +23,18 @@ FILE=openstack/${CLASS}/${NAME}.py
 TEST=openstack/tests/${CLASS}/test_${NAME}.py
 sed -e "s/Asdf/${NAMEO}/g" \
     -e "s/Camel/${CAMEL}/g" \
+    -e "s/swervice/${SWERVICE}/g" \
+    -e "s/Swervice/${BIG_SWERVICE}/g" \
+    -e "s/Dester/${DESTER}/g" \
+    -e "s/Vershun/${VERSION}/g" \
     -e "s/asdf/${NAME}/g" \
     -e "s/baser/${BASE_PATH}s/g" gen/resource >${FILE}
 sed -e "s/Asdf/${NAMEO}/g" \
     -e "s/Camel/${CAMEL}/g" \
+    -e "s/swervice/${SWERVICE}/g" \
+    -e "s/Swervice/${BIG_SWERVICE}/g" \
+    -e "s/Dester/${DESTER}/g" \
+    -e "s/Vershun/${VERSION}/g" \
     -e "s/asdf/${NAME}/g" gen/test_resource >${TEST}
 sort ${INPUT} |
 while read FIELD FROM TYPE
@@ -46,6 +58,10 @@ done
 
 sed -e "s/Asdf/${NAMEO}/g" \
     -e "s/Camel/${CAMEL}/g" \
+    -e "s/swervice/${SWERVICE}/g" \
+    -e "s/Swervice/${BIG_SWERVICE}/g" \
+    -e "s/Dester/${DESTER}/g" \
+    -e "s/Vershun/${VERSION}/g" \
     -e "s/asdf/${NAME}/g" \
     -e "s/baser/${BASE_PATH}s/g" gen/test_resource_tail >>${TEST}
 sort ${INPUT} |

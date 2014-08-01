@@ -1,0 +1,16 @@
+checksum
+container_format
+copy_from
+disk_format
+is_public
+location
+min_disk
+min_ram
+name
+owner
+properties
+protected
+size
+status
+created_at
+updated_at

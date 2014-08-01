@@ -12,7 +12,7 @@
 
 import testtools
 
-from openstack.network.v2 import asdf
+from openstack.swervice.Dester import asdf
 
 IDENTIFIER = 'IDENTIFIER'
 EXAMPLE = {
