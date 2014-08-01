@@ -1,0 +1,9 @@
+project_id tenant_id
+id id IDENTIFIER
+name
+description
+default_pool_id
+connection_limit
+protocol
+protocol_port
+load_balancer_id

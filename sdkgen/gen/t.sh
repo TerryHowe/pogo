@@ -8,7 +8,7 @@ then
 fi
 NAMEO=`echo ${NAME:0:1} | tr  '[a-z]' '[A-Z]'`${NAME:1}
 BASE_PATH=$(echo ${NAME} | sed -e 's/_/-/g')
-CAMEL=$(gsed -e 's/_\([a-z]\)\([a-z]*\)/\U\1\L\2/g' -e 's/^\([a-z]\)/\U\1/g' <<< "${NAME}")
+CAMEL=$(sed -e 's/_\([a-z]\)\([a-z]*\)/\U\1\L\2/g' -e 's/^\([a-z]\)/\U\1/g' <<< "${NAME}")
 
 git checkout master
 git branch -D ${NAME}

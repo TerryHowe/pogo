@@ -1,0 +1,11 @@
+project_id tenant_id
+id id IDENTIFIER
+name
+protocol
+lb_algorithm
+description
+session_persistence
+healthmonitor_id
+members
+admin_state_up admin_state_up True
+status

@@ -1,0 +1,11 @@
+project_id tenant_id
+id id IDENTIFIER
+admin_state_up admin_state_up True
+type
+delay
+timeout
+max_retries
+http_method
+url_path
+expected_codes
+status
