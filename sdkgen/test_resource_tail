@@ -7,7 +7,7 @@ class TestCamel(testtools.TestCase):
         sot = asdf.Camel()
         self.assertEqual('asdf', sot.resource_key)
         self.assertEqual('asdfs', sot.resources_key)
-        self.assertEqual('/Vershun/baser', sot.base_path)
+        self.assertEqual('/baser', sot.base_path)
         self.assertEqual('swervice', sot.service.service_type)
         self.assertTrue(sot.allow_create)
         self.assertTrue(sot.allow_retrieve)

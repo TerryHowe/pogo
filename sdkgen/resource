@@ -17,7 +17,7 @@ from openstack import resource
 class Camel(resource.Resource):
     resource_key = 'asdf'
     resources_key = 'asdfs'
-    base_path = '/Vershun/baser'
+    base_path = '/baser'
     service = swervice_service.SwerviceService()
 
     # capabilities

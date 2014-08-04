@@ -2,7 +2,7 @@ INPUT=$1
 alias sed=gsed
 IFS=/ read SDKGEN SERVICE VERSION RESOURCE <<< "${INPUT}"
 BIG_SERVICE=$(gsed -e 's/_\([a-z]\)\([a-z]*\)/\U\1\L\2/g' -e 's/^\([a-z]\)/\U\1/g' <<< "${SERVICE}")
-DESTER=$VERSION
+DESTER=$(sed -e 's/\..*//g' <<< "$VERSION")
 if [ -z "${VERSION}" -o -z "${SERVICE}" ]
 then
   echo 'gimme a name'
@@ -22,8 +22,12 @@ git branch -D ${RESOURCE}
 git checkout -b ${RESOURCE}
 
 CNT=1
-FILE=openstack/${SERVICE}/${VERSION}/${RESOURCE}.py
-TEST=openstack/tests/${SERVICE}/${VERSION}/test_${RESOURCE}.py
+SRCDIR="openstack/${SERVICE}/${DESTER}"
+TSTDIR="openstack/tests/${SERVICE}/${DESTER}"
+mkdir -p $SRCDIR
+mkdir -p $TSTDIR
+FILE=${SRCDIR}/${RESOURCE}.py
+TEST=${TSTDIR}/test_${RESOURCE}.py
 gsed -e "s/Asdf/${NAMEO}/g" \
     -e "s/Camel/${CAMEL}/g" \
     -e "s/swervice/${SERVICE}/g" \
@@ -89,3 +93,4 @@ done
 git add $FILE
 git add $TEST
 git commit -a -m "${SERVICE}/${VERSION} ${RESOURCE} resource"
+echo $FILE $TEST
