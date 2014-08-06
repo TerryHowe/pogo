@@ -1,7 +1,6 @@
 INPUT=$1
-alias sed=gsed
 IFS=/ read SDKGEN SERVICE VERSION RESOURCE <<< "${INPUT}"
-BIG_SERVICE=$(gsed -e 's/_\([a-z]\)\([a-z]*\)/\U\1\L\2/g' -e 's/^\([a-z]\)/\U\1/g' <<< "${SERVICE}")
+BIG_SERVICE=$(sed -e 's/_\([a-z]\)\([a-z]*\)/\U\1\L\2/g' -e 's/^\([a-z]\)/\U\1/g' <<< "${SERVICE}")
 DESTER=$(sed -e 's/\..*//g' <<< "$VERSION")
 if [ -z "${VERSION}" -o -z "${SERVICE}" ]
 then
@@ -14,8 +13,8 @@ then
   VERSION=''
 fi
 NAMEO=`echo ${RESOURCE:0:1} | tr  '[a-z]' '[A-Z]'`${RESOURCE:1}
-BASE_PATH=$(echo ${RESOURCE} | gsed -e 's/_/-/g')
-CAMEL=$(gsed -e 's/_\([a-z]\)\([a-z]*\)/\U\1\L\2/g' -e 's/^\([a-z]\)/\U\1/g' <<< "${RESOURCE}")
+BASE_PATH=$(echo ${RESOURCE} | sed -e 's/_/-/g')
+CAMEL=$(sed -e 's/_\([a-z]\)\([a-z]*\)/\U\1\L\2/g' -e 's/^\([a-z]\)/\U\1/g' <<< "${RESOURCE}")
 
 git checkout master
 git branch -D ${RESOURCE}
@@ -28,7 +27,7 @@ mkdir -p $SRCDIR
 mkdir -p $TSTDIR
 FILE=${SRCDIR}/${RESOURCE}.py
 TEST=${TSTDIR}/test_${RESOURCE}.py
-gsed -e "s/Asdf/${NAMEO}/g" \
+sed -e "s/Asdf/${NAMEO}/g" \
     -e "s/Camel/${CAMEL}/g" \
     -e "s/swervice/${SERVICE}/g" \
     -e "s/Swervice/${BIG_SERVICE}/g" \
@@ -36,7 +35,7 @@ gsed -e "s/Asdf/${NAMEO}/g" \
     -e "s/Vershun/${VERSION}/g" \
     -e "s/asdf/${RESOURCE}/g" \
     -e "s/baser/${BASE_PATH}s/g" ${SDKGEN}/resource >${FILE}
-gsed -e "s/Asdf/${NAMEO}/g" \
+sed -e "s/Asdf/${NAMEO}/g" \
     -e "s/Camel/${CAMEL}/g" \
     -e "s/swervice/${SERVICE}/g" \
     -e "s/Swervice/${BIG_SERVICE}/g" \
@@ -51,9 +50,15 @@ do
     FROM=$FIELD
   fi
   FIELD=$(echo $FIELD | sed -e 's/:/_/g')
+  if [ "${TYPE}" == 'True' -o "${TYPE}" == 'False' ]
+  then
+    PROP_TYPE=', type=bool'
+  else
+    PROP_TYPE=''
+  fi
   if [ "${FIELD}" != 'id' ]
   then
-    echo "    ${FIELD} = resource.prop('${FROM}')" >>${FILE}
+    echo "    ${FIELD} = resource.prop('${FROM}'${PROP_TYPE})" >>${FILE}
   fi
   if [ -z "${TYPE}" ]
   then
