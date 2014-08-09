@@ -1,0 +1,16 @@
+accessIPv4
+accessIPv6
+addresses
+created
+flavor
+hostId
+id id IDENTIFIER
+image
+links
+metadata
+name
+progress
+status
+project_id tenant_id
+updated
+user_id

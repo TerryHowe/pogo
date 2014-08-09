@@ -1,0 +1,7 @@
+disk
+links
+is_public os-flavor-access:is_public True
+id id IDENTIFIER
+name
+ram
+vcpus
