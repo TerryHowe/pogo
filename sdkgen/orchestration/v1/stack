@@ -1,0 +1,15 @@
+capabilities
+creation_time
+description
+disable_rollback disable_rollback True
+id id IDENTIFIER
+links
+notification_topics
+outputs
+parameters
+stack_name
+stack_status
+stack_status_reason
+template_description
+timeout_mins
+updated_time
