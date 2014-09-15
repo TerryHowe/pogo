@@ -1,0 +1,7 @@
+applications:
+- name: inabox
+  services:
+    ${name}-db:
+      type: mysql
+  stackato:
+    ignores: [".git", ".venv", ".gitignore", "deploy.sh", "README.md"]
