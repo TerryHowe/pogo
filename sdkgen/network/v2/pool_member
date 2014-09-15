@@ -1,0 +1,8 @@
+id id IDENTIFIER
+address
+protocol_port
+admin_state_up admin_state_up True
+weight
+subnet_id
+status
+project_id tenant_id
