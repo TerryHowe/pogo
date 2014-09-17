@@ -14,8 +14,8 @@ router.register(r'jobs', views.JobViewSet)
 urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^jenkins/$', views.JenkinsViewSet.as_view()),
+    url(r'^jenkins/(?P<pk>[^/.]+)/build/$', views.JenkinsBuildViewSet.as_view()),
     url(r'^jenkins/(?P<pk>[^/.]+)/$', views.JenkinsDetailViewSet.as_view()),
-    url(r'^jenkins/(?P<pk>[^/.]+)/build$', views.JenkinsBuildViewSet.as_view()),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^static\/(?P<path>.*)$>', serve),
 ]
