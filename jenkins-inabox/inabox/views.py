@@ -36,23 +36,18 @@ class JobViewSet(viewsets.ModelViewSet):
 
 class JenkinsController(object):
     def __init__(self):
-        print '=============================='
-        for var in os.environ:
-            print var + '=' + os.environ[str(var)]
-        print '=============================='
-        self.url=os.environ['JENKINS_URL']
-        if not self.url:
+        try:
+            self.url=os.environ['JENKINS_URL']
+        except KeyError:
             self.url = 'http://15.125.78.44:8080/'
-        self.username=os.environ['JENKINS_USER']
-        if not self.username:
+        try:
+            self.username=os.environ['JENKINS_USER']
+        except KeyError:
             self.username = 'admin'
-        self.password=os.environ['JENKINS_PASSWORD']
-        if not self.password:
-            self.password = 'mypassword'
-        print str(self.url)
-        print str(self.username)
-        print str(self.password)
-        print '=============================='
+        try:
+            self.password=os.environ['JENKINS_PASSWORD']
+        except KeyError:
+            self.password = 'notset'
         self.jay = jenkins.Jenkins(self.url, self.username, self.password)
 
     def create_job_xml(self, description, command):
@@ -89,9 +84,6 @@ class JenkinsController(object):
 
     def update_job(self, job):
         xml = self.create_job_xml(job.description, job.command)
-        print '====================================='
-        print xml
-        print '====================================='
         self.jay.reconfig_job(job.name, xml)
 
     def get_jobs(self):
@@ -155,6 +147,108 @@ class JenkinsViewSet(APIView):
 
 
 class JenkinsDetailViewSet(APIView):
+    queryset = Jenkins.objects.all()
+    serializer_class = JenkinsSerializer
+
+    def find_job(self, name):
+        for job in Job.objects.all():
+            if job.name == name:
+                return job
+        return None
+
+    def get(self, request, pk, format=None):
+        job = self.find_job(pk)
+        if not job:
+            resp = Response()
+            resp.status_code = status.HTTP_404_NOT_FOUND
+            content = "Job '%s' not found" % pk
+            resp.content = ("<title>%s</title>%s" % (content, content))
+            return resp
+        s = JenkinsController().get_job(pk)
+        if not s:
+            resp = Response()
+            resp.status_code = status.HTTP_404_NOT_FOUND
+            content = "Job '%s' not found on Jenkins" % pk
+            resp.content = ("<title>%s</title>%s" % (content, content))
+            return resp
+        try:
+            s = s.strip()
+            xml = ElementTree.fromstring(s)
+            try:
+                shell = xml.find('builders').find('hudson.tasks.Shell')
+                command = shell.find('command').text
+            except:
+                command = ''
+            try:
+                description = xml.find('description').text
+                if not description:
+                    description = ''
+            except:
+                description = ''
+        except ElementTree.ParseError as e:
+            command = ''
+            description = s
+            
+        r = {}
+        r['name'] = pk
+        r['description'] = description
+        r['command'] = command
+        return Response(r)
+
+    def put(self, request, pk, format=None):
+        job = self.find_job(pk)
+        if not job:
+            resp = Response()
+            resp.status_code = status.HTTP_404_NOT_FOUND
+            content = "Job '%s' not found" % pk
+            resp.content = ("<title>%s</title>%s" % (content, content))
+            return resp
+        try:
+            JenkinsController().update_job(job)
+        except jenkins.JenkinsException as e:
+            resp = Response()
+            resp.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+            content = str(e)
+            resp.content = ("<title>%s</title>%s" % (content, content))
+            return resp
+        resp = Response()
+        resp.status_code = status.HTTP_201_CREATED
+        content = "Job '%s' updated" % pk
+        resp.content = ("<title>%s</title><code>%s" % (content, content))
+        return resp
+
+    def delete(self, request, pk, format=None):
+        job = self.find_job(pk)
+        if not job:
+            resp = Response()
+            resp.status_code = status.HTTP_404_NOT_FOUND
+            content = "Job '%s' not found" % pk
+            resp.content = ("<title>%s</title>%s" % (content, content))
+            return resp
+        jay = JenkinsController()
+        s = jay.get_job(pk)
+        if not s:
+            resp = Response()
+            resp.status_code = status.HTTP_404_NOT_FOUND
+            content = "Job '%s' not found on Jenkins" % pk
+            resp.content = ("<title>%s</title>%s" % (content, content))
+            return resp
+        try:
+            jay.delete_job(job)
+        except jenkins.JenkinsException as e:
+            resp = Response()
+            resp.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+            content = str(e)
+            resp.content = ("<title>%s</title>%s" % (content, content))
+            return resp
+        resp = Response()
+        resp.status_code = status.HTTP_201_CREATED
+        content = "Job '%s' deleted" % pk
+        resp.content = ("<title>%s</title><code>%s" % (content, content))
+        return resp
+
+
+class JenkinsBuildViewSet(APIView):
     queryset = Jenkins.objects.all()
     serializer_class = JenkinsSerializer
 

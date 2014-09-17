@@ -1,3 +1,5 @@
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.contrib.staticfiles.views import serve
 from django.conf.urls import url, include
 from rest_framework import routers
 from inabox import views
@@ -13,7 +15,9 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^jenkins/$', views.JenkinsViewSet.as_view()),
     url(r'^jenkins/(?P<pk>[^/.]+)/$', views.JenkinsDetailViewSet.as_view()),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^jenkins/(?P<pk>[^/.]+)/build$', views.JenkinsBuildViewSet.as_view()),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^static\/(?P<path>.*)$>', serve),
 ]
 
 # Uncomment the next two lines to enable the admin:
