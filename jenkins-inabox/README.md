@@ -1,7 +1,7 @@
-example-python-django
-=====================
+Jenkins In a Box
+================
 
-An example Django application that's compatible with mySQL, Postgres, and sqlite.
+Jenkins in a box.
 
 # Deploying to Stackato
 

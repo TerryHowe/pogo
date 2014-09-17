@@ -2,3 +2,4 @@ Django==1.5.4
 gunicorn==0.17.2
 mysql-python
 djangorestframework
+python-jenkins

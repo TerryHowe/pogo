@@ -3,5 +3,9 @@ applications:
   services:
     ${name}-db:
       type: mysql
+    ${name}-filesystem:
+      type: filesystem
   stackato:
     ignores: [".git", ".venv", ".gitignore", "deploy.sh", "README.md"]
+  processes:
+    web: $STACKATO_UWSGI --static-map /static=$HOME/inabox/static
