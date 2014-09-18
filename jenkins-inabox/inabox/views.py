@@ -40,26 +40,21 @@ class JobViewSet(viewsets.ModelViewSet):
 
 class ResponseNotFound(Response):
     def __init__(self, message):
+        super(ResponseNotFound, self).__init__()
         self.status_code = status.HTTP_404_NOT_FOUND
         self.content = ("<title>%s</title>%s" % (message, message))
 
 
 class ResponseServerError(Response):
     def __init__(self, message):
+        super(ResponseServerError, self).__init__()
         self.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
         self.content = ("<title>%s</title>%s" % (message, message))
 
 
-class ResponseCreated(Response):
-    def __init__(self, message):
-        self.status_code = status.HTTP_201_CREATED
-        self.content = ("<title>%s</title><code>%s</code>" % (message, message))
-
-
 class ResponseOk(Response):
-    def __init__(self, message):
-        self.status_code = status.HTTP_200_OK
-        self.content = ("<title>%s</title><code>%s</code>" % (message, message))
+    def __init__(self, data):
+        super(ResponseOk, self).__init__(data, status=status.HTTP_200_OK)
 
 
 class JenkinsController(object):
@@ -75,7 +70,7 @@ class JenkinsController(object):
         try:
             self.password=os.environ['JENKINS_PASSWORD']
         except KeyError:
-            self.password = 'notset'
+            self.password = 'mypassword'
         self.jay = jenkins.Jenkins(self.url, self.username, self.password)
 
     def create_job_xml(self, job):
@@ -139,9 +134,6 @@ class JenkinsController(object):
 
     def get_job(self, name):
         xmlstr = self.jay.get_job_config(name)
-        print '=============================================='
-        print str(xmlstr)
-        print '=============================================='
         if not xmlstr:
             return None
         command = ''
@@ -169,7 +161,13 @@ class JenkinsController(object):
             'xmlstr': xmlstr,
         }
 
-    def build_job(self, job, parameters):
+    def get_job_info(self, job):
+        return self.jay.get_job_info(job.name)
+
+    def delete_job(self, job):
+        self.jay.delete_job(job.name)
+
+    def build_job(self, job):
         data = self.jay.get_job_info(job.name)
         # Launchpad bug #1177831
         req = Request(self.jay.build_job_url(job.name), "")
@@ -187,10 +185,10 @@ class JenkinsController(object):
             self.jay.stop_build(job.name, job.build_number)
         except jenkins.JenkinsException as e:
             print(str(e))
-        job.build_number = None
+        job.build_number = 0
 
-    def delete_job(self, job):
-        self.jay.delete_job(job.name)
+    def get_build_info(self, job, build_number):
+        return self.jay.get_build_info(job.name, build_number)
 
 
 class JenkinsViewSet(viewsets.ViewSet):
@@ -208,12 +206,12 @@ class JenkinsViewSet(viewsets.ViewSet):
                 jay.create_job(job)
             else:
                 jay.update_job(job)
-            job.build_number = jay.build_job(job, parameters={'foo': 'bar'})
+            job.build_number = jay.build_job(job)
             if job.build_number:
                 job.save()
         except jenkins.JenkinsException as e:
             return ResponseServerError(str(e))
-        return Response(model_to_dict(job))
+        return ResponseOk(model_to_dict(job))
 
     def stop(self, request, pk, format=None):
         job = Job.find_job(pk)
@@ -225,11 +223,10 @@ class JenkinsViewSet(viewsets.ViewSet):
             return ResponseNotFound("Job '%s' not found on Jenkins" % pk)
         try:
             jay.stop_build(job)
-            jay.delete_job(job)
         except jenkins.JenkinsException as e:
             return ResponseServerError(str(e))
         job.save()
-        return Response(model_to_dict(job))
+        return ResponseOk(model_to_dict(job))
 
     def finish(self, request, pk, format=None):
         job = Job.find_job(pk)
@@ -238,19 +235,58 @@ class JenkinsViewSet(viewsets.ViewSet):
         jjob = JenkinsController().get_job(pk)
         if not jjob:
             return ResponseNotFound("Job '%s' not found on Jenkins" % pk)
-        try:
-            jay.stop_build(job)
-            jay.delete_job(job)
-        except jenkins.JenkinsException as e:
-            return ResponseServerError(str(e))
+        job.build_number = 0
         job.save()
-        return Response(model_to_dict(job))
+        return ResponseOk(model_to_dict(job))
 
     def status(self, request, pk, format=None):
         job = Job.find_job(pk)
         if not job:
             return ResponseNotFound("Job '%s' not found" % pk)
-        jjob = JenkinsController().get_job(pk)
+        jay = JenkinsController()
+        jjob = jay.get_job(pk)
         if not jjob:
             return ResponseNotFound("Job '%s' not found on Jenkins" % pk)
-        return Response(model_to_dict(job))
+        try:
+            if not job.build_number:
+                return ResponseNotFound("Job '%s' doesn't have a current build" % pk)
+            build_info = jay.get_build_info(job, job.build_number)
+        except jenkins.JenkinsException as e:
+            return ResponseServerError(str(e))
+        return ResponseOk(build_info)
+
+    def builds(self, request, pk, format=None):
+        job = Job.find_job(pk)
+        if not job:
+            return ResponseNotFound("Job '%s' not found" % pk)
+        jay = JenkinsController()
+        jjob = jay.get_job(pk)
+        if not jjob:
+            return ResponseNotFound("Job '%s' not found on Jenkins" % pk)
+        try:
+            job_info = jay.get_job_info(job)
+            builds = []
+            for build in job_info['builds']:
+                builds.append(jay.get_build_info(job, build['number']))
+        except jenkins.JenkinsException as e:
+            return ResponseServerError(str(e))
+        return ResponseOk(builds)
+
+    def build_info(self, request, pk, number, format=None):
+        job = Job.find_job(pk)
+        if not job:
+            return ResponseNotFound("Job '%s' not found" % pk)
+        jay = JenkinsController()
+        jjob = jay.get_job(pk)
+        if not jjob:
+            return ResponseNotFound("Job '%s' not found on Jenkins" % pk)
+        try:
+            try:
+                number = int(number)
+            except ValueError:
+                msg = ("Job '%s' does not have a job '%s'" % (pk, number))
+                return ResponseNotFound(msg)
+            build_info = jay.get_build_info(job, number)
+        except jenkins.JenkinsException as e:
+            return ResponseServerError(str(e))
+        return ResponseOk(build_info)

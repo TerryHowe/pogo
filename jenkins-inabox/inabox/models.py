@@ -6,7 +6,7 @@ class Job(models.Model):
     description = models.CharField(max_length=100, blank=True, default='')
     gitrepo = models.CharField(max_length=100, blank=True, default='')
     command = models.TextField()
-    build_number = models.CharField(max_length=20, blank=True)
+    build_number = models.IntegerField(default=0)
 
     @classmethod
     def find_job(cls, name):
@@ -20,7 +20,7 @@ class Job(models.Model):
 class Build(models.Model):
     name = models.CharField(max_length=100, blank=False, primary_key=True)
     command = models.TextField()
-    build_number = models.CharField(max_length=20, blank=False)
+    build_number = models.IntegerField(default=0)
     building = models.BooleanField()
     result = models.CharField(max_length=20, blank=False)
     duration = models.CharField(max_length=20, blank=False)
