@@ -70,7 +70,7 @@ class JenkinsController(object):
         try:
             self.password=os.environ['JENKINS_PASSWORD']
         except KeyError:
-            self.password = 'mypassword'
+            self.password = 'bogus'
         self.jay = jenkins.Jenkins(self.url, self.username, self.password)
 
     def create_job_xml(self, job):
