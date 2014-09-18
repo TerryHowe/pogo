@@ -17,7 +17,10 @@ job_detail = views.JobViewSet.as_view({
     'patch': 'partial_update',
     'delete': 'destroy',
 })
-job_start = views.JenkinsViewSet.as_view({'get': 'start'})
+job_start = views.JenkinsViewSet.as_view({
+    'get': 'start',
+    'post': 'start',
+})
 job_stop = views.JenkinsViewSet.as_view({'get': 'stop'})
 job_finish = views.JenkinsViewSet.as_view({'get': 'finish'})
 job_status = views.JenkinsViewSet.as_view({'get': 'status'})
