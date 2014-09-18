@@ -4,10 +4,10 @@ from xml.etree import ElementTree
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.contrib.auth.models import User, Group
-from models import Job, Jenkins
+from models import Job, Build
 from rest_framework import viewsets
-from inabox.serializers import UserSerializer, GroupSerializer, JobSerializer
-from inabox.serializers import JenkinsSerializer
+from inabox.serializers import UserSerializer, GroupSerializer
+from inabox.serializers import JobSerializer, BuildSerializer
 from rest_framework import status
 
 
@@ -33,6 +33,31 @@ class JobViewSet(viewsets.ModelViewSet):
     """
     queryset = Job.objects.all()
     serializer_class = JobSerializer
+
+
+class ResponseNotFound(Response):
+    def __init__(self, message):
+        self.status_code = status.HTTP_404_NOT_FOUND
+        resp.content = ("<title>%s</title>%s" % (message, message))
+
+
+class ResponseServerError(Response):
+    def __init__(self, message):
+        self.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+        resp.content = ("<title>%s</title>%s" % (message, message))
+
+
+class ResponseCreated(Response):
+    def __init__(self, message):
+        self.status_code = status.HTTP_201_CREATED
+        resp.content = ("<title>%s</title><code>%s</code>" % (message, message))
+
+
+class ResponseOk(Response):
+    def __init__(self, message):
+        self.status_code = status.HTTP_200_OK
+        resp.content = ("<title>%s</title><code>%s</code>" % (message, message))
+
 
 class JenkinsController(object):
     def __init__(self):
@@ -99,24 +124,18 @@ class JenkinsController(object):
         self.jay.delete_job(job.name)
 
 
-class JenkinsViewSet(APIView):
-    queryset = Jenkins.objects.all()
-    serializer_class = JenkinsSerializer
+class JenkinsViewSet(viewsets.ViewSet):
+    queryset = Job.objects.all()
+    serializer_class = JobSerializer
 
-    def find_job(self, name):
-        for job in Job.objects.all():
-            if job.name == name:
-                return job
-        return None
-
-    def get(self, request, format=None):
+    def list(self, request, format=None):
         r = []
         for result in JenkinsController().get_jobs():
-            if self.find_job(result['name']):
+            if Job.find_job(result['name']):
                 r.append(result)
         return Response(r)
 
-    def post(self, request, format=None):
+    def create(self, request, format=None):
         name = request.DATA.get('name', '')
         if not name:
             resp = Response()
@@ -124,55 +143,26 @@ class JenkinsViewSet(APIView):
             content = 'Body must contain {"name": "job_name"}'
             resp.content = ("<title>%s</title>%s" % (content, content))
             return resp
-        job = self.find_job(name)
+        job = Job.find_job(name)
         if not job:
-            resp = Response()
-            resp.status_code = status.HTTP_404_NOT_FOUND
-            content = "Job '%s' not found" % name
-            resp.content = ("<title>%s</title>%s" % (content, content))
-            return resp
+            return ResponseNotFound("Job '%s' not found" % name)
         try:
             JenkinsController().create_job(job)
         except jenkins.JenkinsException as e:
-            resp = Response()
-            resp.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-            content = str(e)
-            resp.content = ("<title>%s</title>%s" % (content, content))
-            return resp
-        resp = Response()
-        resp.status_code = status.HTTP_201_CREATED
-        content = "Job '%s' created" % name
-        resp.content = ("<title>%s</title><code>%s" % (content, content))
-        return resp
+            return ResponseServerError(str(e))
+        return ResponseCreated("Job '%s' created" % name)
 
 
-class JenkinsDetailViewSet(APIView):
-    queryset = Jenkins.objects.all()
-    serializer_class = JenkinsSerializer
-
-    def find_job(self, name):
-        for job in Job.objects.all():
-            if job.name == name:
-                return job
-        return None
-
-    def get(self, request, pk, format=None):
-        job = self.find_job(pk)
+    def retrieve(self, request, pk, format=None):
+        job = Job.find_job(pk)
         if not job:
-            resp = Response()
-            resp.status_code = status.HTTP_404_NOT_FOUND
-            content = "Job '%s' not found" % pk
-            resp.content = ("<title>%s</title>%s" % (content, content))
-            return resp
+            return ResponseNotFound("Job '%s' not found" % pk)
         s = JenkinsController().get_job(pk)
         if not s:
-            resp = Response()
-            resp.status_code = status.HTTP_404_NOT_FOUND
-            content = "Job '%s' not found on Jenkins" % pk
-            resp.content = ("<title>%s</title>%s" % (content, content))
-            return resp
+            return ResponseNotFound("Job '%s' not found on Jenkins" % pk)
         try:
             s = s.strip()
+            print s
             xml = ElementTree.fromstring(s)
             try:
                 shell = xml.find('builders').find('hudson.tasks.Shell')
@@ -195,157 +185,31 @@ class JenkinsDetailViewSet(APIView):
         r['command'] = command
         return Response(r)
 
-    def put(self, request, pk, format=None):
-        job = self.find_job(pk)
+    def update(self, request, pk, format=None):
+        job = Job.find_job(pk)
         if not job:
-            resp = Response()
-            resp.status_code = status.HTTP_404_NOT_FOUND
-            content = "Job '%s' not found" % pk
-            resp.content = ("<title>%s</title>%s" % (content, content))
-            return resp
+            return ResponseNotFound("Job '%s' not found" % pk)
         try:
             JenkinsController().update_job(job)
         except jenkins.JenkinsException as e:
-            resp = Response()
-            resp.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-            content = str(e)
-            resp.content = ("<title>%s</title>%s" % (content, content))
-            return resp
-        resp = Response()
-        resp.status_code = status.HTTP_201_CREATED
-        content = "Job '%s' updated" % pk
-        resp.content = ("<title>%s</title><code>%s" % (content, content))
-        return resp
+            return ResponseServerError(str(e))
+        return ResponseOk("Job '%s' updated" % name)
 
-    def delete(self, request, pk, format=None):
-        job = self.find_job(pk)
+    def destroy(self, request, pk, format=None):
+        job = Job.find_job(pk)
         if not job:
-            resp = Response()
-            resp.status_code = status.HTTP_404_NOT_FOUND
-            content = "Job '%s' not found" % pk
-            resp.content = ("<title>%s</title>%s" % (content, content))
-            return resp
+            return ResponseNotFound("Job '%s' not found" % pk)
         jay = JenkinsController()
         s = jay.get_job(pk)
         if not s:
-            resp = Response()
-            resp.status_code = status.HTTP_404_NOT_FOUND
-            content = "Job '%s' not found on Jenkins" % pk
-            resp.content = ("<title>%s</title>%s" % (content, content))
-            return resp
+            return ResponseNotFound("Job '%s' not found on Jenkins" % pk)
         try:
             jay.delete_job(job)
         except jenkins.JenkinsException as e:
-            resp = Response()
-            resp.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-            content = str(e)
-            resp.content = ("<title>%s</title>%s" % (content, content))
-            return resp
-        resp = Response()
-        resp.status_code = status.HTTP_201_CREATED
-        content = "Job '%s' deleted" % pk
-        resp.content = ("<title>%s</title><code>%s" % (content, content))
-        return resp
+            return ResponseServerError(str(e))
+        return ResponseOk("Job '%s' deleted" % name)
 
 
-class JenkinsBuildViewSet(APIView):
-    queryset = Jenkins.objects.all()
-    serializer_class = JenkinsSerializer
-
-    def find_job(self, name):
-        for job in Job.objects.all():
-            if job.name == name:
-                return job
-        return None
-
-    def get(self, request, pk, format=None):
-        job = self.find_job(pk)
-        if not job:
-            resp = Response()
-            resp.status_code = status.HTTP_404_NOT_FOUND
-            content = "Job '%s' not found" % pk
-            resp.content = ("<title>%s</title>%s" % (content, content))
-            return resp
-        s = JenkinsController().get_job(pk)
-        if not s:
-            resp = Response()
-            resp.status_code = status.HTTP_404_NOT_FOUND
-            content = "Job '%s' not found on Jenkins" % pk
-            resp.content = ("<title>%s</title>%s" % (content, content))
-            return resp
-        try:
-            s = s.strip()
-            xml = ElementTree.fromstring(s)
-            try:
-                shell = xml.find('builders').find('hudson.tasks.Shell')
-                command = shell.find('command').text
-            except:
-                command = ''
-            try:
-                description = xml.find('description').text
-                if not description:
-                    description = ''
-            except:
-                description = ''
-        except ElementTree.ParseError as e:
-            print str(e)
-            command = ''
-            description = s
-            
-        r = {}
-        r['name'] = pk
-        r['description'] = description
-        r['command'] = command
-        return Response(r)
-
-    def put(self, request, pk, format=None):
-        job = self.find_job(pk)
-        if not job:
-            resp = Response()
-            resp.status_code = status.HTTP_404_NOT_FOUND
-            content = "Job '%s' not found" % pk
-            resp.content = ("<title>%s</title>%s" % (content, content))
-            return resp
-        try:
-            JenkinsController().update_job(job)
-        except jenkins.JenkinsException as e:
-            resp = Response()
-            resp.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-            content = str(e)
-            resp.content = ("<title>%s</title>%s" % (content, content))
-            return resp
-        resp = Response()
-        resp.status_code = status.HTTP_201_CREATED
-        content = "Job '%s' updated" % pk
-        resp.content = ("<title>%s</title><code>%s" % (content, content))
-        return resp
-
-    def delete(self, request, pk, format=None):
-        job = self.find_job(pk)
-        if not job:
-            resp = Response()
-            resp.status_code = status.HTTP_404_NOT_FOUND
-            content = "Job '%s' not found" % pk
-            resp.content = ("<title>%s</title>%s" % (content, content))
-            return resp
-        jay = JenkinsController()
-        s = jay.get_job(pk)
-        if not s:
-            resp = Response()
-            resp.status_code = status.HTTP_404_NOT_FOUND
-            content = "Job '%s' not found on Jenkins" % pk
-            resp.content = ("<title>%s</title>%s" % (content, content))
-            return resp
-        try:
-            jay.delete_job(job)
-        except jenkins.JenkinsException as e:
-            resp = Response()
-            resp.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-            content = str(e)
-            resp.content = ("<title>%s</title>%s" % (content, content))
-            return resp
-        resp = Response()
-        resp.status_code = status.HTTP_201_CREATED
-        content = "Job '%s' deleted" % pk
-        resp.content = ("<title>%s</title><code>%s" % (content, content))
-        return resp
+class BuildViewSet(viewsets.ModelViewSet):
+    queryset = Build.objects.all()
+    serializer_class = BuildSerializer

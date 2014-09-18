@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User, Group
-from models import Job, Jenkins
+from models import Job, Build
 from rest_framework import serializers
 
 
@@ -21,7 +21,7 @@ class JobSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('name', 'description', 'command')
 
 
-class JenkinsSerializer(serializers.HyperlinkedModelSerializer):
+class BuildSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Jenkins
-        fields = ('name', 'description', 'command')
+        model = Build
+        fields = ('job', 'number', 'building', 'result', 'duration', 'timestamp', 'console')

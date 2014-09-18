@@ -1,4 +1,4 @@
-# Django settings for stackato project.
+# Django settings for project.
 import urlparse
 import os
 
@@ -11,7 +11,6 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-#DATABASE_URL = 'mysql://uhc8V7M3XJP0a:poQRoYHnupj1c@10.0.0.37:3306/ddd6ca6779b2e494b88cde191b712986a'
 DATABASES = {}
 if 'DATABASE_URL' in os.environ:
     url = urlparse.urlparse(os.environ['DATABASE_URL'])
@@ -29,7 +28,7 @@ if 'DATABASE_URL' in os.environ:
 else:
     DATABASES['default'] = {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'sqlite.db',                      # Or path to database file if using sqlite3.
+        'NAME': '.sqlite.swp',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -77,7 +76,8 @@ MEDIA_URL = ''
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_PATH, 'app', 'inabox', 'static')
+PROJECT_PATH = os.path.dirname(PROJECT_PATH)
+STATIC_ROOT = os.path.join(PROJECT_PATH, 'app', 'static')
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -88,6 +88,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_PATH, 'app', 'assets'),
 )
 
 # List of finder classes that know how to find static files in

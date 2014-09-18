@@ -26,12 +26,24 @@ xml = """
 
 
 class Job(models.Model):
-    name = models.CharField(max_length=100, blank=False, default='', unique=True)
+    name = models.CharField(max_length=100, blank=False, primary_key=True)
     description = models.CharField(max_length=100, blank=True, default='')
     command = models.TextField()
 
-class Jenkins(models.Model):
-    name = models.CharField(max_length=100, blank=False, default='', unique=True)
-    description = models.CharField(max_length=100, blank=True, default='')
-    disabled = models.CharField(max_length=100, blank=True, default='')
-    command = models.TextField()
+    @classmethod
+    def find_job(cls, name):
+        try:
+            return cls.objects.get(name=name)
+        except:
+            pass
+        return None
+
+
+class Build(models.Model):
+    job = models.ForeignKey(Job)
+    number = models.CharField(max_length=20, blank=False, primary_key=True)
+    building = models.BooleanField()
+    result = models.CharField(max_length=20, blank=False)
+    duration = models.CharField(max_length=20, blank=False)
+    timestamp = models.CharField(max_length=20, blank=False)
+    console = models.TextField()
