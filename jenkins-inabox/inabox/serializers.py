@@ -18,10 +18,20 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class JobSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Job
-        fields = ('name', 'description', 'command')
+        fields = (
+            'name',
+            'description',
+            'gitrepo',
+            'command',
+            'build_number',
+        )
 
 
 class BuildSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Build
-        fields = ('job', 'number', 'building', 'result', 'duration', 'timestamp', 'console')
+        fields = (
+            'name',
+            'command',
+            'build_number',
+        )
