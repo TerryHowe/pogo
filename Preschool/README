@@ -1,3 +1,0 @@
-This application is meant to be a very simple application for checking in and checking out students from a preschool situation.  I'm  writing this application mostly to brush up my RoR skills since it has been a while.
-
-The main screen of the application would be a screen with all the classes on it.  In each class are the students.  When the arrive at school, they check in.  When the leave, the check out.  At the end of the week an attendance record is emailed to the administrator.
