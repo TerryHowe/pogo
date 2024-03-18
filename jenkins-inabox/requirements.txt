@@ -1,4 +1,4 @@
-Django==3.2.24
+Django==3.2.25
 gunicorn==19.5.0
 mysql-python
 djangorestframework
