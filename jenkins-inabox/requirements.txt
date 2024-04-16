@@ -1,5 +1,5 @@
 Django==3.2.25
-gunicorn==19.5.0
+gunicorn==22.0.0
 mysql-python
 djangorestframework
 python-jenkins
